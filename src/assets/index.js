@@ -1,2 +1,2 @@
-export * from './types'
-export * from './prop-types'
+export * from './types.ts'
+export * from './prop-types.js'

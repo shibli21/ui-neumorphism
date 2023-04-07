@@ -1,9 +1,8 @@
 import React from 'react'
 import styles from './Avatar.module.css'
 import { getModuleClasses, uid, setCSSVariable } from '../../util'
-import { SIZES } from '../../assets/index'
 import { withImage } from '../../hocs'
-import { Size } from '../../types'
+import { SIZES, Size } from '../../assets'
 
 interface AvatarProps {
   alt?: string;

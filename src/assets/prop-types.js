@@ -5,7 +5,7 @@ import {
   CONTEXT_COLORS,
   ALTERNATE_BUTONS,
   SELECTION_CONTROLS
-} from './types'
+} from './types.ts'
 
 export const G_ANY = PropTypes.any
 export const G_FUNC = PropTypes.func
