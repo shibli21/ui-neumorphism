@@ -534,3 +534,6 @@ declare namespace __UINeumorphism {
   // Functions
   export function overrideThemeVariables(themeObject: Object) {}
 }
+
+
+declare module '*.css';
