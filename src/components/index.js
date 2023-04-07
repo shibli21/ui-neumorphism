@@ -2,7 +2,7 @@ export { default as ToggleButtonGroup } from './button-toggle-group/ToggleButton
 export { default as ToggleButton } from './button-toggle/ToggleButton.jsx'
 export { default as IconButton } from './button-icon/IconButton.jsx'
 export { default as Avatar } from './avatar/Avatar.tsx'
-export { default as Button } from './button/Button.jsx'
+export { default as Button } from './button/Button.tsx'
 export { default as Chip } from './chip/Chip.jsx'
 export { default as Fab } from './button-fab/Fab.jsx'
 export { default as TabItems } from './tab/TabItems.jsx'
