@@ -10,6 +10,27 @@ export interface DefaultProps {
   style?: React.CSSProperties;
 }
 
+
+export const defaultProps: DefaultProps = {
+  dark: false,
+  className: '',
+  style: {}
+}
+
+export interface SelectionControlProps extends DefaultProps {
+  value?: any;
+  id?: string;
+  name?: string;
+  label?: string;
+  checked?: boolean;
+  color?: string;
+  onClick?: Function;
+  required?: boolean;
+  disabled?: boolean;
+  onChange?: Function;
+}
+
+
 export const CONTEXT_COLORS = ['success', 'info', 'warning', 'error']
 export const SELECTION_CONTROLS = ['radio', 'checkbox', 'switch']
 export const POSITIONS: Position[] = ['top', 'right', 'bottom', 'left']
