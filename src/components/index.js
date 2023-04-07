@@ -1,6 +1,6 @@
 export { default as ToggleButtonGroup } from './button-toggle-group/ToggleButtonGroup.jsx'
 export { default as ToggleButton } from './button-toggle/ToggleButton.jsx'
-export { default as IconButton } from './button-icon/IconButton.jsx'
+export { default as IconButton } from './button-icon/IconButton.tsx'
 export { default as Avatar } from './avatar/Avatar.tsx'
 export { default as Button } from './button/Button.tsx'
 export { default as Chip } from './chip/Chip.jsx'
