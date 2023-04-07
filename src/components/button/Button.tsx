@@ -1,9 +1,9 @@
-import React from 'react'
-import styles from './Button.module.css'
-import { getModuleClasses, passDownProp, pickKeys } from '../../util'
-import { MOUSE_EVENTS, SIZES } from '../../assets/index'
+import React from "react";
+import styles from "./Button.module.css";
+import { getModuleClasses, passDownProp, pickKeys } from "../../util";
+import { MOUSE_EVENTS, SIZES } from "../../assets/index";
 
-interface ButtonProps {
+export interface ButtonProps {
   id?: string;
   type?: string;
   style?: React.CSSProperties;
@@ -22,6 +22,15 @@ interface ButtonProps {
   rounded?: boolean;
   bordered?: boolean;
   depressed?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onChange?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseOut?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseOver?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseUp?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseMove?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseDown?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseEnter?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseLeave?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -35,7 +44,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   className,
   dark,
-  size = 'medium',
+  size = "medium",
   text,
   block,
   active,
@@ -46,58 +55,62 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const getValidSize = (size: typeof SIZES[number]) =>
-    SIZES.find((s) => s === size) || 'medium'
+    SIZES.find((s) => s === size) || "medium";
 
-  const getClasses = (classType: 'container' | 'input') => {
+  const getClasses = (classType: "container" | "input") => {
     switch (classType) {
-      case 'container':
+      case "container":
         return getModuleClasses(
           styles,
           `
             nu-button
             cursor-pointer
             nu-button--${type}
-            ${text ? 'nu-button--text' : ''}
-            ${block ? 'nu-button--block' : ''}
-            ${active ? 'nu-button--active' : ''}
+            ${text ? "nu-button--text" : ""}
+            ${block ? "nu-button--block" : ""}
+            ${active ? "nu-button--active" : ""}
             nu-button--${getValidSize(size)}
-            nu-button--${dark ? 'dark' : 'light'}
-            ${rounded ? 'nu-button--rounded' : ''}
-            ${noPress ? 'nu-button--no-press' : ''}
-            ${outlined ? 'nu-button--outlined' : ''}
-            ${bordered ? 'nu-button--bordered' : ''}
-            ${disabled ? 'nu-button--disabled' : ''}
-            ${depressed ? 'nu-button--depressed' : ''}
+            nu-button--${dark ? "dark" : "light"}
+            ${rounded ? "nu-button--rounded" : ""}
+            ${noPress ? "nu-button--no-press" : ""}
+            ${outlined ? "nu-button--outlined" : ""}
+            ${bordered ? "nu-button--bordered" : ""}
+            ${disabled ? "nu-button--disabled" : ""}
+            ${depressed ? "nu-button--depressed" : ""}
           `
-        )
-      case 'input':
-        return getModuleClasses(styles, 'nu-button-inner')
+        );
+      case "input":
+        return getModuleClasses(styles, "nu-button-inner");
       default:
-        break
+        break;
     }
-  }
+  };
 
-  const btnChildren = passDownProp(children, props, 'dark')
+  const btnChildren = passDownProp(children, props, "dark");
 
   return (
     <div
       id={id}
       {...pickKeys(props, MOUSE_EVENTS)}
-      className={`${getClasses('container')} ${className}`}
+      className={`${getClasses("container")} ${className}`}
       style={{
         ...style,
         color: disabled ? undefined : color,
         backgroundColor: disabled ? undefined : bgColor,
-        border: disabled ? undefined : outlined ? `1px solid ${color}` : undefined
+        border: disabled
+          ? undefined
+          : outlined
+          ? `1px solid ${color}`
+          : undefined,
       }}
     >
-      <button className={getClasses('input')}>
-        {type ? btnChildren : btnChildren || 'button'}
+      <button className={getClasses("input")}>
+        {type ? btnChildren : btnChildren || "button"}
       </button>
     </div>
-  )
-}
+  );
+};
 
-Button.displayName = 'NuButton'
+Button.displayName = "NuButton";
 
-export default Button
+export default Button;

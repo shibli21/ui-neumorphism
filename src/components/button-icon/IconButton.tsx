@@ -1,7 +1,8 @@
-import React, { FC } from 'react'
-import { Button } from '../index'
+import React, { FC } from "react";
+import { Button } from "../index";
+import { ButtonProps } from "../button/Button";
 
-interface IconButtonProps {
+interface IconButtonProps extends ButtonProps {
   children?: React.ReactNode;
   text?: boolean;
 }
@@ -14,16 +15,16 @@ const IconButton: FC<IconButtonProps> = ({
   return (
     <Button
       {...otherProps}
-      type='icon'
+      type="icon"
       block={false}
       depressed={false}
       text={text}
     >
       {children}
     </Button>
-  )
-}
+  );
+};
 
-IconButton.displayName = 'NuIconButton'
+IconButton.displayName = "NuIconButton";
 
-export default IconButton
+export default IconButton;
