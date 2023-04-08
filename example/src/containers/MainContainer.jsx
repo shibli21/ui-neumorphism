@@ -10,9 +10,9 @@ import {
 } from "ui-neumorphism";
 import "ui-neumorphism/dist/index.css";
 
-import Topbar from "../containers/Topbar.jsx";
-import Sidebar from "../containers/Sidebar.jsx";
-import RightBar from "../containers/RightBar.jsx";
+import Topbar from "./Topbar.jsx";
+import Sidebar from "./Sidebar.jsx";
+import RightBar from "./RightBar.jsx";
 
 import routes from "../routes/index.js";
 
