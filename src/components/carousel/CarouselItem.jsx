@@ -1,31 +1,31 @@
-import React from 'react'
+import React from "react";
 
-import styles from './Carousel.module.css'
-import { getModuleClasses, passDownProp } from '../../util'
-import { DEFAULT_PROPS, DEFAULT_PROPS_TYPE } from '../../assets/index'
+import styles from "./Carousel.module.css";
+import { getModuleClasses, passDownProp } from "../../util/index.ts";
+import { DEFAULT_PROPS, DEFAULT_PROPS_TYPE } from "../../assets/index.ts";
 
 class CarouselItem extends React.Component {
-  static displayName = 'NuCarouselItem'
+  static displayName = "NuCarouselItem";
 
-  static defaultProps = DEFAULT_PROPS
+  static defaultProps = DEFAULT_PROPS;
 
-  static propTypes = DEFAULT_PROPS_TYPE
+  static propTypes = DEFAULT_PROPS_TYPE;
 
   getClasses(type) {
-    return getModuleClasses(styles, type)
+    return getModuleClasses(styles, type);
   }
 
   render() {
-    const { style, className, children } = this.props
+    const { style, className, children } = this.props;
     return (
       <div
         style={style}
-        className={`${this.getClasses('nu-carousel-item')} ${className}`}
+        className={`${this.getClasses("nu-carousel-item")} ${className}`}
       >
-        {passDownProp(children, this.props, ['dark'])}
+        {passDownProp(children, this.props, ["dark"])}
       </div>
-    )
+    );
   }
 }
 
-export default CarouselItem
+export default CarouselItem;

@@ -1,40 +1,45 @@
-import React, { createElement } from 'react'
+import React, { createElement } from "react";
 
-import styles from '../input/Input.module.css'
+import styles from "../input/Input.module.css";
 import {
   TEXT_FIELD_PROP_TYPES,
   DEFAULT_PROPS_TYPE,
-  DEFAULT_PROPS
-} from '../../assets/index'
-import { uid, getModuleClasses, callCallback, pickKeys } from '../../util'
+  DEFAULT_PROPS,
+} from "../../assets/index.ts";
+import {
+  uid,
+  getModuleClasses,
+  callCallback,
+  pickKeys,
+} from "../../util/index.ts";
 
-import { Subtitle1, Caption, ProgressLinear } from '../../index'
+import { Subtitle1, Caption, ProgressLinear } from "../../index";
 
 class TextField extends React.Component {
-  static displayName = 'NuTextField'
+  static displayName = "NuTextField";
 
   static defaultProps = {
-    type: 'text',
-    tag: 'input',
-    ...DEFAULT_PROPS
-  }
+    type: "text",
+    tag: "input",
+    ...DEFAULT_PROPS,
+  };
 
   static propTypes = {
     ...TEXT_FIELD_PROP_TYPES,
-    ...DEFAULT_PROPS_TYPE
-  }
+    ...DEFAULT_PROPS_TYPE,
+  };
 
   constructor(props) {
-    super(props)
-    const { value, id } = props
+    super(props);
+    const { value, id } = props;
     this.state = {
       valid: true,
       focused: false,
-      errorMessage: '',
-      value: value || '',
+      errorMessage: "",
+      value: value || "",
       id: `${id || uid()}`,
-      count: (value || '').length
-    }
+      count: (value || "").length,
+    };
   }
 
   get input() {
@@ -47,13 +52,13 @@ class TextField extends React.Component {
       readonly,
       autofocus,
       inputStyles,
-      placeholder
-    } = this.props
-    const { id, value } = this.state
-    const className = `${this.getClasses('text-field')} ${
-      tag === 'textarea' ? this.getClasses('text-area') : ''
-    }`
-    const events = pickKeys(this.props, ['onInput', 'onKeyUp', 'onKeyDown'])
+      placeholder,
+    } = this.props;
+    const { id, value } = this.state;
+    const className = `${this.getClasses("text-field")} ${
+      tag === "textarea" ? this.getClasses("text-area") : ""
+    }`;
+    const events = pickKeys(this.props, ["onInput", "onKeyUp", "onKeyDown"]);
 
     const inputProps = {
       id: id,
@@ -73,123 +78,116 @@ class TextField extends React.Component {
         width: `${width}px`,
         height: `${height}px`,
         minHeight: `${height}px`,
-        ...inputStyles
+        ...inputStyles,
       },
-      ...events
-    }
-    return createElement(tag, inputProps)
+      ...events,
+    };
+    return createElement(tag, inputProps);
   }
 
   get canShowLabel() {
-    const { value } = this.state
-    const { placeholder } = this.props
-    return !placeholder && !value
+    const { value } = this.state;
+    const { placeholder } = this.props;
+    return !placeholder && !value;
   }
 
   get isDisabled() {
-    const { loading, disabled } = this.props
-    return loading ? true : disabled
+    const { loading, disabled } = this.props;
+    return loading ? true : disabled;
   }
 
   validate(value) {
-    let valid = true
-    let errorMessage = 'Invalid'
-    const { rules = [], counter } = this.props
-    const ruleLength = rules.length
+    let valid = true;
+    let errorMessage = "Invalid";
+    const { rules = [], counter } = this.props;
+    const ruleLength = rules.length;
     for (let i = 0; i < ruleLength; i++) {
-      const isValid = rules[i](value)
+      const isValid = rules[i](value);
       if (isValid !== true) {
-        errorMessage = isValid
-        valid = false
-        break
+        errorMessage = isValid;
+        valid = false;
+        break;
       }
     }
     if (counter !== undefined && value.length > counter) {
-      valid = false
-      errorMessage = `Max ${counter} characters`
+      valid = false;
+      errorMessage = `Max ${counter} characters`;
     }
-    this.setState({ valid })
-    this.setState({ errorMessage })
+    this.setState({ valid });
+    this.setState({ errorMessage });
   }
 
   handleChange(event) {
-    const { id, valid } = this.state
-    const { onChange, hideExtra, uncontrolled } = this.props
-    const value = event.target.value
-    const count = value.length
+    const { id, valid } = this.state;
+    const { onChange, hideExtra, uncontrolled } = this.props;
+    const value = event.target.value;
+    const count = value.length;
 
     if (!hideExtra) {
-      this.validate(value)
+      this.validate(value);
     }
 
     if (!uncontrolled) {
-      this.setState({ value })
+      this.setState({ value });
     }
-    this.setState({ count })
-    callCallback(onChange, { event, id, value, valid })
+    this.setState({ count });
+    callCallback(onChange, { event, id, value, valid });
   }
 
   handleFocus(event) {
-    const { id } = this.state
-    const { onFocus } = this.props
-    this.setState({ focused: true })
-    callCallback(onFocus, { event, id })
+    const { id } = this.state;
+    const { onFocus } = this.props;
+    this.setState({ focused: true });
+    callCallback(onFocus, { event, id });
   }
 
   handleBlur(event) {
-    const { id } = this.state
-    const { onBlur } = this.props
-    this.setState({ focused: false })
-    callCallback(onBlur, { event, id })
+    const { id } = this.state;
+    const { onBlur } = this.props;
+    this.setState({ focused: false });
+    callCallback(onBlur, { event, id });
   }
 
   getClasses(classType, flag) {
-    const {
-      dark,
-      dense,
-      rounded,
-      readonly,
-      outlined,
-      bordered,
-      disabled
-    } = this.props
-    if (classType === 'container') {
+    const { dark, dense, rounded, readonly, outlined, bordered, disabled } =
+      this.props;
+    if (classType === "container") {
       return getModuleClasses(
         styles,
         `
             nu-text-field-container 
-            ${dense ? 'nu-text-field-container--dense' : ''}
-            ${rounded ? 'nu-text-field-container--rounded' : ''}
-            ${disabled ? 'nu-text-field-container--disabled' : ''}
+            ${dense ? "nu-text-field-container--dense" : ""}
+            ${rounded ? "nu-text-field-container--rounded" : ""}
+            ${disabled ? "nu-text-field-container--disabled" : ""}
             `
-      )
-    } else if (classType === 'text-field') {
+      );
+    } else if (classType === "text-field") {
       return getModuleClasses(
         styles,
         `
             nu-text-field
-            nu-text-field--${dark ? 'dark' : 'light'}
-            ${rounded ? 'nu-text-field--rounded' : ''}
-            ${outlined ? 'nu-text-field--outlined' : ''}
-            ${bordered ? 'nu-text-field--bordered' : ''}
-            ${readonly ? 'nu-text-field--readonly' : ''}
-            ${this.isDisabled ? 'nu-text-field--disabled' : ''}
+            nu-text-field--${dark ? "dark" : "light"}
+            ${rounded ? "nu-text-field--rounded" : ""}
+            ${outlined ? "nu-text-field--outlined" : ""}
+            ${bordered ? "nu-text-field--bordered" : ""}
+            ${readonly ? "nu-text-field--readonly" : ""}
+            ${this.isDisabled ? "nu-text-field--disabled" : ""}
             `
-      )
-    } else if (classType === 'error') {
+      );
+    } else if (classType === "error") {
       return getModuleClasses(
         styles,
-        `nu-text-field-${flag ? 'hint' : 'error'}`
-      )
+        `nu-text-field-${flag ? "hint" : "error"}`
+      );
     } else {
-      return getModuleClasses(styles, `nu-text-field-${classType}`)
+      return getModuleClasses(styles, `nu-text-field-${classType}`);
     }
   }
 
   componentWillUpdate(props, state) {
-    const { value, uncontrolled } = props
+    const { value, uncontrolled } = props;
     if (state.value !== value && uncontrolled) {
-      this.setState({ value })
+      this.setState({ value });
     }
   }
 
@@ -205,24 +203,24 @@ class TextField extends React.Component {
       loading,
       disabled,
       className,
-      hideExtra
-    } = this.props
-    const { id, valid, count, errorMessage } = this.state
+      hideExtra,
+    } = this.props;
+    const { id, valid, count, errorMessage } = this.state;
     return (
       <div
         style={style}
-        className={`${this.getClasses('wrapper')} ${className}`}
+        className={`${this.getClasses("wrapper")} ${className}`}
       >
         {prepend ? (
-          <div className={`${this.getClasses('prepend')}`}>{prepend}</div>
+          <div className={`${this.getClasses("prepend")}`}>{prepend}</div>
         ) : null}
-        <div className={`${this.getClasses('container')}`}>
+        <div className={`${this.getClasses("container")}`}>
           {this.canShowLabel ? (
-            <label htmlFor={id} className={`${this.getClasses('label')}`}>
+            <label htmlFor={id} className={`${this.getClasses("label")}`}>
               <Subtitle1
                 secondary
                 dark={dark}
-                component='div'
+                component="div"
                 disabled={disabled}
               >
                 {label}
@@ -235,20 +233,20 @@ class TextField extends React.Component {
               height={2}
               dark={dark}
               indeterminate
-              className={`${this.getClasses('loading')}`}
+              className={`${this.getClasses("loading")}`}
             />
           ) : null}
           {this.input}
           {hideExtra && !counter ? null : (
-            <div className={`${this.getClasses('caption-wrapper', valid)}`}>
+            <div className={`${this.getClasses("caption-wrapper", valid)}`}>
               {hideExtra ? (
                 hint
               ) : (
                 <Caption
                   secondary
                   dark={dark}
-                  component='div'
-                  className={`${this.getClasses('error', valid)}`}
+                  component="div"
+                  className={`${this.getClasses("error", valid)}`}
                 >
                   {valid ? hint : errorMessage}
                 </Caption>
@@ -257,8 +255,8 @@ class TextField extends React.Component {
                 <Caption
                   secondary
                   dark={dark}
-                  component='div'
-                  className={`${this.getClasses('counter')}`}
+                  component="div"
+                  className={`${this.getClasses("counter")}`}
                 >
                   {count}/{counter}
                 </Caption>
@@ -267,11 +265,11 @@ class TextField extends React.Component {
           )}
         </div>
         {append ? (
-          <div className={`${this.getClasses('append')}`}>{append}</div>
+          <div className={`${this.getClasses("append")}`}>{append}</div>
         ) : null}
       </div>
-    )
+    );
   }
 }
 
-export default TextField
+export default TextField;

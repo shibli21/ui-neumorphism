@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
-import styles from './Alert.module.css'
-
-import { getModuleClasses, uid, setCSSVariable, callCallback } from '../../util'
+import styles from "./Alert.module.css";
 
 import {
-  POSITIONS,
-  CONTEXT_COLORS
-} from '../../assets/index'
+  getModuleClasses,
+  uid,
+  setCSSVariable,
+  callCallback,
+} from "../../util";
 
-import IconButton from '../button-icon/IconButton'
-import Card from '../card/Card'
-import Spacer from '../spacer/Spacer'
+import { POSITIONS, CONTEXT_COLORS } from "../../assets/index";
+
+import IconButton from "../button-icon/IconButton";
+import Card from "../card/Card";
+import Spacer from "../spacer/Spacer";
 
 export interface AlertProps {
   visible?: boolean;
@@ -47,65 +49,70 @@ const Alert: React.FC<AlertProps> = ({
   className,
   ...otherProps
 }) => {
-  const [id] = useState(uid())
+  const [id] = useState(uid());
 
-  const alertType = CONTEXT_COLORS.find((t) => t === type) || null
-  const alertBorder = POSITIONS.find((t) => t === border) || null
+  const alertType = CONTEXT_COLORS.find((t) => t === type) || null;
+  const alertBorder = POSITIONS.find((t) => t === border) || null;
 
   const alertClasses = getModuleClasses(
     styles,
     `
       nu-alert
-      ${dense ? 'nu-alert--dense' : ''}
-      ${alertType ? `nu-alert--${alertType}` : ''}
-      ${outlined ? 'nu-alert--outlined' : ''}
-      ${closable ? 'nu-alert--closable' : ''}
-      ${alertBorder ? `nu-alert--border-${alertBorder}` : ''}
+      ${dense ? "nu-alert--dense" : ""}
+      ${alertType ? `nu-alert--${alertType}` : ""}
+      ${outlined ? "nu-alert--outlined" : ""}
+      ${closable ? "nu-alert--closable" : ""}
+      ${alertBorder ? `nu-alert--border-${alertBorder}` : ""}
     `
-  )
+  );
 
   useEffect(() => {
-    const elem = document.getElementById(id)
+    const elem = document.getElementById(id);
 
-    setCSSVariable(elem, '--text-color', color)
-  }, [id, color])
+    setCSSVariable(elem, "--text-color", color);
+  }, [id, color]);
 
   const alertIcon =
     icon && !dense ? (
-      <span className={getModuleClasses(styles, 'nu-alert-icon')}>{icon}</span>
-    ) : null
+      <span className={getModuleClasses(styles, "nu-alert-icon")}>{icon}</span>
+    ) : null;
 
   const alertClose = closable ? (
     <IconButton
-      size='small'
+      size="small"
       outlined={false}
       bordered={false}
       rounded={rounded}
       onClick={() => callCallback(onClose, false)}
-      className={getModuleClasses(styles, 'nu-alert-close')}
+      className={getModuleClasses(styles, "nu-alert-close")}
     >
       {closeIcon || (
-        <span className={getModuleClasses(styles, 'nu-alert-close--icon')}>
+        <span className={getModuleClasses(styles, "nu-alert-close--icon")}>
           ×
         </span>
       )}
     </IconButton>
-  ) : null
+  ) : null;
 
   const alertChildren = (
-    <div className={getModuleClasses(styles, 'nu-alert-children')}>
+    <div className={getModuleClasses(styles, "nu-alert-children")}>
       {children}
     </div>
-  )
+  );
 
   return visible ? (
-    <Card style={style} id={id} className={alertClasses + ' ' + className} {...otherProps}>
+    <Card
+      style={style}
+      id={id}
+      className={alertClasses + " " + className}
+      {...otherProps}
+    >
       {alertIcon}
       {alertChildren}
       <Spacer />
       {alertClose}
     </Card>
-  ) : null
-}
+  ) : null;
+};
 
-export default Alert
+export default Alert;

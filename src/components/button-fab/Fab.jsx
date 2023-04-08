@@ -1,46 +1,46 @@
-import React from 'react'
+import React from "react";
 
-import { Button } from '../index'
+import { Button } from "../index";
 
-import styles from './Fab.module.css'
-import { getModuleClasses } from '../../util'
-import { FAB_BUTTON_PROP_TYPES, DEFAULT_PROPS } from '../../assets/index'
+import styles from "./Fab.module.css";
+import { getModuleClasses } from "../../util/index.ts";
+import { FAB_BUTTON_PROP_TYPES, DEFAULT_PROPS } from "../../assets/index.ts";
 
 class Fab extends React.Component {
-  static displayName = 'NuFab'
+  static displayName = "NuFab";
 
   static defaultProps = {
     animation: true,
-    ...DEFAULT_PROPS
-  }
+    ...DEFAULT_PROPS,
+  };
 
-  static propTypes = FAB_BUTTON_PROP_TYPES
+  static propTypes = FAB_BUTTON_PROP_TYPES;
 
   getClasses() {
-    const { fixed, top, right, bottom, left, absolute, animation } = this.props
+    const { fixed, top, right, bottom, left, absolute, animation } = this.props;
     return getModuleClasses(
       styles,
       `
         nu-fab
-        ${top ? 'nu-fab--top' : ''}
-        ${left ? 'nu-fab--left' : ''}
-        ${right ? 'nu-fab--right' : ''}
-        ${bottom ? 'nu-fab--bottom' : ''}
-        ${fixed ? 'nu-fab--fixed' : ''}
-        ${absolute ? 'nu-fab--absolute' : ''}
-        ${animation ? 'nu-fab--animation' : ''}
+        ${top ? "nu-fab--top" : ""}
+        ${left ? "nu-fab--left" : ""}
+        ${right ? "nu-fab--right" : ""}
+        ${bottom ? "nu-fab--bottom" : ""}
+        ${fixed ? "nu-fab--fixed" : ""}
+        ${absolute ? "nu-fab--absolute" : ""}
+        ${animation ? "nu-fab--animation" : ""}
       `
-    )
+    );
   }
 
   render() {
-    const { children, style, className, ...otherProps } = this.props
+    const { children, style, className, ...otherProps } = this.props;
     return (
       <div style={style} className={`${this.getClasses()} ${className}`}>
         <Button
           {...otherProps}
           rounded
-          type='fab'
+          type="fab"
           text={false}
           block={false}
           outlined={false}
@@ -49,8 +49,8 @@ class Fab extends React.Component {
           {children}
         </Button>
       </div>
-    )
+    );
   }
 }
 
-export default Fab
+export default Fab;

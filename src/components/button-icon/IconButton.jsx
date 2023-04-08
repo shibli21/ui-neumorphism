@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Button } from '../index'
 
-import { BUTTON_PROP_TYPES, DEFAULT_PROPS } from '../../assets/index'
+import { BUTTON_PROP_TYPES, DEFAULT_PROPS } from '../../assets/index.ts'
 class IconButton extends React.Component {
   static displayName = 'NuIconButton'
 

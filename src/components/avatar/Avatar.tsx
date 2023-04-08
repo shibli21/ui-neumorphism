@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Avatar.module.css";
+
 import { getModuleClasses, uid, setCSSVariable } from "../../util";
 import { withImage } from "../../hocs";
 import { SIZES, Size } from "../../assets";

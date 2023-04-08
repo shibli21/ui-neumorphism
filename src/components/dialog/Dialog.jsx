@@ -1,116 +1,116 @@
-import React from 'react'
-import { createPortal } from 'react-dom'
+import React from "react";
+import { createPortal } from "react-dom";
 
-import { Grow } from '../../index'
+import { Grow } from "../../index";
 
-import styles from './Dialog.module.css'
+import styles from "./Dialog.module.css";
 
 import {
   getModuleClasses,
   findClickInside,
   passDownProp,
   callCallback,
-  pickKeys
-} from '../../util'
+  pickKeys,
+} from "../../util/index.ts";
 import {
   DEFAULT_PROPS,
   CSS_DIMENSIONS,
-  DEFAULT_PROPS_TYPE
-} from '../../assets/index'
+  DEFAULT_PROPS_TYPE,
+} from "../../assets/index.ts";
 
 class Dialog extends React.Component {
-  static displayName = 'NuDialog'
+  static displayName = "NuDialog";
 
   static defaultProps = {
     visible: false,
-    ...DEFAULT_PROPS
-  }
+    ...DEFAULT_PROPS,
+  };
 
-  static propTypes = DEFAULT_PROPS_TYPE
+  static propTypes = DEFAULT_PROPS_TYPE;
 
   constructor(props) {
-    super(props)
-    this.handleClickInside = this.handleClickInside.bind(this)
+    super(props);
+    this.handleClickInside = this.handleClickInside.bind(this);
   }
 
   get dialog() {
-    const sizeStyles = {}
-    const { style, visible, children, className } = this.props
-    const dialogChildren = passDownProp(children, this.props, ['dark'])
+    const sizeStyles = {};
+    const { style, visible, children, className } = this.props;
+    const dialogChildren = passDownProp(children, this.props, ["dark"]);
 
-    const pickedStyles = pickKeys(this.props, CSS_DIMENSIONS)
+    const pickedStyles = pickKeys(this.props, CSS_DIMENSIONS);
     Object.keys(pickedStyles).map(
       (key) => (sizeStyles[key] = `${pickedStyles[key]}px`)
-    )
+    );
 
     return createPortal(
       <div
-        role='dialog'
+        role="dialog"
         onClick={this.handleClickInside}
-        className={this.getClasses('dialog')}
+        className={this.getClasses("dialog")}
       >
-        <div className={this.getClasses('nu-dialog-overlay')} />
+        <div className={this.getClasses("nu-dialog-overlay")} />
         <Grow appear in={visible}>
           <div
-            role='document'
-            id='nudialogcontent'
+            role="document"
+            id="nudialogcontent"
             style={{ ...sizeStyles, ...style }}
-            className={`${this.getClasses('nu-dialog-content')} ${className}`}
+            className={`${this.getClasses("nu-dialog-content")} ${className}`}
           >
             {dialogChildren}
           </div>
         </Grow>
       </div>,
       document.body
-    )
+    );
   }
 
   getClasses(name) {
-    const { dark } = this.props
+    const { dark } = this.props;
     switch (name) {
-      case 'dialog':
+      case "dialog":
         return getModuleClasses(
           styles,
           `
             nu-dialog
-            nu-dialog--${dark ? 'dark' : 'light'}
+            nu-dialog--${dark ? "dark" : "light"}
           `
-        )
+        );
       default:
-        return getModuleClasses(styles, name)
+        return getModuleClasses(styles, name);
     }
   }
 
   handleClickInside(e) {
-    const contentDOM = document.getElementById('nudialogcontent')
-    const isContentClicked = findClickInside(e, contentDOM)
-    const { onClose, persistent } = this.props
+    const contentDOM = document.getElementById("nudialogcontent");
+    const isContentClicked = findClickInside(e, contentDOM);
+    const { onClose, persistent } = this.props;
     if (!isContentClicked && !persistent) {
-      callCallback(onClose, true)
+      callCallback(onClose, true);
     }
   }
 
   changeBodyAttrs() {
-    const { visible } = this.props
+    const { visible } = this.props;
     if (visible) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = null
+      document.body.style.overflow = null;
     }
   }
 
   componentDidUpdate() {
-    this.changeBodyAttrs()
+    this.changeBodyAttrs();
   }
 
   componentDidMount() {
-    this.changeBodyAttrs()
+    this.changeBodyAttrs();
   }
 
   render() {
-    const { visible } = this.props
-    return visible ? this.dialog : null
+    const { visible } = this.props;
+    return visible ? this.dialog : null;
   }
 }
 
-export default Dialog
+export default Dialog;

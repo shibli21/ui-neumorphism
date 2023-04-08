@@ -1,6 +1,6 @@
-export { overrideThemeVariables, detectElementInDOM } from './util/'
-export { withImage, withResize, withClickOutside } from './hocs/'
-export { Grow, Fade, Slide, SlideCarousel } from './transitions'
+export { overrideThemeVariables, detectElementInDOM } from "./util";
+export { withImage, withResize, withClickOutside } from "./hocs";
+export { Grow, Fade, Slide, SlideCarousel } from "./transitions";
 
 export {
   Typography,
@@ -55,5 +55,5 @@ export {
   Switch,
   Slider,
   Checkbox,
-  SelectionControl
-} from './components/'
+  SelectionControl,
+} from "./components";

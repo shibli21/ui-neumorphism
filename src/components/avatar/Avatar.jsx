@@ -1,26 +1,26 @@
-import React from 'react'
+import React from "react";
 
-import { withImage } from '../../index'
+import { withImage } from "../../index";
 
-import styles from './Avatar.module.css'
+import styles from "./Avatar.module.css";
 
-import { getModuleClasses, uid, setCSSVariable } from '../../util'
+import { getModuleClasses, uid, setCSSVariable } from "../../util/index.ts";
 import {
   SIZE_PROP_WITH_NUM,
   DEFAULT_PROPS_TYPE,
   DEFAULT_PROPS,
   G_STRING,
   G_BOOL,
-  SIZES
-} from '../../assets/index'
+  SIZES,
+} from "../../assets/index.ts";
 
 class Avatar extends React.Component {
-  static displayName = 'NuAvatar'
+  static displayName = "NuAvatar";
 
   static defaultProps = {
-    size: 'medium',
-    ...DEFAULT_PROPS
-  }
+    size: "medium",
+    ...DEFAULT_PROPS,
+  };
 
   static propTypes = {
     alt: G_STRING,
@@ -30,55 +30,55 @@ class Avatar extends React.Component {
     color: G_STRING,
     bgColor: G_STRING,
     ...DEFAULT_PROPS_TYPE,
-    size: SIZE_PROP_WITH_NUM
-  }
+    size: SIZE_PROP_WITH_NUM,
+  };
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      id: uid()
-    }
+      id: uid(),
+    };
   }
 
   get initials() {
-    const initials = this.props.alt.match(/\b\w/g) || []
-    return ((initials.shift() || '') + (initials.pop() || '')).toUpperCase()
+    const initials = this.props.alt.match(/\b\w/g) || [];
+    return ((initials.shift() || "") + (initials.pop() || "")).toUpperCase();
   }
 
   get isSizeNumber() {
-    return !isNaN(this.props.size)
+    return !isNaN(this.props.size);
   }
 
   get size() {
-    const s = this.sizeText
-    if (this.isSizeNumber) return this.props.size
-    return s === 'small' ? 24 : s === 'medium' ? 40 : s === 'large' ? 56 : 40
+    const s = this.sizeText;
+    if (this.isSizeNumber) return this.props.size;
+    return s === "small" ? 24 : s === "medium" ? 40 : s === "large" ? 56 : 40;
   }
 
   get variant() {
-    const { square, rounded } = this.props
-    return square ? 'square' : rounded ? 'rounded' : 'circle'
+    const { square, rounded } = this.props;
+    return square ? "square" : rounded ? "rounded" : "circle";
   }
 
   get sizeText() {
-    return SIZES.find((s) => s === this.props.size) || 'medium'
+    return SIZES.find((s) => s === this.props.size) || "medium";
   }
 
   get avatarChildren() {
-    const { src, alt, loaded, children } = this.props
+    const { src, alt, loaded, children } = this.props;
     if (src && loaded) {
-      return <img alt={alt} src={src} width={this.size} height={this.size} />
+      return <img alt={alt} src={src} width={this.size} height={this.size} />;
     } else if (children) {
-      return children
+      return children;
     } else if (alt) {
-      return this.initials
+      return this.initials;
     }
   }
 
   getClasses(name) {
-    const sizeClass = this.isSizeNumber ? '' : `nu-avatar--${this.sizeText}`
+    const sizeClass = this.isSizeNumber ? "" : `nu-avatar--${this.sizeText}`;
     switch (name) {
-      case 'avatar':
+      case "avatar":
         return getModuleClasses(
           styles,
           `
@@ -86,36 +86,36 @@ class Avatar extends React.Component {
             nu-avatar--${this.variant}
             ${sizeClass}
           `
-        )
-      case 'img':
-        return getModuleClasses(styles, 'nu-avatar--img')
+        );
+      case "img":
+        return getModuleClasses(styles, "nu-avatar--img");
     }
   }
 
   componentDidMount() {
-    const { color, bgColor } = this.props
-    const elem = document.getElementById(this.state.id)
-    setCSSVariable(elem, '--avatar-bg-color', bgColor)
-    setCSSVariable(elem, '--avatar-text-color', color)
+    const { color, bgColor } = this.props;
+    const elem = document.getElementById(this.state.id);
+    setCSSVariable(elem, "--avatar-bg-color", bgColor);
+    setCSSVariable(elem, "--avatar-text-color", color);
   }
 
   render() {
-    const sizeStyles = {}
-    const { style, size, className } = this.props
+    const sizeStyles = {};
+    const { style, size, className } = this.props;
     if (this.isSizeNumber) {
-      sizeStyles.width = `${size}px`
-      sizeStyles.height = `${size}px`
+      sizeStyles.width = `${size}px`;
+      sizeStyles.height = `${size}px`;
     }
     return (
       <div
         id={this.state.id}
         style={{ ...style, ...sizeStyles }}
-        className={`${this.getClasses('avatar')} ${className}`}
+        className={`${this.getClasses("avatar")} ${className}`}
       >
         {this.avatarChildren}
       </div>
-    )
+    );
   }
 }
 
-export default withImage(Avatar)
+export default withImage(Avatar);

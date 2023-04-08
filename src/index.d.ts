@@ -50,12 +50,7 @@ declare module 'ui-neumorphism' {
   export import TextArea = __UINeumorphism.TextArea
   export import Switch = __UINeumorphism.Switch
   // export import Slider = __UINeumorphism.Slider
-  export import Checkbox = __UINeumorphism.Checkbox
-  export import Checkbox = __UINeumorphism.Grow
-  export import Checkbox = __UINeumorphism.Fade
-  export import Checkbox = __UINeumorphism.Slide
-  export import Checkbox = __UINeumorphism.SlideCarousel
-  export import overrideThemeVariables = __UINeumorphism.overrideThemeVariables
+
 }
 
 declare namespace __UINeumorphism {
@@ -101,20 +96,20 @@ declare namespace __UINeumorphism {
     type?: String
   }
 
-  export class Typography extends React.Component<TypographyProps> {}
+  export class Typography extends React.Component<TypographyProps> { }
 
-  export class Subtitle2 extends React.Component<TypographyTypeProps> {}
-  export class Subtitle1 extends React.Component<TypographyTypeProps> {}
-  export class Overline extends React.Component<TypographyTypeProps> {}
-  export class Caption extends React.Component<TypographyTypeProps> {}
-  export class Body2 extends React.Component<TypographyTypeProps> {}
-  export class Body1 extends React.Component<TypographyTypeProps> {}
-  export class H6 extends React.Component<TypographyTypeProps> {}
-  export class H5 extends React.Component<TypographyTypeProps> {}
-  export class H4 extends React.Component<TypographyTypeProps> {}
-  export class H3 extends React.Component<TypographyTypeProps> {}
-  export class H2 extends React.Component<TypographyTypeProps> {}
-  export class H1 extends React.Component<TypographyTypeProps> {}
+  export class Subtitle2 extends React.Component<TypographyTypeProps> { }
+  export class Subtitle1 extends React.Component<TypographyTypeProps> { }
+  export class Overline extends React.Component<TypographyTypeProps> { }
+  export class Caption extends React.Component<TypographyTypeProps> { }
+  export class Body2 extends React.Component<TypographyTypeProps> { }
+  export class Body1 extends React.Component<TypographyTypeProps> { }
+  export class H6 extends React.Component<TypographyTypeProps> { }
+  export class H5 extends React.Component<TypographyTypeProps> { }
+  export class H4 extends React.Component<TypographyTypeProps> { }
+  export class H3 extends React.Component<TypographyTypeProps> { }
+  export class H2 extends React.Component<TypographyTypeProps> { }
+  export class H1 extends React.Component<TypographyTypeProps> { }
 
   //Card
   interface CommonCardProps extends DefaultDimensionProps {
@@ -129,7 +124,7 @@ declare namespace __UINeumorphism {
     loading?: Boolean
     disabled?: Boolean
   }
-  export class Card extends React.Component<CardProps> {}
+  export class Card extends React.Component<CardProps> { }
 
   interface CardContentCommonProps {
     rounded?: Boolean
@@ -138,27 +133,27 @@ declare namespace __UINeumorphism {
 
   export interface CardHeaderProps
     extends DefaultProps,
-      CardContentCommonProps {
+    CardContentCommonProps {
     title?: React.ReactNode
     avatar?: React.ReactNode
     action?: React.ReactNode
     subtitle?: React.ReactNode
   }
-  export class CardHeader extends React.Component<CardHeaderProps> {}
+  export class CardHeader extends React.Component<CardHeaderProps> { }
 
   export interface CardMediaProps extends DefaultProps, CardContentCommonProps {
     src?: String
     title?: String
     height?: Number
   }
-  export class CardMedia extends React.Component<CardMediaProps> {}
+  export class CardMedia extends React.Component<CardMediaProps> { }
 
   export interface CardContentProps
     extends DefaultProps,
-      CardContentCommonProps {}
+    CardContentCommonProps { }
 
-  export class CardContent extends React.Component<CardContentProps> {}
-  export class CardAction extends React.Component<CardContentProps> {}
+  export class CardContent extends React.Component<CardContentProps> { }
+  export class CardAction extends React.Component<CardContentProps> { }
 
   // Chip
   export interface ChipProps extends DefaultProps {
@@ -178,7 +173,7 @@ declare namespace __UINeumorphism {
     closeIcon?: React.ReactNode
     type?: propTypes.context_color
   }
-  export class Chip extends React.Component<ChipProps> {}
+  export class Chip extends React.Component<ChipProps> { }
 
   // Alert
   export interface AlertProps extends DefaultProps, CommonCardProps {
@@ -190,7 +185,7 @@ declare namespace __UINeumorphism {
     border?: propTypes.position
     type?: propTypes.context_color
   }
-  export class Alert extends React.Component<AlertProps> {}
+  export class Alert extends React.Component<AlertProps> { }
 
   // Avatar
   export interface AvatarProps extends DefaultProps {
@@ -202,7 +197,7 @@ declare namespace __UINeumorphism {
     rounded?: Boolean
     size?: propTypes.sizes | Number
   }
-  export class Avatar extends React.Component<AvatarProps> {}
+  export class Avatar extends React.Component<AvatarProps> { }
 
   // Badge
   export interface BadgeProps extends DefaultProps {
@@ -222,7 +217,7 @@ declare namespace __UINeumorphism {
     borderColor?: String
     content?: React.ReactNode
   }
-  export class Badge extends React.Component<BadgeProps> {}
+  export class Badge extends React.Component<BadgeProps> { }
 
   // Button
   interface CommonButtonProps {
@@ -237,21 +232,21 @@ declare namespace __UINeumorphism {
 
   export interface ButtonProps
     extends DefaultProps,
-      MouseEvents,
-      CommonButtonProps {
+    MouseEvents,
+    CommonButtonProps {
     text?: Boolean
     block?: Boolean
     active?: Boolean
     outlined?: Boolean
     depressed?: Boolean
   }
-  export class Button extends React.Component<ButtonProps> {}
+  export class Button extends React.Component<ButtonProps> { }
 
   // Fab
   export interface FabProps
     extends DefaultProps,
-      MouseEvents,
-      CommonButtonProps {
+    MouseEvents,
+    CommonButtonProps {
     top?: Boolean
     left?: Boolean
     right?: Boolean
@@ -260,30 +255,30 @@ declare namespace __UINeumorphism {
     absolute?: Boolean
     animation?: Boolean
   }
-  export class Fab extends React.Component<FabProps> {}
+  export class Fab extends React.Component<FabProps> { }
 
   // IconButton
   export interface IconButtonProps
     extends DefaultProps,
-      MouseEvents,
-      CommonButtonProps {
+    MouseEvents,
+    CommonButtonProps {
     text?: Boolean
     active?: Boolean
     outlined?: Boolean
   }
-  export class IconButton extends React.Component<IconButtonProps> {}
+  export class IconButton extends React.Component<IconButtonProps> { }
 
   // ToggleButton
   export interface ToggleButtonProps
     extends DefaultProps,
-      MouseEvents,
-      CommonButtonProps {
+    MouseEvents,
+    CommonButtonProps {
     value?: any
     text?: Boolean
     outlined?: Boolean
     selected?: Boolean
   }
-  export class ToggleButton extends React.Component<ToggleButtonProps> {}
+  export class ToggleButton extends React.Component<ToggleButtonProps> { }
 
   export interface ToggleButtonGroupProps extends DefaultProps {
     value?: any
@@ -292,7 +287,7 @@ declare namespace __UINeumorphism {
   }
   export class ToggleButtonGroup extends React.Component<
     ToggleButtonGroupProps
-  > {}
+  > { }
 
   // Tabs
   export interface TabsProps extends DefaultProps {
@@ -305,14 +300,14 @@ declare namespace __UINeumorphism {
     onChange?: Function
     underlined?: Boolean
   }
-  export class Tabs extends React.Component<TabsProps> {}
+  export class Tabs extends React.Component<TabsProps> { }
 
   export interface TabProps extends DefaultProps {
     onClick?: Function
     onMouseOut?: Function
     onMouseOver?: Function
   }
-  export class Tab extends React.Component<TabProps> {}
+  export class Tab extends React.Component<TabProps> { }
 
   export interface TabItemsProps extends DefaultProps {
     value?: Number
@@ -320,8 +315,8 @@ declare namespace __UINeumorphism {
     reverse?: Boolean
     onChange?: Function
   }
-  export class TabItems extends React.Component<TabItemsProps> {}
-  export class TabItem extends React.Component<DefaultProps> {}
+  export class TabItems extends React.Component<TabItemsProps> { }
+  export class TabItem extends React.Component<DefaultProps> { }
 
   // Progress
   interface CommonProgressProps {
@@ -331,7 +326,7 @@ declare namespace __UINeumorphism {
   }
   export interface ProgressCircularProps
     extends DefaultProps,
-      CommonProgressProps {
+    CommonProgressProps {
     size?: Number
     flat?: Boolean
     width?: Number
@@ -341,18 +336,18 @@ declare namespace __UINeumorphism {
   }
   export class ProgressCircular extends React.Component<
     ProgressCircularProps
-  > {}
+  > { }
 
   export interface ProgressLinearProps
     extends DefaultProps,
-      CommonProgressProps {
+    CommonProgressProps {
     height?: Number
     active?: Boolean
     striped?: Boolean
     bordered?: Boolean
     fillHeight?: Boolean
   }
-  export class ProgressLinear extends React.Component<ProgressLinearProps> {}
+  export class ProgressLinear extends React.Component<ProgressLinearProps> { }
 
   //Carousel
   export interface CarouselProps extends DefaultProps {
@@ -372,8 +367,8 @@ declare namespace __UINeumorphism {
     delimiterIcon?: React.ReactNode
     activeDelimiterIcon?: React.ReactNode
   }
-  export class Carousel extends React.Component<CarouselProps> {}
-  export class CarouselItem extends React.Component<DefaultProps> {}
+  export class Carousel extends React.Component<CarouselProps> { }
+  export class CarouselItem extends React.Component<DefaultProps> { }
 
   //Parallax
   export interface ParallaxProps extends DefaultProps {
@@ -383,7 +378,7 @@ declare namespace __UINeumorphism {
     height?: Number
     containerId?: String
   }
-  export class Parallax extends React.Component<ParallaxProps> {}
+  export class Parallax extends React.Component<ParallaxProps> { }
 
   //Tooltip
   export interface TooltipProps extends DefaultProps, DefaultDimensionProps {
@@ -396,17 +391,17 @@ declare namespace __UINeumorphism {
     transitionProps?: Object
     content: React.ReactNode
   }
-  export class Tooltip extends React.Component<TooltipProps> {}
+  export class Tooltip extends React.Component<TooltipProps> { }
 
   //Divider
   export interface DividerProps extends DefaultProps {
     dense?: Boolean
     elevated?: Boolean
   }
-  export class Divider extends React.Component<DividerProps> {}
+  export class Divider extends React.Component<DividerProps> { }
 
   //Spacer
-  export class Spacer extends React.Component<DefaultProps> {}
+  export class Spacer extends React.Component<DefaultProps> { }
 
   //Dialog
   export interface DialogProps extends DefaultProps, DefaultDimensionProps {
@@ -414,20 +409,20 @@ declare namespace __UINeumorphism {
     onClose?: Function
     persistent?: Boolean
   }
-  export class Dialog extends React.Component<DialogProps> {}
+  export class Dialog extends React.Component<DialogProps> { }
 
   //Table
   export interface TableProps extends DefaultProps {
     flat?: Boolean
-    items?: Array
+    items?: Array<string>
     dense?: Boolean
-    headers?: Array
+    headers?: Array<string>
     outlined?: Boolean
     noHeaders?: Boolean
     actions?: React.ReactNode
     description?: React.ReactNode
   }
-  export class Table extends React.Component<TableProps> {}
+  export class Table extends React.Component<TableProps> { }
 
   //SelectionControl
   interface CommonSelectionControlProps {
@@ -440,7 +435,7 @@ declare namespace __UINeumorphism {
 
   interface SelectionControlProps
     extends MouseEvents,
-      CommonSelectionControlProps {
+    CommonSelectionControlProps {
     name?: String
     label?: String
     checked?: Boolean
@@ -448,26 +443,26 @@ declare namespace __UINeumorphism {
   }
 
   //Radio
-  export interface RadioProps extends DefaultProps, SelectionControlProps {}
-  export class Radio extends React.Component<RadioProps> {}
+  export interface RadioProps extends DefaultProps, SelectionControlProps { }
+  export class Radio extends React.Component<RadioProps> { }
 
   //RadioGroup
   export interface RadioGroupProps
     extends DefaultProps,
-      CommonSelectionControlProps {
+    CommonSelectionControlProps {
     vertical?: Boolean
     onChange?: Function
     children: React.ReactNode
   }
-  export class RadioGroup extends React.Component<RadioGroupProps> {}
+  export class RadioGroup extends React.Component<RadioGroupProps> { }
 
   //Switch
-  export interface SwitchProps extends DefaultProps, SelectionControlProps {}
-  export class Switch extends React.Component<SwitchProps> {}
+  export interface SwitchProps extends DefaultProps, SelectionControlProps { }
+  export class Switch extends React.Component<SwitchProps> { }
 
   //Checkbox
-  export interface CheckboxProps extends DefaultProps, SelectionControlProps {}
-  export class Checkbox extends React.Component<CheckboxProps> {}
+  export interface CheckboxProps extends DefaultProps, SelectionControlProps { }
+  export class Checkbox extends React.Component<CheckboxProps> { }
 
   //TextField
   export interface TextFieldProps extends DefaultProps {
@@ -475,7 +470,7 @@ declare namespace __UINeumorphism {
     name?: String
     type?: String
     hint?: String
-    rules?: Array
+    rules?: Array<string>
     value?: String
     width?: Number
     dense?: Boolean
@@ -503,36 +498,34 @@ declare namespace __UINeumorphism {
     prepend?: React.ReactNode
     inputStyles?: React.CSSProperties
   }
-  export class TextField extends React.Component<TextFieldProps> {}
+  export class TextField extends React.Component<TextFieldProps> { }
 
   //TextArea
   export interface TextAreaProps extends TextFieldProps {
     autoExpand?: Boolean
   }
-  export class TextArea extends React.Component<TextAreaProps> {}
+  export class TextArea extends React.Component<TextAreaProps> { }
 
   // Transitions
   export interface TransitionProps {
     duration?: Number
   }
 
-  export class Fade extends React.Component<TransitionProps> {}
+  export class Fade extends React.Component<TransitionProps> { }
 
   export interface GrowProps extends TransitionProps {
     origin?: Number
   }
-  export class Grow extends React.Component<GrowProps> {}
+  export class Grow extends React.Component<GrowProps> { }
 
   export interface SlideProps extends GrowProps {
     axis?: String
     reverse?: Boolean
   }
-  export class Slide extends React.Component<SlideProps> {}
+  export class Slide extends React.Component<SlideProps> { }
 
-  export class SlideCarousel extends React.Component<SlideProps> {}
+  export class SlideCarousel extends React.Component<SlideProps> { }
 
-  // Functions
-  export function overrideThemeVariables(themeObject: Object) {}
 }
 
 

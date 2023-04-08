@@ -1,68 +1,69 @@
-import React from 'react'
+import React from "react";
 
-import { Button } from '../index'
+import { Button } from "../index";
 
-import { callCallback } from '../../util'
+import { callCallback } from "../../util/index.ts";
+
 import {
   G_ANY,
   G_BOOL,
   DEFAULT_PROPS,
-  BUTTON_PROP_TYPES
-} from '../../assets/index'
+  BUTTON_PROP_TYPES,
+} from "../../assets/index.ts";
 
 class ToggleButton extends React.Component {
-  static displayName = 'NuToggleButton'
+  static displayName = "NuToggleButton";
 
   static defaultProps = {
     text: true,
-    ...DEFAULT_PROPS
-  }
+    ...DEFAULT_PROPS,
+  };
 
   static propTypes = {
     value: G_ANY,
     selected: G_BOOL,
-    ...BUTTON_PROP_TYPES
-  }
+    ...BUTTON_PROP_TYPES,
+  };
 
   constructor(props) {
-    super(props)
-    const { selected, color } = this.props
+    super(props);
+    const { selected, color } = this.props;
     this.state = {
       isActive: selected || false,
-      color: selected ? color : '',
-      key: 1
-    }
+      color: selected ? color : "",
+      key: 1,
+    };
   }
 
   handleClick(event) {
-    const { value, color, onClick, onChange } = this.props
-    const isActive = !this.state.isActive
-    this.setState({ isActive })
-    this.setState({ color: isActive ? color : '' })
-    this.setState({ key: this.state.key + 1 })
+    const { value, color, onClick, onChange } = this.props;
+    const isActive = !this.state.isActive;
+    this.setState({ isActive });
+    this.setState({ color: isActive ? color : "" });
+    this.setState({ key: this.state.key + 1 });
 
-    callCallback(onClick, { event, value })
-    callCallback(onChange, { event, selected: isActive, value })
+    callCallback(onClick, { event, value });
+    callCallback(onChange, { event, selected: isActive, value });
   }
 
   handleMouseOut(e) {
     if (!this.state.isActive) {
-      this.setState({ color: '' })
+      this.setState({ color: "" });
     }
-    callCallback(this.props.onMouseOut, e)
+    callCallback(this.props.onMouseOut, e);
   }
 
   handleMouseOver(e) {
-    this.setState({ color: this.props.color })
-    callCallback(this.props.onMouseOver, e)
+    this.setState({ color: this.props.color });
+    callCallback(this.props.onMouseOver, e);
   }
 
   render() {
-    const { children, ...otherProps } = this.props
+    const { children, ...otherProps } = this.props;
     return (
       <Button
         {...otherProps}
-        type='toggle'
+        type="toggle"
         block={false}
         depressed={false}
         key={this.state.key}
@@ -74,8 +75,8 @@ class ToggleButton extends React.Component {
       >
         {children}
       </Button>
-    )
+    );
   }
 }
 
-export default ToggleButton
+export default ToggleButton;
