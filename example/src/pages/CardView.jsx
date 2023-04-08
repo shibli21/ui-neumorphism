@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import Icon from '@mdi/react'
-import { mdiDotsVertical, mdiShareVariant, mdiHeart } from '@mdi/js'
+import Icon from "@mdi/react";
+import { mdiDotsVertical, mdiShareVariant, mdiHeart } from "@mdi/js";
 import {
   CardContent,
   IconButton,
@@ -17,8 +17,8 @@ import {
   Card,
   H6,
   H5,
-  H4
-} from 'ui-neumorphism'
+  H4,
+} from "ui-neumorphism";
 
 import {
   cardApi,
@@ -30,25 +30,25 @@ import {
   cardHeaderApi,
   elevationCard,
   simpleCardCopy,
-  cardContentApi
-} from '../docs/'
+  cardContentApi,
+} from "../docs/";
 
-import DocCard from '../containers/DocCard.jsx'
-import ApiCard from '../containers/ApiCard.jsx'
+import DocCard from "../containers/DocCard.jsx";
+import ApiCard from "../containers/ApiCard.jsx";
 
 const url =
-  'https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/CardView.jsx'
+  "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/CardView.jsx";
 class CardView extends React.Component {
   render() {
     const cardContent = (
       <CardContent>
-        <Subtitle2 secondary className='mb-1'>
+        <Subtitle2 secondary className="mb-1">
           Word of the day
         </Subtitle2>
         <H5>
           be<span>•</span>nev<span>•</span>o<span>•</span>lent
         </H5>
-        <Subtitle2 secondary className='mb-3'>
+        <Subtitle2 secondary className="mb-3">
           adjective
         </Subtitle2>
         <Body2>
@@ -57,30 +57,30 @@ class CardView extends React.Component {
           "a benevolent smile"
         </Body2>
       </CardContent>
-    )
+    );
     const cardAction = (
       <CardAction>
-        <Button text color='var(--primary)'>
+        <Button text color="var(--primary)">
           Learn More
         </Button>
       </CardAction>
-    )
-    const { dark } = this.props
+    );
+    const { dark } = this.props;
     return (
-      <Card flat dark={dark} className='code-block-container'>
+      <Card flat dark={dark} className="code-block-container">
         <H4>
-          <a href='#component' name='component'>
+          <a href="#component" name="component">
             Cards
           </a>
         </H4>
         <H6>Cards contain content and actions about a single subject.</H6>
-        <Subtitle1 className='mt-3'>
+        <Subtitle1 className="mt-3">
           Although cards can support multiple actions, remember that cards are
           entry points to more complex and detailed information.
         </Subtitle1>
         <DocCard
-          className='mt-12'
-          url={url + '#L91-L94'}
+          className="mt-12"
+          url={url + "#L91-L94"}
           title={<H5>Simple card</H5>}
           subtitle={
             <Subtitle1>
@@ -96,8 +96,8 @@ class CardView extends React.Component {
           code={[simpleCard, dark]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L108-L111'}
+          className="mt-12"
+          url={url + "#L108-L111"}
           title={<H5>Inset card</H5>}
           subtitle={
             <Subtitle1>
@@ -110,11 +110,11 @@ class CardView extends React.Component {
               {cardAction}
             </Card>
           }
-          code={[simpleCardCopy, dark, ['inset']]}
+          code={[simpleCardCopy, dark, ["inset"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L125-L128'}
+          className="mt-12"
+          url={url + "#L125-L128"}
           title={<H5>Bordered card</H5>}
           subtitle={
             <Subtitle1>
@@ -127,11 +127,11 @@ class CardView extends React.Component {
               {cardAction}
             </Card>
           }
-          code={[simpleCardCopy, dark, ['bordered']]}
+          code={[simpleCardCopy, dark, ["bordered"]]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Outlined card</H5>}
           subtitle={
             <Subtitle1>
@@ -145,11 +145,11 @@ class CardView extends React.Component {
               {cardAction}
             </Card>
           }
-          code={[simpleCardCopy, dark, ['outlined']]}
+          code={[simpleCardCopy, dark, ["outlined"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L160-L163'}
+          className="mt-12"
+          url={url + "#L160-L163"}
           title={<H5>Flat card</H5>}
           subtitle={
             <Subtitle1>
@@ -162,11 +162,11 @@ class CardView extends React.Component {
               {cardAction}
             </Card>
           }
-          code={[simpleCardCopy, dark, ['flat']]}
+          code={[simpleCardCopy, dark, ["flat"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L178-L181'}
+          className="mt-12"
+          url={url + "#L178-L181"}
           title={<H5>Rounded card</H5>}
           subtitle={
             <Subtitle1>
@@ -180,11 +180,11 @@ class CardView extends React.Component {
               {cardAction}
             </Card>
           }
-          code={[simpleCardCopy, dark, ['rounded']]}
+          code={[simpleCardCopy, dark, ["rounded"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L195-L198'}
+          className="mt-12"
+          url={url + "#L195-L198"}
           title={<H5>Disabled card</H5>}
           subtitle={
             <Subtitle1>
@@ -197,11 +197,11 @@ class CardView extends React.Component {
               {cardAction}
             </Card>
           }
-          code={[simpleCardCopy, dark, ['disabled']]}
+          code={[simpleCardCopy, dark, ["disabled"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L212-L215'}
+          className="mt-12"
+          url={url + "#L212-L215"}
           title={<H5>Loading card</H5>}
           subtitle={
             <Subtitle1>
@@ -209,16 +209,16 @@ class CardView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card loading width={250} className='overflow-hidden'>
+            <Card loading width={250} className="overflow-hidden">
               {cardContent}
               {cardAction}
             </Card>
           }
-          code={[simpleCardCopy, dark, ['loading']]}
+          code={[simpleCardCopy, dark, ["loading"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L231-L234'}
+          className="mt-12"
+          url={url + "#L231-L234"}
           title={<H5>Width and height</H5>}
           subtitle={
             <Subtitle1>
@@ -233,11 +233,11 @@ class CardView extends React.Component {
               {cardAction}
             </Card>
           }
-          code={[simpleCardCopy, dark, ['width={200} height={300}']]}
+          code={[simpleCardCopy, dark, ["width={200} height={300}"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L249-L261'}
+          className="mt-12"
+          url={url + "#L249-L261"}
           title={<H5>Elevation</H5>}
           subtitle={
             <Subtitle1>
@@ -246,14 +246,14 @@ class CardView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='d-flex align-center justify-center flex-wrap'>
+            <Card flat className="d-flex align-center justify-center flex-wrap">
               {[0, 1, 2, 3, 4, 5].map((i) => (
                 <Card
                   key={i}
                   width={100}
                   height={100}
                   elevation={i}
-                  className='mx-8 my-10 d-flex align-center justify-center'
+                  className="mx-8 my-10 d-flex align-center justify-center"
                 >
                   {i}
                 </Card>
@@ -263,8 +263,8 @@ class CardView extends React.Component {
           code={[elevationCard, dark]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L278-L307'}
+          className="mt-12"
+          url={url + "#L278-L307"}
           title={<H5>Media with text</H5>}
           subtitle={
             <Subtitle1>
@@ -275,17 +275,17 @@ class CardView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card width={275} className='overflow-hidden'>
+            <Card width={275} className="overflow-hidden">
               <CardMedia
                 dark
-                title='Top 10 Indian beaches'
-                src='images/beaches-2.jpg'
+                title="Top 10 Indian beaches"
+                src="/images/beaches-2.jpg"
               />
               <CardContent>
                 <Subtitle2
                   secondary
                   style={{
-                    marginBottom: '4px'
+                    marginBottom: "4px",
                   }}
                 >
                   Number 1
@@ -297,10 +297,10 @@ class CardView extends React.Component {
                 </Body2>
               </CardContent>
               <CardAction>
-                <Button text color='var(--primary)'>
+                <Button text color="var(--primary)">
                   Share
                 </Button>
-                <Button text color='var(--primary)'>
+                <Button text color="var(--primary)">
                   Explore
                 </Button>
               </CardAction>
@@ -309,8 +309,8 @@ class CardView extends React.Component {
           code={[mediaCard, dark]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L321-L357'}
+          className="mt-12"
+          url={url + "#L321-L357"}
           title={<H5>Advanced card</H5>}
           subtitle={
             <Subtitle1>
@@ -330,7 +330,7 @@ class CardView extends React.Component {
                   </IconButton>
                 }
               />
-              <CardMedia dark src='images/beaches-2.jpg' />
+              <CardMedia dark src="/images/beaches-2.jpg" />
               <CardContent>
                 <Body2>
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -340,10 +340,10 @@ class CardView extends React.Component {
                 </Body2>
               </CardContent>
               <CardAction>
-                <Button text color='var(--primary)'>
+                <Button text color="var(--primary)">
                   Read
                 </Button>
-                <Button text color='var(--primary)'>
+                <Button text color="var(--primary)">
                   Bookmark
                 </Button>
                 <Spacer />
@@ -358,24 +358,24 @@ class CardView extends React.Component {
           }
           code={[complexCard, dark]}
         />
-        <Divider dense className='mt-6' />
-        <H4 className='mt-12'>
-          <a href='#api' name='api'>
+        <Divider dense className="mt-6" />
+        <H4 className="mt-12">
+          <a href="#api" name="api">
             API
           </a>
         </H4>
-        <ApiCard entity='Card' data={cardApi(dark)} />
-        <div className='mt-12'></div>
-        <ApiCard entity='CardHeader' data={cardHeaderApi(dark)} />
-        <div className='mt-12'></div>
-        <ApiCard entity='CardMedia' data={cardMediaApi(dark)} />
-        <div className='mt-12'></div>
-        <ApiCard entity='CardContent' data={cardContentApi(dark)} />
-        <div className='mt-12'></div>
-        <ApiCard entity='CardAction' data={cardActionApi(dark)} />
+        <ApiCard entity="Card" data={cardApi(dark)} />
+        <div className="mt-12"></div>
+        <ApiCard entity="CardHeader" data={cardHeaderApi(dark)} />
+        <div className="mt-12"></div>
+        <ApiCard entity="CardMedia" data={cardMediaApi(dark)} />
+        <div className="mt-12"></div>
+        <ApiCard entity="CardContent" data={cardContentApi(dark)} />
+        <div className="mt-12"></div>
+        <ApiCard entity="CardAction" data={cardActionApi(dark)} />
       </Card>
-    )
+    );
   }
 }
 
-export default CardView
+export default CardView;

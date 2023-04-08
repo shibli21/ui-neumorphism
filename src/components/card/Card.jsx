@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ProgressLinear } from "../../index";
+import { ProgressLinear } from "../../index.tsx";
 
 import styles from "./Card.module.css";
 import { getModuleClasses, passDownProp, pickKeys } from "../../util/index.ts";

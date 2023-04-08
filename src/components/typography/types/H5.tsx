@@ -1,7 +1,8 @@
 import React from "react";
 import { Typography } from "../../index";
+import { DefaultProps, TypographyProps } from "../../../assets";
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+interface Props extends TypographyProps {
   children?: React.ReactNode;
 }
 
