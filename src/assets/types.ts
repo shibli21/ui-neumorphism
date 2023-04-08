@@ -5,8 +5,8 @@ export type Position = 'top' | 'right' | 'bottom' | 'left'
 export type ContextColor = 'success' | 'info' | 'warning' | 'error'
 
 export interface DefaultProps {
-  dark?: Boolean;
-  className?: String;
+  dark?: boolean;
+  className?: string;
   style?: React.CSSProperties;
 }
 
@@ -28,6 +28,12 @@ export interface SelectionControlProps extends DefaultProps {
   required?: boolean;
   disabled?: boolean;
   onChange?: Function;
+}
+
+export interface TypographyProps extends DefaultProps {
+  disabled?: boolean;
+  secondary?: boolean;
+  component?: string;
 }
 
 
