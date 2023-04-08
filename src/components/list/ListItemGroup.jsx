@@ -1,6 +1,6 @@
 import React, { Children, cloneElement } from "react";
 
-import { ListItem } from "../../index";
+import { ListItem } from "../../index.tsx";
 
 import styles from "./List.module.css";
 import {

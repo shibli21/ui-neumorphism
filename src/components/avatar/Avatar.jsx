@@ -1,6 +1,6 @@
 import React from "react";
 
-import { withImage } from "../../index";
+import { withImage } from "../../index.tsx";
 
 import styles from "./Avatar.module.css";
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Card, Spacer, IconButton } from "../../index";
+import { Card, Spacer, IconButton } from "../../index.tsx";
 import styles from "./Alert.module.css";
 
 import {
