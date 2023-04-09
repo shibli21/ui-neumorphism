@@ -1,6 +1,6 @@
 import React from "react";
 
-import { H6 } from "../../index";
+import { H6 } from "../../index.tsx";
 import styles from "./Card.module.css";
 import { getModuleClasses } from "../../util/index.ts";
 import {

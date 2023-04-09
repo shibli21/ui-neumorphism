@@ -2,7 +2,7 @@ import React, { cloneElement } from "react";
 
 import TransitionWrapper from "./TransitionWrapper";
 
-import { G_NUM, G_STRING } from "../assets";
+import { G_NUM, G_STRING } from "../assets/index.ts";
 
 class Grow extends React.Component {
   static displayName = "NuGrow";

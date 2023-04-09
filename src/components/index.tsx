@@ -38,7 +38,7 @@ export { default as Parallax } from "./parallax/Parallax.jsx";
 export { default as Divider } from "./divider/Divider";
 export { default as Tooltip } from "./tooltip/Tooltip.jsx";
 export { default as Spacer } from "./spacer/Spacer";
-export { default as Dialog } from "./dialog/Dialog.jsx";
+export { default as Dialog } from "./dialog/Dialog";
 export { default as Alert } from "./alert/Alert";
 export { default as Badge } from "./badge/Badge";
 export { default as Table } from "./table/Table.jsx";
