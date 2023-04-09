@@ -3,7 +3,7 @@ export { default as ToggleButton } from "./button-toggle/ToggleButton";
 export { default as IconButton } from "./button-icon/IconButton";
 export { default as Avatar } from "./avatar/Avatar";
 export { default as Button } from "./button/Button";
-export { default as Chip } from "./chip/Chip.jsx";
+export { default as Chip } from "./chip/Chip";
 export { default as Fab } from "./button-fab/Fab";
 export { default as TabItems } from "./tab/TabItems.jsx";
 export { default as TabItem } from "./tab/TabItem.jsx";
