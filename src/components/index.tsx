@@ -1,4 +1,4 @@
-export { default as ToggleButtonGroup } from "./button-toggle-group/ToggleButtonGroup.jsx";
+export { default as ToggleButtonGroup } from "./button-toggle-group/ToggleButtonGroup";
 export { default as ToggleButton } from "./button-toggle/ToggleButton";
 export { default as IconButton } from "./button-icon/IconButton";
 export { default as Avatar } from "./avatar/Avatar";
