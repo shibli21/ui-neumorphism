@@ -41,7 +41,7 @@ export { default as Spacer } from "./spacer/Spacer";
 export { default as Dialog } from "./dialog/Dialog";
 export { default as Alert } from "./alert/Alert";
 export { default as Badge } from "./badge/Badge";
-export { default as Table } from "./table/Table.jsx";
+export { default as Table } from "./table/Table";
 export { default as Form } from "./form/Form";
 export { default as Radio } from "./radio/Radio";
 export { default as RadioGroup } from "./radio-group/RadioGroup.jsx";
