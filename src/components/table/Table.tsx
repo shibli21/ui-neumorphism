@@ -104,11 +104,13 @@ const Table = ({
 
   const tableToolbar = () => {
     return description || actions ? (
-      <div className={getClasses("toolbar")}>
-        {description}
-        <Spacer />
-        {actions}
-      </div>
+      <tr className={getClasses("toolbar")}>
+        <td>
+          {description}
+          <Spacer />
+          {actions}
+        </td>
+      </tr>
     ) : null;
   };
 
