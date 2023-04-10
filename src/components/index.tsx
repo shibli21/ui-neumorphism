@@ -44,7 +44,7 @@ export { default as Badge } from "./badge/Badge";
 export { default as Table } from "./table/Table";
 export { default as Form } from "./form/Form";
 export { default as Radio } from "./radio/Radio";
-export { default as RadioGroup } from "./radio-group/RadioGroup.jsx";
+export { default as RadioGroup } from "./radio-group/RadioGroup";
 export { default as TextField } from "./input/TextField.jsx";
 export { default as TextArea } from "./input/Textarea.jsx";
 export { default as Switch } from "./switch/Switch";
