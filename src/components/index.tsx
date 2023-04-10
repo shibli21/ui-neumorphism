@@ -48,6 +48,6 @@ export { default as RadioGroup } from "./radio-group/RadioGroup";
 export { default as TextField } from "./input/TextField.jsx";
 export { default as TextArea } from "./input/Textarea.jsx";
 export { default as Switch } from "./switch/Switch";
-export { default as Slider } from "./slider/Slider.jsx";
+export { default as Slider } from "./slider/Slider";
 export { default as Checkbox } from "./checkbox/Checkbox";
 export { default as SelectionControl } from "./selection-control/SelectionControl";
