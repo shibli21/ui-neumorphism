@@ -34,7 +34,7 @@ export { default as ProgressCircular } from "./progress/ProgressCircular.jsx";
 export { default as ProgressLinear } from "./progress/ProgressLinear.jsx";
 export { default as CarouselItem } from "./carousel/CarouselItem.jsx";
 export { default as Carousel } from "./carousel/Carousel.jsx";
-export { default as Parallax } from "./parallax/Parallax.jsx";
+export { default as Parallax } from "./parallax/Parallax";
 export { default as Divider } from "./divider/Divider";
 export { default as Tooltip } from "./tooltip/Tooltip.jsx";
 export { default as Spacer } from "./spacer/Spacer";
