@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Button.module.css";
 import { getModuleClasses, passDownProp, pickKeys } from "../../util";
-import { MOUSE_EVENTS, SIZES } from "../../assets/index";
+import { MOUSE_EVENTS, SIZES, Size } from "../../assets/index";
 
 export interface ButtonProps {
   id?: string;
@@ -14,7 +14,7 @@ export interface ButtonProps {
   children?: React.ReactNode;
   className?: string;
   dark?: boolean;
-  size?: typeof SIZES[number];
+  size?: Size;
   text?: boolean;
   block?: boolean;
   active?: boolean;

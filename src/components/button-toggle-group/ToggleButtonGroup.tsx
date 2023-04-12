@@ -4,13 +4,16 @@ import { ToggleButton } from "../index";
 
 import { CARD_PASS_DOWN, DefaultProps } from "../../assets";
 import { callCallback, passDownProp } from "../../util";
+import { ToggleButtonProps } from "../button-toggle/ToggleButton";
+import { ButtonProps } from "../button/Button";
 
 type ButtonGroupValue = string | string[];
 
-interface ToggleButtonGroupProps extends DefaultProps {
+interface ToggleButtonGroupProps
+  extends DefaultProps,
+    Omit<ButtonProps, "onClick" | "onChange"> {
   multiple?: boolean;
   mandatory?: boolean;
-  size?: string;
   color?: string;
   value?: ButtonGroupValue;
   onChange?: (active: ButtonGroupValue) => void;
@@ -18,7 +21,7 @@ interface ToggleButtonGroupProps extends DefaultProps {
     event: React.MouseEvent<HTMLButtonElement>,
     active: ButtonGroupValue
   ) => void;
-  children: React.ReactElement;
+  children: React.ReactElement[] | React.ReactElement;
 }
 
 const ToggleButtonGroup: React.FC<ToggleButtonGroupProps> = (props) => {
@@ -61,7 +64,7 @@ const ToggleButtonGroup: React.FC<ToggleButtonGroupProps> = (props) => {
   };
 
   const buttons = passDownProp(
-    Children.map(props.children, (child: React.ReactElement) => {
+    Children.map(props.children, (child) => {
       if (child.type === ToggleButton) {
         let selected = false;
         const { value } = child.props;

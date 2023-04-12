@@ -4,7 +4,7 @@ import { callCallback } from "../../util";
 import { Button } from "../index";
 import { ButtonProps } from "../button/Button";
 
-interface ToggleButtonProps extends ButtonProps {
+export interface ToggleButtonProps extends ButtonProps {
   value?: any;
   selected?: boolean;
   color?: string;
