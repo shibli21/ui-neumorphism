@@ -1,4 +1,4 @@
-export const allButtons = (dark) => {
+export const allButtons = (dark: boolean) => {
   const darkProp = dark ? ' dark' : ''
   return `<Button${darkProp}>default</Button>
 <Button${darkProp} color='var(--primary)'>colored</Button>
@@ -10,7 +10,7 @@ export const allButtons = (dark) => {
 <Button${darkProp} text>text</Button>`
 }
 
-export const docButtons = (dark, type) => {
+export const docButtons = (dark: boolean, type: string) => {
   const darkProp = dark ? ' dark' : ''
   const typeProp = type ? ' ' + type : ''
   return `<Button${darkProp}${typeProp}>default</Button>
@@ -18,19 +18,19 @@ export const docButtons = (dark, type) => {
 <Button${darkProp}${typeProp} disabled>disabled</Button>`
 }
 
-export const blockButton = (dark) => {
+export const blockButton = (dark: boolean) => {
   const darkProp = dark ? ' dark' : ''
   return `<Button${darkProp} block>block button</Button>`
 }
 
-export const sizeButtons = (dark, type) => {
+export const sizeButtons = (dark: boolean, type: string) => {
   const darkProp = dark ? ' dark' : ''
   return `<Button${darkProp} size='small'>small</Button>
 <Button${darkProp} size='medium'>medium</Button>
 <Button${darkProp} size='large'>large</Button>`
 }
 
-export const fabButtons = (dark, type) => {
+export const fabButtons = (dark: boolean, type: string) => {
   const darkProp = dark ? ' dark' : ''
   switch (type) {
     case 'main':
@@ -55,7 +55,7 @@ export const fabButtons = (dark, type) => {
   }
 }
 
-export const fabPosButtons = (dark) => {
+export const fabPosButtons = (dark: boolean) => {
   const darkProp = dark ? ' dark' : ''
   return `<Card${darkProp} flat style={{ position: 'relative'}}>
   <Fab${darkProp} absolute top left>A</Fab>
@@ -65,7 +65,7 @@ export const fabPosButtons = (dark) => {
 </Card>`
 }
 
-export const iconButtons = (dark) => {
+export const iconButtons = (dark: boolean) => {
   const darkProp = dark ? ' dark' : ''
   return `// Icon component is from '@mdi/react' and is not bundled with this library
 <IconButton${darkProp} size='small'>
@@ -88,43 +88,39 @@ export const iconButtons = (dark) => {
 </IconButton>`
 }
 
-export const toggleButtons = (dark, type, prop) => {
+export const toggleButtons = (dark: boolean, type: string, prop: string) => {
   const darkProp = dark ? ' dark' : ''
   const propType = prop ? ' ' + prop : ''
   return `// Icon component is from '@mdi/react' and is not bundled with this library
 <ToggleButtonGroup${darkProp}${propType} ${type} color='var(--primary)' onChange={this.${type}GroupChange.bind(this)}>
   <ToggleButton value='1'>
-    <Icon path={${
-      type === 'mandatory' ? 'mdiFormatAlignLeft' : 'mdiFormatBold'
+    <Icon path={${type === 'mandatory' ? 'mdiFormatAlignLeft' : 'mdiFormatBold'
     }} size={0.9} />
   </ToggleButton>
   <ToggleButton value='2'>
-    <Icon path={${
-      type === 'mandatory' ? 'mdiFormatAlignCenter' : 'mdiFormatItalic'
+    <Icon path={${type === 'mandatory' ? 'mdiFormatAlignCenter' : 'mdiFormatItalic'
     }} size={0.9} />
   </ToggleButton>
   <ToggleButton value='3'>
-    <Icon path={${
-      type === 'mandatory' ? 'mdiFormatAlignRight' : 'mdiFormatUnderline'
+    <Icon path={${type === 'mandatory' ? 'mdiFormatAlignRight' : 'mdiFormatUnderline'
     }} size={0.9} />
-  </ToggleButton>${
-    type === 'mandatory'
+  </ToggleButton>${type === 'mandatory'
       ? `
   <ToggleButton disabled value='4'>
     <Icon path={mdiFormatAlignJustify} size={0.9} />
   </ToggleButton>`
       : ''
-  }
+    }
 </ToggleButtonGroup>`
 }
 
-export const toggleSizes = (dark) => {
+export const toggleSizes = (dark: boolean) => {
   return `${['small', 'medium', 'large']
     .map((s) => toggleButtons(dark, 'multiple', `value={active} size='${s}'`))
     .join('\n')}`
 }
 
-export const toggleStandalone = (dark) => {
+export const toggleStandalone = (dark: boolean) => {
   const darkProp = dark ? '\n  dark' : ''
   return `// Icon component is from '@mdi/react' and is not bundled with this library
 <ToggleButton${darkProp}
