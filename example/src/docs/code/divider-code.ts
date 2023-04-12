@@ -1,4 +1,4 @@
-export const divider = (dark) => {
+export const divider = (dark: boolean) => {
   const darkProp = dark ? ' dark' : ''
   return `<Divider${darkProp} />
 <Body2${darkProp}>Default</Body2>
