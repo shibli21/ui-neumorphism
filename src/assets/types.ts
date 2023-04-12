@@ -36,6 +36,15 @@ export interface TypographyProps extends DefaultProps {
   component?: string;
 }
 
+export interface CssDimensions {
+  width?: number;
+  height?: number;
+  minWidth?: number;
+  maxWidth?: number;
+  minHeight?: number;
+  maxHeight?: number;
+}
+
 
 export const CONTEXT_COLORS = ['success', 'info', 'warning', 'error']
 export const SELECTION_CONTROLS = ['radio', 'checkbox', 'switch']

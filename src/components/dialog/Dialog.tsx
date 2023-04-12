@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 
 import styles from "./Dialog.module.css";
 
-import { CSS_DIMENSIONS, DefaultProps } from "../../assets";
+import { CSS_DIMENSIONS, CssDimensions, DefaultProps } from "../../assets";
 import { Grow } from "../../transitions";
 import {
   callCallback,
@@ -13,7 +13,7 @@ import {
   pickKeys,
 } from "../../util";
 
-interface DialogProps extends DefaultProps {
+interface DialogProps extends DefaultProps, CssDimensions {
   visible?: boolean;
   children?: ReactNode;
   persistent?: boolean;
