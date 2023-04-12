@@ -1,4 +1,4 @@
-export const toggle = (dark, type = 'Checkbox') => {
+export const toggle = (dark: boolean, type = 'Checkbox') => {
   const darkProp = dark ? ' dark' : ''
   return `<${type}${darkProp} color='var(--error)' checked />
 <${type}${darkProp} color='var(--primary)' />
@@ -8,7 +8,7 @@ export const toggle = (dark, type = 'Checkbox') => {
 <${type}${darkProp} checked color='var(--success)' />`
 }
 
-export const toggleLabel = (dark, type = 'Checkbox') => {
+export const toggleLabel = (dark: boolean, type = 'Checkbox') => {
   const darkProp = dark ? ' dark' : ''
   return `<${type}${darkProp} color='var(--error)' checked label='${type}' />
 <${type}${darkProp} color='var(--primary)' label='Primary' />
@@ -18,7 +18,7 @@ export const toggleLabel = (dark, type = 'Checkbox') => {
 <${type}${darkProp} checked color='var(--success)' label='Checked' />`
 }
 
-export const radio = (dark, prop) => {
+export const radio = (dark: boolean, prop: string) => {
   const darkProp = dark ? ' dark' : ''
   const props = prop ? ` ${prop}` : ''
   return `<RadioGroup${darkProp}${props} value='1' color='var(--primary)' onChange={this.onChange}>
@@ -28,7 +28,7 @@ export const radio = (dark, prop) => {
 </RadioGroup>`
 }
 
-export const radioStandalone = (dark) => {
+export const radioStandalone = (dark: boolean) => {
   const darkProp = dark ? ' dark' : ''
   return `<Radio${darkProp}
   value='1'
