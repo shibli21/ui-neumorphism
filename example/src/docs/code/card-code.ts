@@ -1,6 +1,6 @@
-export const simpleCard = (dark, type) => {
+export const simpleCard = (dark: boolean, type: string) => {
   const darkProp = dark ? ' dark' : '';
-  return `<Card${darkProp}${type ? ' '+type:''}>
+  return `<Card${darkProp}${type ? ' ' + type : ''}>
   <CardContent>
     <Subtitle2 secondary style={{ marginBottom: '4px' }} >
       Word of the day
@@ -25,14 +25,14 @@ export const simpleCard = (dark, type) => {
 </Card>`
 }
 
-export const simpleCardCopy = (dark, type, data) => {
+export const simpleCardCopy = (dark: boolean, type: string, data: string) => {
   const darkProp = dark ? ' dark' : '';
-  return `<Card${darkProp}${type ? ' '+type:''}>
+  return `<Card${darkProp}${type ? ' ' + type : ''}>
   ${data || '...'}
 </Card>`
 }
 
-export const elevationCard = (dark) => {
+export const elevationCard = (dark: boolean) => {
   return `${[0, 1, 2, 3, 4, 5]
     .map((i) =>
       simpleCardCopy(
@@ -44,7 +44,7 @@ export const elevationCard = (dark) => {
     .join('\n')}`
 }
 
-export const mediaCard = (dark) => {
+export const mediaCard = (dark: boolean) => {
   const darkProp = dark ? ' dark' : '';
   return `<Card${darkProp}>
   <CardMedia
@@ -72,7 +72,7 @@ export const mediaCard = (dark) => {
 </Card>`
 }
 
-export const complexCard = (dark) => {
+export const complexCard = (dark: boolean) => {
   const darkProp = dark ? ' dark' : '';
   return `<Card${darkProp}>
   <CardHeader

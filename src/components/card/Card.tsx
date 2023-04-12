@@ -1,10 +1,19 @@
 import React from "react";
+import { CSS_DIMENSIONS } from "../../assets/index";
 import { ProgressLinear } from "../../index";
+import { getModuleClasses, pickKeys } from "../../util/index";
 import styles from "./Card.module.css";
-import { getModuleClasses, passDownProp, pickKeys } from "../../util/index";
-import { CSS_DIMENSIONS, CARD_PASS_DOWN } from "../../assets/index";
 
-interface CardProps {
+interface CssDimensions {
+  width?: number;
+  height?: number;
+  minWidth?: number;
+  maxWidth?: number;
+  minHeight?: number;
+  maxHeight?: number;
+}
+
+interface CardProps extends CssDimensions {
   id?: string;
   dark?: boolean;
   style?: React.CSSProperties;
@@ -54,8 +63,9 @@ const Card: React.FC<CardProps> = ({
   };
 
   const sizeStyles: any = {};
-  const cardChildren = passDownProp(children, props, CARD_PASS_DOWN);
+
   const pickedStyles: any = pickKeys(props, CSS_DIMENSIONS);
+
   Object.keys(pickedStyles).map((key) => {
     sizeStyles[key] = `${pickedStyles[key]}px`;
   });
@@ -76,7 +86,13 @@ const Card: React.FC<CardProps> = ({
           color="var(--primary)"
         />
       ) : null}
-      {cardChildren}
+      {React.Children.map(children, (child) => {
+        return React.isValidElement(child)
+          ? React.cloneElement(child, {
+              ...props,
+            })
+          : child;
+      })}
     </div>
   );
 };
