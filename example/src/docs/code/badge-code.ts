@@ -3,13 +3,13 @@ const warn =
 
 const bell = '<Icon path={mdiBell} size={1} />'
 
-const badge = (i, props) => {
+const badge = (i: number, props: string) => {
   return `<Badge ${props}content={${i}}>
   <Icon path={mdiBell} size={1} />
 </Badge>`
 }
 
-export const simpleBadge = (dark, props) => {
+export const simpleBadge = (dark: boolean, props: string) => {
   const p = props ? props + ' ' : ''
   return `${warn}
 ${[2, 3, 4].map((i) => badge(i, p)).join('\n')}`
