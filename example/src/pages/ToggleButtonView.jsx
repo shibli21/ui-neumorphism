@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import Icon from '@mdi/react'
+import Icon from "@mdi/react";
 import {
   mdiFormatBold,
   mdiFormatItalic,
@@ -8,8 +8,8 @@ import {
   mdiFormatAlignLeft,
   mdiFormatAlignRight,
   mdiFormatAlignCenter,
-  mdiFormatAlignJustify
-} from '@mdi/js'
+  mdiFormatAlignJustify,
+} from "@mdi/js";
 
 import {
   H4,
@@ -19,64 +19,64 @@ import {
   Divider,
   Subtitle1,
   ToggleButton,
-  ToggleButtonGroup
-} from 'ui-neumorphism'
+  ToggleButtonGroup,
+} from "ui-neumorphism";
 
-import DocCard from '../containers/DocCard.jsx'
-import ApiCard from '../containers/ApiCard.jsx'
+import DocCard from "../containers/DocCard.jsx";
+import ApiCard from "../containers/ApiCard.tsx";
 import {
   toggleSizes,
   toggleButtons,
   toggleButtonApi,
   toggleStandalone,
-  toggleButtonGroupApi
-} from '../docs/'
+  toggleButtonGroupApi,
+} from "../docs/";
 
 const url =
-  'https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/ToggleButtonView.jsx'
+  "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/ToggleButtonView.jsx";
 
 class ToggleButtonView extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       standaloneActive: 1,
-      mandatoryActive: '1',
+      mandatoryActive: "1",
       multipleActive: [],
-      active: ['1'],
-      key: 1
-    }
+      active: ["1"],
+      key: 1,
+    };
   }
 
   handleStandaloneChange(e) {
-    this.setState({ standaloneActive: e.value })
-    this.setState({ key: this.state.key + 1 })
+    this.setState({ standaloneActive: e.value });
+    this.setState({ key: this.state.key + 1 });
   }
 
   mandatoryGroupChange(e) {
-    this.setState({ mandatoryActive: e.active })
+    this.setState({ mandatoryActive: e.active });
   }
 
   multipleGroupChange(e) {
-    this.setState({ multipleActive: e.active })
+    this.setState({ multipleActive: e.active });
   }
 
   handleChange(e) {
-    this.setState({ active: e.active })
-    this.setState({ key: this.state.key + 1 })
+    this.setState({ active: e.active });
+    this.setState({ key: this.state.key + 1 });
   }
 
   render() {
-    const { dark } = this.props
-    const { key, active, standaloneActive } = this.state
+    const { dark } = this.props;
+    const { key, active, standaloneActive } = this.state;
     return (
       <Card flat dark={dark}>
         <H4>
-          <a href='#component' name='component'>
+          <a href="#component" name="component">
             <H4>Toggle Buttons</H4>
           </a>
         </H4>
         <H6>Toggle buttons can be used to group related options.</H6>
-        <Subtitle1 className='mt-3'>
+        <Subtitle1 className="mt-3">
           To emphasize groups of related Toggle buttons, a group should share a
           common container.
           <br />
@@ -84,8 +84,8 @@ class ToggleButtonView extends React.Component {
           child buttons when given its own value prop.
         </Subtitle1>
         <DocCard
-          className='mt-12'
-          url={url + '#L101-L118'}
+          className="mt-12"
+          url={url + "#L101-L118"}
           title={<H5>Mandatory selection</H5>}
           subtitle={
             <Subtitle1>
@@ -96,20 +96,20 @@ class ToggleButtonView extends React.Component {
             <Card flat outlined={false}>
               <Card
                 flat
-                className='mt-4 d-flex flex-wrap align-center justify-center'
+                className="mt-4 d-flex flex-wrap align-center justify-center"
               >
                 <ToggleButtonGroup
-                  value='1'
+                  value="1"
                   mandatory
                   text={false}
-                  color='var(--primary)'
+                  color="var(--primary)"
                   onChange={this.mandatoryGroupChange.bind(this)}
                 >
                   {[
                     mdiFormatAlignLeft,
                     mdiFormatAlignCenter,
                     mdiFormatAlignRight,
-                    mdiFormatAlignJustify
+                    mdiFormatAlignJustify,
                   ].map((icon, i) => (
                     <ToggleButton key={i} disabled={i === 3} value={`${i + 1}`}>
                       <Icon path={icon} size={0.9} />
@@ -117,16 +117,16 @@ class ToggleButtonView extends React.Component {
                   ))}
                 </ToggleButtonGroup>
               </Card>
-              <div className='text-center mx-auto pt-6'>
+              <div className="text-center mx-auto pt-6">
                 {`{ active: ${JSON.stringify(this.state.mandatoryActive)} }`}
               </div>
             </Card>
           }
-          code={[toggleButtons, dark, ['mandatory']]}
+          code={[toggleButtons, dark, ["mandatory"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L144-L159'}
+          className="mt-12"
+          url={url + "#L144-L159"}
           title={<H5>Multiple selection</H5>}
           subtitle={
             <Subtitle1>
@@ -139,7 +139,7 @@ class ToggleButtonView extends React.Component {
               <Card
                 flat
                 outlined={false}
-                className='mt-4 d-flex flex-wrap align-center justify-center'
+                className="mt-4 d-flex flex-wrap align-center justify-center"
               >
                 <ToggleButtonGroup
                   multiple
@@ -150,7 +150,7 @@ class ToggleButtonView extends React.Component {
                       <ToggleButton
                         key={i}
                         value={`${i + 1}`}
-                        color='var(--primary)'
+                        color="var(--primary)"
                       >
                         <Icon path={icon} size={0.9} />
                       </ToggleButton>
@@ -158,16 +158,16 @@ class ToggleButtonView extends React.Component {
                   )}
                 </ToggleButtonGroup>
               </Card>
-              <div className='text-center mx-auto pt-6'>
+              <div className="text-center mx-auto pt-6">
                 {`{ active: ${JSON.stringify(this.state.multipleActive)} }`}
               </div>
             </Card>
           }
-          code={[toggleButtons, dark, ['multiple']]}
+          code={[toggleButtons, dark, ["multiple"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L186-L198'}
+          className="mt-12"
+          url={url + "#L186-L198"}
           title={<H5>Standalone ToggleButtons</H5>}
           subtitle={
             <Subtitle1>
@@ -181,14 +181,14 @@ class ToggleButtonView extends React.Component {
               <Card
                 flat
                 outlined={false}
-                className='mt-4 d-flex flex-wrap align-center justify-center'
+                className="mt-4 d-flex flex-wrap align-center justify-center"
               >
                 {[mdiFormatBold, mdiFormatItalic, mdiFormatUnderline].map(
                   (icon, i) => (
                     <ToggleButton
                       key={i}
                       value={i + 1}
-                      color='var(--primary)'
+                      color="var(--primary)"
                       selected={standaloneActive === i + 1}
                       onChange={(e) => this.handleStandaloneChange(e)}
                     >
@@ -197,7 +197,7 @@ class ToggleButtonView extends React.Component {
                   )
                 )}
               </Card>
-              <div className='text-center mx-auto pt-6'>
+              <div className="text-center mx-auto pt-6">
                 {`{ active: ${JSON.stringify(standaloneActive)} }`}
               </div>
             </Card>
@@ -205,8 +205,8 @@ class ToggleButtonView extends React.Component {
           code={[toggleStandalone, dark]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L218-L246'}
+          className="mt-12"
+          url={url + "#L218-L246"}
           title={<H5>Sizes</H5>}
           subtitle={
             <Subtitle1>
@@ -215,19 +215,19 @@ class ToggleButtonView extends React.Component {
           }
           content={
             <Card key={key} flat outlined={false}>
-              {['small', 'medium', 'large'].map((s, i) => (
+              {["small", "medium", "large"].map((s, i) => (
                 <Card
                   flat
                   key={i}
                   outlined={false}
-                  className='mt-4 d-flex flex-wrap align-center justify-center'
+                  className="mt-4 d-flex flex-wrap align-center justify-center"
                 >
                   <ToggleButtonGroup
                     key={i}
                     size={s}
                     multiple
                     value={active}
-                    className='mt-4'
+                    className="mt-4"
                     onChange={(e) => this.handleChange(e)}
                   >
                     {[mdiFormatBold, mdiFormatItalic, mdiFormatUnderline].map(
@@ -235,7 +235,7 @@ class ToggleButtonView extends React.Component {
                         <ToggleButton
                           key={i}
                           value={`${i + 1}`}
-                          color='var(--primary)'
+                          color="var(--primary)"
                         >
                           <Icon path={icon} size={0.9} />
                         </ToggleButton>
@@ -244,25 +244,25 @@ class ToggleButtonView extends React.Component {
                   </ToggleButtonGroup>
                 </Card>
               ))}
-              <div className='text-center mx-auto pt-6'>
+              <div className="text-center mx-auto pt-6">
                 {`{ active: ${JSON.stringify(this.state.active)} }`}
               </div>
             </Card>
           }
           code={[toggleSizes, dark]}
         />
-        <Divider dense className='mt-6' />
-        <H4 className='mt-12'>
-          <a href='#api' name='api'>
+        <Divider dense className="mt-6" />
+        <H4 className="mt-12">
+          <a href="#api" name="api">
             API
           </a>
         </H4>
-        <ApiCard entity='ToggleButtonGroup' data={toggleButtonGroupApi(dark)} />
-        <div className='mt-12'></div>
-        <ApiCard entity='ToggleButton' data={toggleButtonApi(dark)} />
+        <ApiCard entity="ToggleButtonGroup" data={toggleButtonGroupApi(dark)} />
+        <div className="mt-12"></div>
+        <ApiCard entity="ToggleButton" data={toggleButtonApi(dark)} />
       </Card>
-    )
+    );
   }
 }
 
-export default ToggleButtonView
+export default ToggleButtonView;

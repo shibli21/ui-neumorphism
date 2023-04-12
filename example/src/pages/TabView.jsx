@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 import {
   H4,
@@ -8,29 +8,29 @@ import {
   Tabs,
   Divider,
   TabItem,
-  TabItems
-} from 'ui-neumorphism'
+  TabItems,
+} from "ui-neumorphism";
 
-import { tabApi, tabsApi, tabItemsApi, tabItemApi } from '../docs/'
+import { tabApi, tabsApi, tabItemsApi, tabItemApi } from "../docs/";
 
-import DocCard from '../containers/DocCard.jsx'
-import ApiCard from '../containers/ApiCard.jsx'
+import DocCard from "../containers/DocCard.jsx";
+import ApiCard from "../containers/ApiCard.tsx";
 
 const url =
-  'https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/TabView.jsx'
+  "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/TabView.jsx";
 class TabView extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      active: 0
-    }
+      active: 0,
+    };
   }
   render() {
-    const { dark } = this.props
-    const { active } = this.state
+    const { dark } = this.props;
+    const { active } = this.state;
 
     const tabItems = (
-      <TabItems value={active} >
+      <TabItems value={active}>
         <TabItem>
           <div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -52,11 +52,11 @@ class TabView extends React.Component {
           aliquip ex ea commodo consequat.
         </TabItem>
       </TabItems>
-    )
+    );
     return (
       <Card flat dark={dark}>
         <H4>
-          <a href='#component' name='component'>
+          <a href="#component" name="component">
             Tabs
           </a>
         </H4>
@@ -66,10 +66,10 @@ class TabView extends React.Component {
         </H6>
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           content={
-            <Card flat className='px-4 fill-width'>
-              <Card className='pa-4'>
+            <Card flat className="px-4 fill-width">
+              <Card className="pa-4">
                 <Tabs
                   value={active}
                   onChange={({ active }) => this.setState({ active })}
@@ -80,7 +80,7 @@ class TabView extends React.Component {
                 </Tabs>
                 {tabItems}
               </Card>
-              <Card rounded className='pa-4 mt-12'>
+              <Card rounded className="pa-4 mt-12">
                 <Tabs
                   rounded
                   value={active}
@@ -92,7 +92,7 @@ class TabView extends React.Component {
                 </Tabs>
                 {tabItems}
               </Card>
-              <Card outlined className='pa-4 mt-12'>
+              <Card outlined className="pa-4 mt-12">
                 <Tabs
                   outlined
                   value={active}
@@ -104,7 +104,7 @@ class TabView extends React.Component {
                 </Tabs>
                 {tabItems}
               </Card>
-              <Card flat className='pa-4 mt-12'>
+              <Card flat className="pa-4 mt-12">
                 <Tabs
                   underlined
                   value={active}
@@ -116,7 +116,7 @@ class TabView extends React.Component {
                 </Tabs>
                 {tabItems}
               </Card>
-              <Card flat className='pa-4 mt-12'>
+              <Card flat className="pa-4 mt-12">
                 <Tabs
                   disabled
                   value={active}
@@ -131,22 +131,22 @@ class TabView extends React.Component {
             </Card>
           }
         />
-        <Divider dense className='mt-6' />
-        <H4 className='mt-12'>
-          <a href='#api' name='api'>
+        <Divider dense className="mt-6" />
+        <H4 className="mt-12">
+          <a href="#api" name="api">
             API
           </a>
         </H4>
-        <ApiCard entity='Tabs' data={tabsApi(dark)} />
-        <div className='mt-12'></div>
-        <ApiCard entity='Tab' data={tabApi(dark)} />
-        <div className='mt-12'></div>
-        <ApiCard entity='TabItems' data={tabItemsApi(dark)} />
-        <div className='mt-12'></div>
-        <ApiCard entity='TabItem' data={tabItemApi(dark)} />
+        <ApiCard entity="Tabs" data={tabsApi(dark)} />
+        <div className="mt-12"></div>
+        <ApiCard entity="Tab" data={tabApi(dark)} />
+        <div className="mt-12"></div>
+        <ApiCard entity="TabItems" data={tabItemsApi(dark)} />
+        <div className="mt-12"></div>
+        <ApiCard entity="TabItem" data={tabItemApi(dark)} />
       </Card>
-    )
+    );
   }
 }
 
-export default TabView
+export default TabView;

@@ -1,5 +1,6 @@
 export { overrideThemeVariables, detectElementInDOM } from "./util";
 export { withImage, withResize, withClickOutside } from "./hocs";
+export { useResize } from "./hooks";
 export { Grow, Fade, Slide, SlideCarousel } from "./transitions";
 
 export {

@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import Icon from '@mdi/react'
-import { mdiBell, mdiLock } from '@mdi/js'
+import Icon from "@mdi/react";
+import { mdiBell, mdiLock } from "@mdi/js";
 
 import {
   Card,
@@ -12,8 +12,8 @@ import {
   Button,
   Avatar,
   H5,
-  Subtitle1
-} from 'ui-neumorphism'
+  Subtitle1,
+} from "ui-neumorphism";
 
 import {
   badgeApi,
@@ -25,21 +25,21 @@ import {
   inlineBadge,
   squareBadge,
   customBadge,
-  borderedBadge
-} from '../docs/'
+  borderedBadge,
+} from "../docs/";
 
-import DocCard from '../containers/DocCard.jsx'
-import ApiCard from '../containers/ApiCard.jsx'
+import DocCard from "../containers/DocCard.jsx";
+import ApiCard from "../containers/ApiCard.tsx";
 
 const url =
-  'https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/BadgeView.jsx'
+  "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/BadgeView.jsx";
 class BadgeView extends React.Component {
   render() {
-    const { dark } = this.props
+    const { dark } = this.props;
     return (
       <Card flat dark={dark}>
         <H4>
-          <a href='#component' name='component'>
+          <a href="#component" name="component">
             Badge
           </a>
         </H4>
@@ -47,8 +47,8 @@ class BadgeView extends React.Component {
           Badge generates a small badge to the top-right of its child(ren).
         </H6>
         <DocCard
-          className='mt-12'
-          url={url + '#L64-L72'}
+          className="mt-12"
+          url={url + "#L64-L72"}
           title={<H5>Default badges</H5>}
           subtitle={
             <Subtitle1>
@@ -59,15 +59,15 @@ class BadgeView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex align-center justify-center flex-wrap'
+              className="mt-6 d-flex align-center justify-center flex-wrap"
             >
-              <Badge className='ma-3' content={2}>
+              <Badge className="ma-3" content={2}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
-              <Badge className='ma-3' content={3}>
+              <Badge className="ma-3" content={3}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
-              <Badge className='ma-3' content={4}>
+              <Badge className="ma-3" content={4}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
             </Card>
@@ -75,8 +75,8 @@ class BadgeView extends React.Component {
           code={[simpleBadge]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L92-L100'}
+          className="mt-12"
+          url={url + "#L92-L100"}
           title={<H5>Overlap badge</H5>}
           subtitle={
             <Subtitle1>
@@ -87,24 +87,24 @@ class BadgeView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex align-center justify-center flex-wrap'
+              className="mt-6 d-flex align-center justify-center flex-wrap"
             >
-              <Badge className='ma-3' overlap content={2}>
+              <Badge className="ma-3" overlap content={2}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
-              <Badge className='ma-3' overlap content={3}>
+              <Badge className="ma-3" overlap content={3}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
-              <Badge className='ma-3' overlap content={4}>
+              <Badge className="ma-3" overlap content={4}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
             </Card>
           }
-          code={[simpleBadge, dark, ['overlap']]}
+          code={[simpleBadge, dark, ["overlap"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L119-L124'}
+          className="mt-12"
+          url={url + "#L119-L124"}
           title={<H5>Dot badge</H5>}
           subtitle={
             <Subtitle1>
@@ -114,12 +114,12 @@ class BadgeView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex align-center justify-center flex-wrap'
+              className="mt-6 d-flex align-center justify-center flex-wrap"
             >
-              <Badge className='ma-3' dot content={2}>
+              <Badge className="ma-3" dot content={2}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
-              <Badge className='ma-3' dot content={3}>
+              <Badge className="ma-3" dot content={3}>
                 Alert
               </Badge>
             </Card>
@@ -127,8 +127,8 @@ class BadgeView extends React.Component {
           code={[dotBadge]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L144-L152'}
+          className="mt-12"
+          url={url + "#L144-L152"}
           title={<H5>Bordered badge</H5>}
           subtitle={
             <Subtitle1>
@@ -139,15 +139,15 @@ class BadgeView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex align-center justify-center flex-wrap'
+              className="mt-6 d-flex align-center justify-center flex-wrap"
             >
-              <Badge className='ma-3' bordered overlap content={2}>
+              <Badge className="ma-3" bordered overlap content={2}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
-              <Badge className='ma-3' bordered overlap dot content={3}>
+              <Badge className="ma-3" bordered overlap dot content={3}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
-              <Badge className='ma-3' bordered overlap content={4}>
+              <Badge className="ma-3" bordered overlap content={4}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
             </Card>
@@ -156,8 +156,8 @@ class BadgeView extends React.Component {
         />
 
         <DocCard
-          className='mt-12'
-          url={url + '#L172-L183'}
+          className="mt-12"
+          url={url + "#L172-L183"}
           title={<H5>Badge alignment</H5>}
           subtitle={
             <Subtitle1>
@@ -167,18 +167,18 @@ class BadgeView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex align-center justify-center flex-wrap'
+              className="mt-6 d-flex align-center justify-center flex-wrap"
             >
-              <Badge className='ma-3' overlap left bottom content={2}>
+              <Badge className="ma-3" overlap left bottom content={2}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
-              <Badge className='ma-3' overlap left content={3}>
+              <Badge className="ma-3" overlap left content={3}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
-              <Badge className='ma-3' overlap bottom content={2}>
+              <Badge className="ma-3" overlap bottom content={2}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
-              <Badge className='ma-3' overlap content={3}>
+              <Badge className="ma-3" overlap content={3}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
             </Card>
@@ -186,8 +186,8 @@ class BadgeView extends React.Component {
           code={[alignBadge]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L203-L211'}
+          className="mt-12"
+          url={url + "#L203-L211"}
           title={<H5>Maximum value</H5>}
           subtitle={
             <Subtitle1>
@@ -198,15 +198,15 @@ class BadgeView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex align-center justify-center flex-wrap'
+              className="mt-6 d-flex align-center justify-center flex-wrap"
             >
-              <Badge className='ma-3' overlap max={49} content={49}>
+              <Badge className="ma-3" overlap max={49} content={49}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
-              <Badge className='ma-3' overlap max={99} content={200}>
+              <Badge className="ma-3" overlap max={99} content={200}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
-              <Badge className='ma-3' overlap max={999} content={1000}>
+              <Badge className="ma-3" overlap max={999} content={1000}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
             </Card>
@@ -214,8 +214,8 @@ class BadgeView extends React.Component {
           code={[maxBadge]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L230-L235'}
+          className="mt-12"
+          url={url + "#L230-L235"}
           title={<H5>Inline badge</H5>}
           subtitle={
             <Subtitle1>
@@ -225,12 +225,12 @@ class BadgeView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex align-center justify-center flex-wrap'
+              className="mt-6 d-flex align-center justify-center flex-wrap"
             >
-              <Badge className='ma-3' left inline content={2}>
+              <Badge className="ma-3" left inline content={2}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
-              <Badge className='ma-3' inline content={3}>
+              <Badge className="ma-3" inline content={3}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
             </Card>
@@ -238,8 +238,8 @@ class BadgeView extends React.Component {
           code={[inlineBadge]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L255-L260'}
+          className="mt-12"
+          url={url + "#L255-L260"}
           title={<H5>Square badge</H5>}
           subtitle={
             <Subtitle1>
@@ -250,12 +250,12 @@ class BadgeView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex align-center justify-center flex-wrap'
+              className="mt-6 d-flex align-center justify-center flex-wrap"
             >
-              <Badge className='ma-3' left square content={2}>
+              <Badge className="ma-3" left square content={2}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
-              <Badge className='ma-3' square content={3}>
+              <Badge className="ma-3" square content={3}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
             </Card>
@@ -263,8 +263,8 @@ class BadgeView extends React.Component {
           code={[squareBadge]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L281-L301'}
+          className="mt-12"
+          url={url + "#L281-L301"}
           title={<H5>Colors</H5>}
           subtitle={
             <Subtitle1>
@@ -276,26 +276,26 @@ class BadgeView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex align-center justify-center flex-wrap'
+              className="mt-6 d-flex align-center justify-center flex-wrap"
             >
-              <Badge className='ma-3' bgColor='var(--error)' content={3}>
+              <Badge className="ma-3" bgColor="var(--error)" content={3}>
                 <Icon path={mdiBell} size={1} />
               </Badge>
               <Badge
                 content={2}
-                className='ma-3'
-                color='var(--error)'
-                bgColor='var(--white)'
+                className="ma-3"
+                color="var(--error)"
+                bgColor="var(--white)"
               >
                 <Icon path={mdiBell} size={1} />
               </Badge>
               <Badge
                 bordered
                 content={4}
-                className='ma-3'
-                color='var(--error)'
-                bgColor='var(--white)'
-                borderColor='var(--success)'
+                className="ma-3"
+                color="var(--error)"
+                bgColor="var(--white)"
+                borderColor="var(--success)"
               >
                 <Icon path={mdiBell} size={1} />
               </Badge>
@@ -304,8 +304,8 @@ class BadgeView extends React.Component {
           code={[colorBadge]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L321-L357'}
+          className="mt-12"
+          url={url + "#L321-L357"}
           title={<H5>Customization options</H5>}
           subtitle={
             <Subtitle1>
@@ -316,20 +316,20 @@ class BadgeView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex align-center justify-center flex-wrap'
+              className="mt-6 d-flex align-center justify-center flex-wrap"
             >
-              <Badge dot bottom overlap bordered className='ma-3'>
+              <Badge dot bottom overlap bordered className="ma-3">
                 <Avatar
-                  alt='Ankit Kumar Pandit'
-                  src='https://lh3.googleusercontent.com/a-/AAuE7mCIyihYk1lPElmGoTqL4Pvb9PD3RT3x-EB2WUb6'
+                  alt="Ankit Kumar Pandit"
+                  src="https://lh3.googleusercontent.com/a-/AAuE7mCIyihYk1lPElmGoTqL4Pvb9PD3RT3x-EB2WUb6"
                 />
               </Badge>
               <Badge
                 overlap
                 bordered
                 noPadding
-                className='ma-3'
-                bgColor='var(--error)'
+                className="ma-3"
+                bgColor="var(--error)"
                 content={<Icon path={mdiLock} size={0.5} />}
               >
                 <Button disabled>Action</Button>
@@ -338,35 +338,35 @@ class BadgeView extends React.Component {
                 overlap
                 bordered
                 noPadding
-                className='ma-3'
-                bgColor='var(--white)'
+                className="ma-3"
+                bgColor="var(--white)"
                 content={
                   <Avatar
                     size={15}
-                    alt='Ankit Kumar Pandit'
-                    src='https://lh3.googleusercontent.com/a-/AAuE7mCIyihYk1lPElmGoTqL4Pvb9PD3RT3x-EB2WUb6'
+                    alt="Ankit Kumar Pandit"
+                    src="https://lh3.googleusercontent.com/a-/AAuE7mCIyihYk1lPElmGoTqL4Pvb9PD3RT3x-EB2WUb6"
                   />
                 }
               >
                 <Avatar
-                  alt='Ankit Kumar Pandit'
-                  src='https://lh3.googleusercontent.com/a-/AAuE7mBL0Hh_wKgNlXtZks9XqIU3uv-j3COoKuYysLS_Svg'
+                  alt="Ankit Kumar Pandit"
+                  src="https://lh3.googleusercontent.com/a-/AAuE7mBL0Hh_wKgNlXtZks9XqIU3uv-j3COoKuYysLS_Svg"
                 />
               </Badge>
             </Card>
           }
           code={[customBadge]}
         />
-        <Divider dense className='mt-6' />
-        <H4 className='mt-12'>
-          <a href='#api' name='api'>
+        <Divider dense className="mt-6" />
+        <H4 className="mt-12">
+          <a href="#api" name="api">
             API
           </a>
         </H4>
-        <ApiCard entity='Badge' data={badgeApi(dark)} />
+        <ApiCard entity="Badge" data={badgeApi(dark)} />
       </Card>
-    )
+    );
   }
 }
 
-export default BadgeView
+export default BadgeView;

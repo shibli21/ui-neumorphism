@@ -1,27 +1,27 @@
-import React from 'react'
+import React from "react";
 
-import { Card, Button, H4, H6, H5, Divider, Subtitle1 } from 'ui-neumorphism'
+import { Card, Button, H4, H6, H5, Divider, Subtitle1 } from "ui-neumorphism";
 
-import DocCard from '../containers/DocCard.jsx'
-import ApiCard from '../containers/ApiCard.jsx'
+import DocCard from "../containers/DocCard.jsx";
+import ApiCard from "../containers/ApiCard.tsx";
 import {
   buttonApi,
   allButtons,
   docButtons,
   blockButton,
-  sizeButtons
-} from '../docs/'
+  sizeButtons,
+} from "../docs/";
 
 const url =
-  'https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/ButtonView.jsx'
+  "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/ButtonView.jsx";
 
 class ButtonView extends React.Component {
   render() {
-    const { dark } = this.props
+    const { dark } = this.props;
     return (
       <Card flat dark={dark}>
         <H4>
-          <a href='#component' name='component'>
+          <a href="#component" name="component">
             Buttons
           </a>
         </H4>
@@ -29,37 +29,37 @@ class ButtonView extends React.Component {
           Buttons allow users to take actions, and make choices, with a single
           tap.
         </H6>
-        <Subtitle1 className='mt-3'>
+        <Subtitle1 className="mt-3">
           They are typically placed throughout your UI, in places like:&nbsp;
           <code>forms</code>, <code>cards</code>, etc.
         </Subtitle1>
         <DocCard
-          url={url + '#L40-L64'}
+          url={url + "#L40-L64"}
           content={
-            <Card flat className='d-flex align-center justify-center flex-wrap'>
-              <Button className='ma-8'>default</Button>
-              <Button className='ma-8' color='var(--primary)'>
+            <Card flat className="d-flex align-center justify-center flex-wrap">
+              <Button className="ma-8">default</Button>
+              <Button className="ma-8" color="var(--primary)">
                 colored
               </Button>
-              <Button className='ma-8' color='#ccc' bgColor='var(--primary)'>
+              <Button className="ma-8" color="#ccc" bgColor="var(--primary)">
                 colored
               </Button>
-              <Button className='ma-8' disabled>
+              <Button className="ma-8" disabled>
                 disabled
               </Button>
-              <Button className='ma-8' rounded>
+              <Button className="ma-8" rounded>
                 rounded
               </Button>
-              <Button className='ma-8' depressed>
+              <Button className="ma-8" depressed>
                 depressed
               </Button>
-              <Button className='ma-8' bordered>
+              <Button className="ma-8" bordered>
                 bordered
               </Button>
-              <Button className='ma-8' outlined>
+              <Button className="ma-8" outlined>
                 outlined
               </Button>
-              <Button className='ma-8' text>
+              <Button className="ma-8" text>
                 text
               </Button>
             </Card>
@@ -67,8 +67,8 @@ class ButtonView extends React.Component {
           code={[allButtons, dark]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L81-L87'}
+          className="mt-12"
+          url={url + "#L81-L87"}
           title={<H5>Contained buttons</H5>}
           subtitle={
             <Subtitle1>
@@ -77,12 +77,12 @@ class ButtonView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='d-flex align-center justify-center flex-wrap'>
-              <Button className='ma-8'>default</Button>
-              <Button className='ma-8' color='var(--primary)'>
+            <Card flat className="d-flex align-center justify-center flex-wrap">
+              <Button className="ma-8">default</Button>
+              <Button className="ma-8" color="var(--primary)">
                 colored
               </Button>
-              <Button className='ma-8' disabled>
+              <Button className="ma-8" disabled>
                 disabled
               </Button>
             </Card>
@@ -90,8 +90,8 @@ class ButtonView extends React.Component {
           code={[docButtons, dark]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L104-L112'}
+          className="mt-12"
+          url={url + "#L104-L112"}
           title={<H5>Text buttons</H5>}
           subtitle={
             <Subtitle1>
@@ -100,23 +100,23 @@ class ButtonView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='d-flex align-center justify-center flex-wrap'>
-              <Button className='ma-8' text>
+            <Card flat className="d-flex align-center justify-center flex-wrap">
+              <Button className="ma-8" text>
                 default
               </Button>
-              <Button className='ma-8' text color='var(--primary)'>
+              <Button className="ma-8" text color="var(--primary)">
                 colored
               </Button>
-              <Button className='ma-8' text disabled>
+              <Button className="ma-8" text disabled>
                 disabled
               </Button>
             </Card>
           }
-          code={[docButtons, dark, ['text']]}
+          code={[docButtons, dark, ["text"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L128-L136'}
+          className="mt-12"
+          url={url + "#L128-L136"}
           title={<H5>Bordered buttons</H5>}
           subtitle={
             <Subtitle1>
@@ -124,23 +124,23 @@ class ButtonView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='d-flex align-center justify-center flex-wrap'>
-              <Button className='ma-8' bordered>
+            <Card flat className="d-flex align-center justify-center flex-wrap">
+              <Button className="ma-8" bordered>
                 default
               </Button>
-              <Button className='ma-8' bordered color='var(--primary)'>
+              <Button className="ma-8" bordered color="var(--primary)">
                 colored
               </Button>
-              <Button className='ma-8' bordered disabled>
+              <Button className="ma-8" bordered disabled>
                 disabled
               </Button>
             </Card>
           }
-          code={[docButtons, dark, ['bordered']]}
+          code={[docButtons, dark, ["bordered"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L153-L161'}
+          className="mt-12"
+          url={url + "#L153-L161"}
           title={<H5>Outlined buttons</H5>}
           subtitle={
             <Subtitle1>
@@ -149,23 +149,23 @@ class ButtonView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='d-flex align-center justify-center flex-wrap'>
-              <Button className='ma-8' outlined>
+            <Card flat className="d-flex align-center justify-center flex-wrap">
+              <Button className="ma-8" outlined>
                 default
               </Button>
-              <Button className='ma-8' outlined color='var(--primary)'>
+              <Button className="ma-8" outlined color="var(--primary)">
                 colored
               </Button>
-              <Button className='ma-8' outlined disabled>
+              <Button className="ma-8" outlined disabled>
                 disabled
               </Button>
             </Card>
           }
-          code={[docButtons, dark, ['outlined']]}
+          code={[docButtons, dark, ["outlined"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L178-L186'}
+          className="mt-12"
+          url={url + "#L178-L186"}
           title={<H5>Rounded buttons</H5>}
           subtitle={
             <Subtitle1>
@@ -174,23 +174,23 @@ class ButtonView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='d-flex align-center justify-center flex-wrap'>
-              <Button className='ma-8' rounded>
+            <Card flat className="d-flex align-center justify-center flex-wrap">
+              <Button className="ma-8" rounded>
                 default
               </Button>
-              <Button className='ma-8' rounded color='var(--primary)'>
+              <Button className="ma-8" rounded color="var(--primary)">
                 colored
               </Button>
-              <Button className='ma-8' rounded disabled>
+              <Button className="ma-8" rounded disabled>
                 disabled
               </Button>
             </Card>
           }
-          code={[docButtons, dark, ['rounded']]}
+          code={[docButtons, dark, ["rounded"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L203-L211'}
+          className="mt-12"
+          url={url + "#L203-L211"}
           title={<H5>Depressed buttons</H5>}
           subtitle={
             <Subtitle1>
@@ -199,37 +199,37 @@ class ButtonView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='d-flex align-center justify-center flex-wrap'>
-              <Button className='ma-8' depressed>
+            <Card flat className="d-flex align-center justify-center flex-wrap">
+              <Button className="ma-8" depressed>
                 default
               </Button>
-              <Button className='ma-8' depressed color='var(--primary)'>
+              <Button className="ma-8" depressed color="var(--primary)">
                 colored
               </Button>
-              <Button className='ma-8' depressed disabled>
+              <Button className="ma-8" depressed disabled>
                 disabled
               </Button>
             </Card>
           }
-          code={[docButtons, dark, ['depressed']]}
+          code={[docButtons, dark, ["depressed"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L225'}
+          className="mt-12"
+          url={url + "#L225"}
           title={<H5>Block button</H5>}
           subtitle={
             <Subtitle1>Block buttons take up entire available space.</Subtitle1>
           }
           content={
-            <Card flat className='pa-8 fill-width' sty>
+            <Card flat className="pa-8 fill-width" sty>
               <Button block>block button</Button>
             </Card>
           }
           code={[blockButton, dark]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L241-L249'}
+          className="mt-12"
+          url={url + "#L241-L249"}
           title={<H5>Sizes</H5>}
           subtitle={
             <Subtitle1>
@@ -237,30 +237,30 @@ class ButtonView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='d-flex align-center justify-center flex-wrap'>
-              <Button className='ma-8' size='small'>
+            <Card flat className="d-flex align-center justify-center flex-wrap">
+              <Button className="ma-8" size="small">
                 small
               </Button>
-              <Button className='ma-8' size='medium'>
+              <Button className="ma-8" size="medium">
                 medium
               </Button>
-              <Button className='ma-8' size='large'>
+              <Button className="ma-8" size="large">
                 large
               </Button>
             </Card>
           }
           code={[sizeButtons, dark]}
         />
-        <Divider dense className='mt-6' />
-        <H4 className='mt-12'>
-          <a href='#api' name='api'>
+        <Divider dense className="mt-6" />
+        <H4 className="mt-12">
+          <a href="#api" name="api">
             API
           </a>
         </H4>
-        <ApiCard entity='Button' data={buttonApi(dark)} />
+        <ApiCard entity="Button" data={buttonApi(dark)} />
       </Card>
-    )
+    );
   }
 }
 
-export default ButtonView
+export default ButtonView;

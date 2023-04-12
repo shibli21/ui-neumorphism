@@ -1,6 +1,6 @@
 import React from "react";
 import { Body2, Caption, Subtitle2 } from "ui-neumorphism";
-import CodeBlock from "../containers/CodeBlock.jsx";
+import CodeBlock from "../containers/CodeBlock.tsx";
 
 export const createApiDoc = (
   dark,

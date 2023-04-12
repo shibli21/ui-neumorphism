@@ -1,21 +1,21 @@
-import React from 'react'
+import React from "react";
 
-import { Card, H4, H6 } from 'ui-neumorphism'
+import { Card, H4, H6 } from "ui-neumorphism";
 
 // import { toggle, toggleLabel, switchApi } from '../docs/'
 
-import DocCard from '../containers/DocCard.jsx'
-// import ApiCard from '../containers/ApiCard.jsx'
+import DocCard from "../containers/DocCard.jsx";
+// import ApiCard from '../containers/ApiCard.tsx'
 
 const url =
-  'https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/SelectView.jsx'
+  "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/SelectView.jsx";
 class SelectView extends React.Component {
   render() {
-    const { dark } = this.props
+    const { dark } = this.props;
     return (
       <Card flat dark={dark}>
         <H4>
-          <a href='#component' name='component'>
+          <a href="#component" name="component">
             Select
           </a>
         </H4>
@@ -26,20 +26,20 @@ class SelectView extends React.Component {
         <DocCard
           url={url}
           content={
-            <Card flat className='d-flex align-center justify-center flex-wrap'>
+            <Card flat className="d-flex align-center justify-center flex-wrap">
               Coming soon..
             </Card>
           }
         />
-        <H4 className='mt-12'>
-          <a href='#api' name='api'>
+        <H4 className="mt-12">
+          <a href="#api" name="api">
             API
           </a>
         </H4>
         Coming soon..
       </Card>
-    )
+    );
   }
 }
 
-export default SelectView
+export default SelectView;

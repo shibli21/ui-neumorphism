@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 import {
   H4,
@@ -7,29 +7,29 @@ import {
   Card,
   Divider,
   Subtitle1,
-  ProgressLinear
-} from 'ui-neumorphism'
+  ProgressLinear,
+} from "ui-neumorphism";
 
-import { progressLinear, progressLinearApi } from '../docs/'
-import DocCard from '../containers/DocCard.jsx'
-import ApiCard from '../containers/ApiCard.jsx'
+import { progressLinear, progressLinearApi } from "../docs/";
+import DocCard from "../containers/DocCard.jsx";
+import ApiCard from "../containers/ApiCard.tsx";
 const url =
-  'https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/ProgressLinearView.jsx'
+  "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/ProgressLinearView.jsx";
 
 class ProgressLinearView extends React.Component {
   render() {
-    const { dark } = this.props
+    const { dark } = this.props;
     return (
       <Card flat dark={dark}>
         <H4>Progress Linear</H4>
         <H6>Progress Linear displays a horizontal progress bar.</H6>
-        <Subtitle1 className='mt-3'>
+        <Subtitle1 className="mt-3">
           The component is used to convey data visually to users. They can also
           represent an indeterminate amount, such as loading or processing.
         </Subtitle1>
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Determinate</H5>}
           subtitle={
             <Subtitle1>
@@ -42,7 +42,7 @@ class ProgressLinearView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='fill-width mt-6 px-12'>
+            <Card flat className="fill-width mt-6 px-12">
               <ProgressLinear value={40} />
               <br />
               <ProgressLinear value={60} />
@@ -53,12 +53,12 @@ class ProgressLinearView extends React.Component {
           code={[
             progressLinear,
             dark,
-            [[0, 1, 2].map((i) => `value={${i * 20 + 40}}`), true]
+            [[0, 1, 2].map((i) => `value={${i * 20 + 40}}`), true],
           ]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Custom colors</H5>}
           subtitle={
             <Subtitle1>
@@ -66,19 +66,19 @@ class ProgressLinearView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='fill-width mt-6 px-12'>
-              <ProgressLinear value={40} color='var(--primary)' />
+            <Card flat className="fill-width mt-6 px-12">
+              <ProgressLinear value={40} color="var(--primary)" />
               <br />
-              <ProgressLinear value={40} color='var(--error)' />
+              <ProgressLinear value={40} color="var(--error)" />
               <br />
-              <ProgressLinear value={40} color='var(--success)' />
+              <ProgressLinear value={40} color="var(--success)" />
             </Card>
           }
           code={[progressLinear, dark, [[0, 1, 2].map((c) => `value={40}`)]]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Indeterminate</H5>}
           subtitle={
             <Subtitle1>
@@ -87,33 +87,33 @@ class ProgressLinearView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='fill-width mt-6 px-12'>
-              <ProgressLinear indeterminate color='var(--primary)' />
+            <Card flat className="fill-width mt-6 px-12">
+              <ProgressLinear indeterminate color="var(--primary)" />
               <br />
-              <ProgressLinear indeterminate color='var(--error)' />
+              <ProgressLinear indeterminate color="var(--error)" />
               <br />
-              <ProgressLinear indeterminate color='var(--success)' />
+              <ProgressLinear indeterminate color="var(--success)" />
             </Card>
           }
-          code={[progressLinear, dark, [[0, 1, 2].map((p) => 'indeterminate')]]}
+          code={[progressLinear, dark, [[0, 1, 2].map((p) => "indeterminate")]]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Height</H5>}
           subtitle={
             <Subtitle1>
-              You can adjust the height of ProgressLinear using{' '}
+              You can adjust the height of ProgressLinear using{" "}
               <code>height</code> prop.
             </Subtitle1>
           }
           content={
-            <Card flat className='fill-width mt-6 px-12'>
-              <ProgressLinear height={10} value={40} color='var(--primary)' />
+            <Card flat className="fill-width mt-6 px-12">
+              <ProgressLinear height={10} value={40} color="var(--primary)" />
               <br />
-              <ProgressLinear height={20} value={60} color='var(--error)' />
+              <ProgressLinear height={20} value={60} color="var(--error)" />
               <br />
-              <ProgressLinear height={30} value={80} color='var(--success)' />
+              <ProgressLinear height={30} value={80} color="var(--success)" />
             </Card>
           }
           code={[
@@ -122,13 +122,13 @@ class ProgressLinearView extends React.Component {
             [
               [0, 1, 2].map(
                 (i) => `height={${i * 10 + 10}} value={${i * 20 + 40}}`
-              )
-            ]
+              ),
+            ],
           ]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Striped</H5>}
           subtitle={
             <Subtitle1>
@@ -137,48 +137,48 @@ class ProgressLinearView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='fill-width mt-6 px-12'>
-              <ProgressLinear striped value={40} color='var(--primary)' />
+            <Card flat className="fill-width mt-6 px-12">
+              <ProgressLinear striped value={40} color="var(--primary)" />
               <br />
-              <ProgressLinear striped value={60} color='var(--error)' />
+              <ProgressLinear striped value={60} color="var(--error)" />
               <br />
-              <ProgressLinear striped value={80} color='var(--success)' />
+              <ProgressLinear striped value={80} color="var(--success)" />
             </Card>
           }
           code={[
             progressLinear,
             dark,
-            [[0, 1, 2].map((i) => `striped value={${i * 20 + 40}}`)]
+            [[0, 1, 2].map((i) => `striped value={${i * 20 + 40}}`)],
           ]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Bordered</H5>}
           subtitle={
             <Subtitle1>
-              ProgressLinear can have a border around it by using the{' '}
+              ProgressLinear can have a border around it by using the{" "}
               <code>bordered</code> prop.
             </Subtitle1>
           }
           content={
-            <Card flat className='fill-width mt-6 px-12'>
-              <ProgressLinear bordered value={40} color='var(--primary)' />
+            <Card flat className="fill-width mt-6 px-12">
+              <ProgressLinear bordered value={40} color="var(--primary)" />
               <br />
-              <ProgressLinear bordered value={60} color='var(--error)' />
+              <ProgressLinear bordered value={60} color="var(--error)" />
               <br />
-              <ProgressLinear bordered value={80} color='var(--success)' />
+              <ProgressLinear bordered value={80} color="var(--success)" />
             </Card>
           }
           code={[
             progressLinear,
             dark,
-            [[0, 1, 2].map((i) => `bordered value={40}`)]
+            [[0, 1, 2].map((i) => `bordered value={40}`)],
           ]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Fill height</H5>}
           subtitle={
             <Subtitle1>
@@ -187,45 +187,45 @@ class ProgressLinearView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='fill-width mt-6 px-12'>
+            <Card flat className="fill-width mt-6 px-12">
               <ProgressLinear
                 fillHeight
                 height={4}
                 value={40}
-                color='var(--primary)'
+                color="var(--primary)"
               />
               <br />
               <ProgressLinear
                 fillHeight
                 height={8}
                 value={40}
-                color='var(--error)'
+                color="var(--error)"
               />
               <br />
               <ProgressLinear
                 fillHeight
                 height={12}
                 value={40}
-                color='var(--success)'
+                color="var(--success)"
               />
             </Card>
           }
           code={[
             progressLinear,
             dark,
-            [[1, 2, 3].map((i) => `fillHeight height={${4 * i}} value={40}`)]
+            [[1, 2, 3].map((i) => `fillHeight height={${4 * i}} value={40}`)],
           ]}
         />
-        <Divider dense className='mt-6' />
-        <H4 className='mt-12'>
-          <a href='#api' name='api'>
+        <Divider dense className="mt-6" />
+        <H4 className="mt-12">
+          <a href="#api" name="api">
             API
           </a>
         </H4>
-        <ApiCard entity='ProgressLinear' data={progressLinearApi(dark)} />
+        <ApiCard entity="ProgressLinear" data={progressLinearApi(dark)} />
       </Card>
-    )
+    );
   }
 }
 
-export default ProgressLinearView
+export default ProgressLinearView;

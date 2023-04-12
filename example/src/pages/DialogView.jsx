@@ -1,28 +1,28 @@
-import React from 'react'
+import React from "react";
 
-import { Card, H4, H6, Dialog, Button } from 'ui-neumorphism'
+import { Card, H4, H6, Dialog, Button } from "ui-neumorphism";
 
-import { dialogApi } from '../docs/'
+import { dialogApi } from "../docs/";
 
-import DocCard from '../containers/DocCard.jsx'
-import ApiCard from '../containers/ApiCard.jsx'
+import DocCard from "../containers/DocCard.jsx";
+import ApiCard from "../containers/ApiCard.tsx";
 
 const url =
-  'https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/DialogView.jsx'
+  "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/DialogView.jsx";
 class DialogView extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      visible: false
-    }
+      visible: false,
+    };
   }
 
   render() {
-    const { dark } = this.props
+    const { dark } = this.props;
     return (
       <Card flat dark={dark}>
         <H4>
-          <a href='#component' name='component'>
+          <a href="#component" name="component">
             Dialog
           </a>
         </H4>
@@ -34,7 +34,7 @@ class DialogView extends React.Component {
         <DocCard
           url={url}
           content={
-            <Card flat className='d-flex align-center justify-center flex-wrap'>
+            <Card flat className="d-flex align-center justify-center flex-wrap">
               <Button onClick={() => this.setState({ visible: true })}>
                 open
               </Button>
@@ -43,8 +43,8 @@ class DialogView extends React.Component {
                 visible={this.state.visible}
                 onClose={() => this.setState({ visible: false })}
               >
-                <Card className='pa-4 ma-4'>
-                  dialog  <br /> <br />
+                <Card className="pa-4 ma-4">
+                  dialog <br /> <br />
                   <Button onClick={() => this.setState({ visible: false })}>
                     close
                   </Button>
@@ -53,15 +53,15 @@ class DialogView extends React.Component {
             </Card>
           }
         />
-        <H4 className='mt-12'>
-          <a href='#api' name='api'>
+        <H4 className="mt-12">
+          <a href="#api" name="api">
             API
           </a>
         </H4>
-        <ApiCard entity='Dialog' data={dialogApi(dark)} />
+        <ApiCard entity="Dialog" data={dialogApi(dark)} />
       </Card>
-    )
+    );
   }
 }
 
-export default DialogView
+export default DialogView;

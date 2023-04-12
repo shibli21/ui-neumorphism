@@ -1,15 +1,15 @@
-import React from 'react'
+import React from "react";
 
-import { Divider, Body2, Card, H6, H4 } from 'ui-neumorphism'
+import { Divider, Body2, Card, H6, H4 } from "ui-neumorphism";
 
-import { divider, dividerApi } from '../docs/'
-import DocCard from '../containers/DocCard.jsx'
-import ApiCard from '../containers/ApiCard.jsx'
+import { divider, dividerApi } from "../docs/";
+import DocCard from "../containers/DocCard.jsx";
+import ApiCard from "../containers/ApiCard.tsx";
 const url =
-  'https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/DividerView.jsx'
+  "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/DividerView.jsx";
 class DividerView extends React.Component {
   render() {
-    const { dark } = this.props
+    const { dark } = this.props;
     return (
       <Card flat dark={dark}>
         <H4>Divider</H4>
@@ -17,7 +17,7 @@ class DividerView extends React.Component {
         <DocCard
           url={url}
           content={
-            <Card flat className='fill-width text-center px-12'>
+            <Card flat className="fill-width text-center px-12">
               <Divider />
               <br />
               <Body2>Default</Body2>
@@ -41,16 +41,16 @@ class DividerView extends React.Component {
           }
           code={[divider, dark]}
         />
-        <Divider dense className='mt-6' />
-        <H4 className='mt-12'>
-          <a href='#api' name='api'>
+        <Divider dense className="mt-6" />
+        <H4 className="mt-12">
+          <a href="#api" name="api">
             API
           </a>
         </H4>
-        <ApiCard entity='Divider' data={dividerApi(dark)} />
+        <ApiCard entity="Divider" data={dividerApi(dark)} />
       </Card>
-    )
+    );
   }
 }
 
-export default DividerView
+export default DividerView;

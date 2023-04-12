@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import Icon from '@mdi/react'
-import { mdiNumeric10 } from '@mdi/js'
+import Icon from "@mdi/react";
+import { mdiNumeric10 } from "@mdi/js";
 
 import {
   H4,
@@ -10,35 +10,35 @@ import {
   Card,
   Divider,
   Subtitle1,
-  ProgressCircular
-} from 'ui-neumorphism'
+  ProgressCircular,
+} from "ui-neumorphism";
 import {
   progressCircular,
   progressCircularApi,
-  progressCircularLabel
-} from '../docs/'
-import DocCard from '../containers/DocCard.jsx'
-import ApiCard from '../containers/ApiCard.jsx'
+  progressCircularLabel,
+} from "../docs/";
+import DocCard from "../containers/DocCard.jsx";
+import ApiCard from "../containers/ApiCard.tsx";
 const url =
-  'https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/ProgressCircularView.jsx'
+  "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/ProgressCircularView.jsx";
 
 class ProgressCircularView extends React.Component {
   state = {
-    val: 75
-  }
+    val: 75,
+  };
   render() {
-    const { dark } = this.props
+    const { dark } = this.props;
     return (
       <Card flat dark={dark}>
         <H4>Progress Circular</H4>
         <H6>Progress Circular displays a circular progress bar.</H6>
-        <Subtitle1 className='mt-3'>
+        <Subtitle1 className="mt-3">
           ProgressCircular is used to convey data circularly to users. It also
           can be put into an indeterminate state to portray loading.
         </Subtitle1>
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Determinate</H5>}
           subtitle={
             <Subtitle1>
@@ -52,22 +52,22 @@ class ProgressCircularView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex justify-center align-center flex-wrap'
+              className="mt-6 d-flex justify-center align-center flex-wrap"
             >
               {[20, 40, 60, 80, 100].map((p, i) => (
-                <ProgressCircular key={i} value={p} className='ma-8' />
+                <ProgressCircular key={i} value={p} className="ma-8" />
               ))}
             </Card>
           }
           code={[
             progressCircular,
             dark,
-            [[0, 1, 2, 3, 4].map((i) => `value={${i * 20 + 20}}`), true]
+            [[0, 1, 2, 3, 4].map((i) => `value={${i * 20 + 20}}`), true],
           ]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Custom colors</H5>}
           subtitle={
             <Subtitle1>
@@ -77,13 +77,13 @@ class ProgressCircularView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex justify-center align-center flex-wrap'
+              className="mt-6 d-flex justify-center align-center flex-wrap"
             >
-              {['primary', 'info', 'warning', 'success', 'error'].map(
+              {["primary", "info", "warning", "success", "error"].map(
                 (color, i) => (
                   <ProgressCircular
                     key={i}
-                    className='ma-8'
+                    className="ma-8"
                     value={(i + 1) * 20}
                     color={`var(--${color})`}
                   />
@@ -94,12 +94,12 @@ class ProgressCircularView extends React.Component {
           code={[
             progressCircular,
             dark,
-            [[0, 1, 2, 3, 4].map((i) => `value={${i * 20 + 20}}`)]
+            [[0, 1, 2, 3, 4].map((i) => `value={${i * 20 + 20}}`)],
           ]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Indeterminate</H5>}
           subtitle={
             <Subtitle1>
@@ -110,14 +110,14 @@ class ProgressCircularView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex justify-center align-center flex-wrap'
+              className="mt-6 d-flex justify-center align-center flex-wrap"
             >
-              {['primary', 'info', 'warning', 'success', 'error'].map(
+              {["primary", "info", "warning", "success", "error"].map(
                 (color, i) => (
                   <ProgressCircular
                     key={i}
                     indeterminate
-                    className='ma-8'
+                    className="ma-8"
                     value={(i + 1) * 20}
                     color={`var(--${color})`}
                   />
@@ -128,12 +128,12 @@ class ProgressCircularView extends React.Component {
           code={[
             progressCircular,
             dark,
-            [[0, 1, 2, 3, 4].map((i) => `indeterminate`)]
+            [[0, 1, 2, 3, 4].map((i) => `indeterminate`)],
           ]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Size & Width</H5>}
           subtitle={
             <Subtitle1>
@@ -144,14 +144,14 @@ class ProgressCircularView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex justify-center align-center flex-wrap'
+              className="mt-6 d-flex justify-center align-center flex-wrap"
             >
-              {['primary', 'info', 'warning', 'success', 'error'].map(
+              {["primary", "info", "warning", "success", "error"].map(
                 (color, i) => (
                   <ProgressCircular
                     key={i}
                     indeterminate
-                    className='ma-8'
+                    className="ma-8"
                     value={(i + 1) * 20}
                     color={`var(--${color})`}
                     width={i % 2 === 0 ? 8 : 4}
@@ -170,13 +170,13 @@ class ProgressCircularView extends React.Component {
                   `indeterminate size={${i % 2 === 0 ? 64 : 36}} width={${
                     i % 2 === 0 ? 8 : 4
                   }}`
-              )
-            ]
+              ),
+            ],
           ]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Rotate</H5>}
           subtitle={
             <Subtitle1>
@@ -187,14 +187,14 @@ class ProgressCircularView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex justify-center align-center flex-wrap'
+              className="mt-6 d-flex justify-center align-center flex-wrap"
             >
-              {['primary', 'info', 'warning', 'success', 'error'].map(
+              {["primary", "info", "warning", "success", "error"].map(
                 (color, i) => (
                   <ProgressCircular
                     key={i}
                     value={50}
-                    className='ma-8'
+                    className="ma-8"
                     rotate={i * 45}
                     color={`var(--${color})`}
                   />
@@ -205,12 +205,12 @@ class ProgressCircularView extends React.Component {
           code={[
             progressCircular,
             dark,
-            [[0, 1, 2, 3, 4].map((i) => `rotate={${i * 45}}`)]
+            [[0, 1, 2, 3, 4].map((i) => `rotate={${i * 45}}`)],
           ]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Elevated</H5>}
           subtitle={
             <Subtitle1>
@@ -221,14 +221,14 @@ class ProgressCircularView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex justify-center align-center flex-wrap'
+              className="mt-6 d-flex justify-center align-center flex-wrap"
             >
-              {['primary', 'info', 'warning', 'success', 'error'].map(
+              {["primary", "info", "warning", "success", "error"].map(
                 (color, i) => (
                   <ProgressCircular
                     key={i}
                     elevated
-                    className='ma-8'
+                    className="ma-8"
                     value={(i + 1) * 20}
                     color={`var(--${color})`}
                     width={i % 2 === 0 ? 8 : 4}
@@ -247,13 +247,13 @@ class ProgressCircularView extends React.Component {
                   `elevated value={${(i + 1) * 20}} size={${
                     i % 2 === 0 ? 64 : 36
                   }} width={${i % 2 === 0 ? 8 : 4}}`
-              )
-            ]
+              ),
+            ],
           ]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Flat</H5>}
           subtitle={
             <Subtitle1>
@@ -264,14 +264,14 @@ class ProgressCircularView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex justify-center align-center flex-wrap'
+              className="mt-6 d-flex justify-center align-center flex-wrap"
             >
-              {['primary', 'info', 'warning', 'success', 'error'].map(
+              {["primary", "info", "warning", "success", "error"].map(
                 (color, i) => (
                   <ProgressCircular
                     flat
                     key={i}
-                    className='ma-8'
+                    className="ma-8"
                     value={(i + 1) * 20}
                     color={`var(--${color})`}
                     width={i % 2 === 0 ? 8 : 4}
@@ -290,13 +290,13 @@ class ProgressCircularView extends React.Component {
                   `flat value={${(i + 1) * 20}} size={${
                     i % 2 === 0 ? 64 : 36
                   }} width={${i % 2 === 0 ? 8 : 4}}`
-              )
-            ]
+              ),
+            ],
           ]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Label</H5>}
           subtitle={
             <Subtitle1>
@@ -307,38 +307,38 @@ class ProgressCircularView extends React.Component {
           content={
             <Card
               flat
-              className='mt-6 d-flex justify-center align-center flex-wrap'
+              className="mt-6 d-flex justify-center align-center flex-wrap"
             >
               <ProgressCircular
                 value={10}
-                className='ma-8'
-                color='var(--primary)'
+                className="ma-8"
+                color="var(--primary)"
               >
                 <Icon path={mdiNumeric10} size={0.9} />
               </ProgressCircular>
               <ProgressCircular
                 value={20}
-                className='ma-8'
-                color='var(--info)'
-                label='20'
+                className="ma-8"
+                color="var(--info)"
+                label="20"
               />
               <ProgressCircular
                 value={40}
-                className='ma-8'
-                color='var(--warning)'
+                className="ma-8"
+                color="var(--warning)"
               >
                 40
               </ProgressCircular>
               <ProgressCircular
                 value={80}
-                className='ma-8'
-                color='var(--success)'
-                label='80'
+                className="ma-8"
+                color="var(--success)"
+                label="80"
               />
               <ProgressCircular
                 value={100}
-                className='ma-8'
-                color='var(--error)'
+                className="ma-8"
+                color="var(--error)"
               >
                 100
               </ProgressCircular>
@@ -346,16 +346,16 @@ class ProgressCircularView extends React.Component {
           }
           code={[progressCircularLabel, dark]}
         />
-        <Divider dense className='mt-6' />
-        <H4 className='mt-12'>
-          <a href='#api' name='api'>
+        <Divider dense className="mt-6" />
+        <H4 className="mt-12">
+          <a href="#api" name="api">
             API
           </a>
         </H4>
-        <ApiCard entity='ProgressCircular' data={progressCircularApi(dark)} />
+        <ApiCard entity="ProgressCircular" data={progressCircularApi(dark)} />
       </Card>
-    )
+    );
   }
 }
 
-export default ProgressCircularView
+export default ProgressCircularView;

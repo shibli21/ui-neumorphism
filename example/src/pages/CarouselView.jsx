@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 
-import Icon from '@mdi/react'
+import Icon from "@mdi/react";
 import {
   mdiEmoticonHappyOutline,
   mdiEmoticonCoolOutline,
   mdiArrowRightBoldBox,
-  mdiArrowLeftBoldBox
-} from '@mdi/js'
+  mdiArrowLeftBoldBox,
+} from "@mdi/js";
 import {
   H3,
   H4,
@@ -16,29 +16,29 @@ import {
   Divider,
   Carousel,
   Subtitle1,
-  CarouselItem
-} from 'ui-neumorphism'
+  CarouselItem,
+} from "ui-neumorphism";
 
 import {
   carouselApi,
   customArrows,
   simpleCarousel,
   customCarousel,
-  carouselItemApi
-} from '../docs/'
+  carouselItemApi,
+} from "../docs/";
 
-import DocCard from '../containers/DocCard.jsx'
-import ApiCard from '../containers/ApiCard.jsx'
+import DocCard from "../containers/DocCard.jsx";
+import ApiCard from "../containers/ApiCard.tsx";
 
 const url =
-  'https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/CarouselView.jsx'
+  "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/CarouselView.jsx";
 class CarouselView extends React.Component {
   render() {
-    const { dark } = this.props
+    const { dark } = this.props;
     return (
       <Card flat dark={dark}>
         <H4>
-          <a href='#component' name='component'>
+          <a href="#component" name="component">
             Carousel
           </a>
         </H4>
@@ -47,8 +47,8 @@ class CarouselView extends React.Component {
           content on a rotating timer.
         </H6>
         <DocCard
-          className='mt-12'
-          url={url + '#L65-L78'}
+          className="mt-12"
+          url={url + "#L65-L78"}
           title={<H5>Cycle</H5>}
           subtitle={
             <Subtitle1>
@@ -60,29 +60,29 @@ class CarouselView extends React.Component {
           content={
             <Card
               flat
-              className='d-flex align-center justify-center flex-wrap fill-width'
+              className="d-flex align-center justify-center flex-wrap fill-width"
             >
               <Carousel cycle>
-                <CarouselItem style={{ background: 'var(--info)' }}>
+                <CarouselItem style={{ background: "var(--info)" }}>
                   <H3>Slide 1</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--error)' }}>
+                <CarouselItem style={{ background: "var(--error)" }}>
                   <H3>Slide 2</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--success)' }}>
+                <CarouselItem style={{ background: "var(--success)" }}>
                   <H3>Slide 3</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--warning)' }}>
+                <CarouselItem style={{ background: "var(--warning)" }}>
                   <H3>Slide 4</H3>
                 </CarouselItem>
               </Carousel>
             </Card>
           }
-          code={[simpleCarousel, dark, ['cycle']]}
+          code={[simpleCarousel, dark, ["cycle"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L65-L78'}
+          className="mt-12"
+          url={url + "#L65-L78"}
           title={<H5>Reverse</H5>}
           subtitle={
             <Subtitle1>
@@ -92,29 +92,29 @@ class CarouselView extends React.Component {
           content={
             <Card
               flat
-              className='d-flex align-center justify-center flex-wrap fill-width'
+              className="d-flex align-center justify-center flex-wrap fill-width"
             >
               <Carousel cycle reverse>
-                <CarouselItem style={{ background: 'var(--info)' }}>
+                <CarouselItem style={{ background: "var(--info)" }}>
                   <H3>Slide 1</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--error)' }}>
+                <CarouselItem style={{ background: "var(--error)" }}>
                   <H3>Slide 2</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--success)' }}>
+                <CarouselItem style={{ background: "var(--success)" }}>
                   <H3>Slide 3</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--warning)' }}>
+                <CarouselItem style={{ background: "var(--warning)" }}>
                   <H3>Slide 4</H3>
                 </CarouselItem>
               </Carousel>
             </Card>
           }
-          code={[simpleCarousel, dark, ['cycle reverse']]}
+          code={[simpleCarousel, dark, ["cycle reverse"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L98-L111'}
+          className="mt-12"
+          url={url + "#L98-L111"}
           title={<H5>Show arrows</H5>}
           subtitle={
             <Subtitle1>
@@ -125,29 +125,29 @@ class CarouselView extends React.Component {
           content={
             <Card
               flat
-              className='d-flex align-center justify-center flex-wrap fill-width'
+              className="d-flex align-center justify-center flex-wrap fill-width"
             >
               <Carousel showArrows>
-                <CarouselItem style={{ background: 'var(--info)' }}>
+                <CarouselItem style={{ background: "var(--info)" }}>
                   <H3>Slide 1</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--error)' }}>
+                <CarouselItem style={{ background: "var(--error)" }}>
                   <H3>Slide 2</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--success)' }}>
+                <CarouselItem style={{ background: "var(--success)" }}>
                   <H3>Slide 3</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--warning)' }}>
+                <CarouselItem style={{ background: "var(--warning)" }}>
                   <H3>Slide 4</H3>
                 </CarouselItem>
               </Carousel>
             </Card>
           }
-          code={[simpleCarousel, dark, ['showArrows']]}
+          code={[simpleCarousel, dark, ["showArrows"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L131-L144'}
+          className="mt-12"
+          url={url + "#L131-L144"}
           title={<H5>Show arrows on hover</H5>}
           subtitle={
             <Subtitle1>
@@ -158,29 +158,29 @@ class CarouselView extends React.Component {
           content={
             <Card
               flat
-              className='d-flex align-center justify-center flex-wrap fill-width'
+              className="d-flex align-center justify-center flex-wrap fill-width"
             >
               <Carousel showArrows showArrowsOnHover>
-                <CarouselItem style={{ background: 'var(--info)' }}>
+                <CarouselItem style={{ background: "var(--info)" }}>
                   <H3>Slide 1</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--error)' }}>
+                <CarouselItem style={{ background: "var(--error)" }}>
                   <H3>Slide 2</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--success)' }}>
+                <CarouselItem style={{ background: "var(--success)" }}>
                   <H3>Slide 3</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--warning)' }}>
+                <CarouselItem style={{ background: "var(--warning)" }}>
                   <H3>Slide 4</H3>
                 </CarouselItem>
               </Carousel>
             </Card>
           }
-          code={[simpleCarousel, dark, ['showArrows showArrowsOnHover']]}
+          code={[simpleCarousel, dark, ["showArrows showArrowsOnHover"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L163-L176'}
+          className="mt-12"
+          url={url + "#L163-L176"}
           title={<H5>Hide delimiters</H5>}
           subtitle={
             <Subtitle1>
@@ -190,29 +190,29 @@ class CarouselView extends React.Component {
           content={
             <Card
               flat
-              className='d-flex align-center justify-center flex-wrap fill-width'
+              className="d-flex align-center justify-center flex-wrap fill-width"
             >
               <Carousel showArrows hideDelimiters>
-                <CarouselItem style={{ background: 'var(--info)' }}>
+                <CarouselItem style={{ background: "var(--info)" }}>
                   <H3>Slide 1</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--error)' }}>
+                <CarouselItem style={{ background: "var(--error)" }}>
                   <H3>Slide 2</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--success)' }}>
+                <CarouselItem style={{ background: "var(--success)" }}>
                   <H3>Slide 3</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--warning)' }}>
+                <CarouselItem style={{ background: "var(--warning)" }}>
                   <H3>Slide 4</H3>
                 </CarouselItem>
               </Carousel>
             </Card>
           }
-          code={[simpleCarousel, dark, ['showArrows hideDelimiters']]}
+          code={[simpleCarousel, dark, ["showArrows hideDelimiters"]]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L193-L216'}
+          className="mt-12"
+          url={url + "#L193-L216"}
           title={<H5>Custom arrow icons</H5>}
           subtitle={
             <Subtitle1>
@@ -224,23 +224,23 @@ class CarouselView extends React.Component {
           content={
             <Card
               flat
-              className='d-flex align-center justify-center flex-wrap fill-width'
+              className="d-flex align-center justify-center flex-wrap fill-width"
             >
               <Carousel
                 showArrows
                 nextIcon={<Icon path={mdiArrowRightBoldBox} size={1} />}
                 prevIcon={<Icon path={mdiArrowLeftBoldBox} size={1} />}
               >
-                <CarouselItem style={{ background: 'var(--info)' }}>
+                <CarouselItem style={{ background: "var(--info)" }}>
                   <H3>Slide 1</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--error)' }}>
+                <CarouselItem style={{ background: "var(--error)" }}>
                   <H3>Slide 2</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--success)' }}>
+                <CarouselItem style={{ background: "var(--success)" }}>
                   <H3>Slide 3</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--warning)' }}>
+                <CarouselItem style={{ background: "var(--warning)" }}>
                   <H3>Slide 4</H3>
                 </CarouselItem>
               </Carousel>
@@ -249,8 +249,8 @@ class CarouselView extends React.Component {
           code={[customArrows, dark]}
         />
         <DocCard
-          className='mt-12'
-          url={url + '#L234-L263'}
+          className="mt-12"
+          url={url + "#L234-L263"}
           title={<H5>Custom delimiters</H5>}
           subtitle={
             <Subtitle1>
@@ -260,7 +260,7 @@ class CarouselView extends React.Component {
           content={
             <Card
               flat
-              className='d-flex align-center justify-center flex-wrap fill-width'
+              className="d-flex align-center justify-center flex-wrap fill-width"
             >
               <Carousel
                 showArrows
@@ -268,28 +268,28 @@ class CarouselView extends React.Component {
                 activeDelimiterIcon={
                   <Icon
                     path={mdiEmoticonCoolOutline}
-                    className='c-pointer ma-3'
+                    className="c-pointer ma-3"
                     size={1}
                   />
                 }
                 delimiterIcon={
                   <Icon
                     path={mdiEmoticonHappyOutline}
-                    className='c-pointer ma-3'
+                    className="c-pointer ma-3"
                     size={1}
                   />
                 }
               >
-                <CarouselItem style={{ background: 'var(--info)' }}>
+                <CarouselItem style={{ background: "var(--info)" }}>
                   <H3>Slide 1</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--error)' }}>
+                <CarouselItem style={{ background: "var(--error)" }}>
                   <H3>Slide 2</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--success)' }}>
+                <CarouselItem style={{ background: "var(--success)" }}>
                   <H3>Slide 3</H3>
                 </CarouselItem>
-                <CarouselItem style={{ background: 'var(--warning)' }}>
+                <CarouselItem style={{ background: "var(--warning)" }}>
                   <H3>Slide 4</H3>
                 </CarouselItem>
               </Carousel>
@@ -297,18 +297,18 @@ class CarouselView extends React.Component {
           }
           code={[customCarousel, dark]}
         />
-        <Divider dense className='mt-6' />
-        <H4 className='mt-12'>
-          <a href='#api' name='api'>
+        <Divider dense className="mt-6" />
+        <H4 className="mt-12">
+          <a href="#api" name="api">
             API
           </a>
         </H4>
-        <ApiCard entity='Carousel' data={carouselApi(dark)} />
-        <div className='mt-12'></div>
-        <ApiCard entity='CarouselItem' data={carouselItemApi(dark)} />
+        <ApiCard entity="Carousel" data={carouselApi(dark)} />
+        <div className="mt-12"></div>
+        <ApiCard entity="CarouselItem" data={carouselItemApi(dark)} />
       </Card>
-    )
+    );
   }
 }
 
-export default CarouselView
+export default CarouselView;

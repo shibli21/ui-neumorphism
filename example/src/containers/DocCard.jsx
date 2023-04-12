@@ -1,43 +1,36 @@
-import React from 'react'
+import React from "react";
 
-import { Card } from 'ui-neumorphism'
-import CodeBlock from '../containers/CodeBlock.jsx'
+import { Card } from "ui-neumorphism";
+import CodeBlock from "../containers/CodeBlock.tsx";
 
 class DocCard extends React.Component {
-  static displayName = 'NuDocCard'
+  static displayName = "NuDocCard";
 
   state = {
-    darkTheme: this.props.dark
-  }
+    darkTheme: this.props.dark,
+  };
 
   handleTheme(e) {
-    this.setState({ darkTheme: !this.state.darkTheme })
+    this.setState({ darkTheme: !this.state.darkTheme });
   }
 
   render() {
-    const {
-      url,
-      code,
-      dark,
-      style,
-      title,
-      content,
-      subtitle,
-      className
-    } = this.props
-    const { darkTheme } = this.state
-    const localDark = darkTheme === undefined ? false : true
+    const { url, code, dark, style, title, content, subtitle, className } =
+      this.props;
+    const { darkTheme } = this.state;
+    const localDark = darkTheme === undefined ? false : true;
     return (
       <Card flat dark={dark} style={style} className={className}>
         {title}
         {subtitle}
-        <Card dark={localDark ? darkTheme : dark} outlined className='mt-4'>
-          <Card flat outlined={false} className='d-flex justify-center py-12'>
+        <Card dark={localDark ? darkTheme : dark} outlined className="mt-4">
+          <Card flat outlined={false} className="d-flex justify-center py-12">
             {content}
           </Card>
           <CodeBlock
+            dark={localDark ? darkTheme : dark}
             url={url}
-            lang='jsx'
+            lang="jsx"
             onThemeChange={this.handleTheme.bind(this)}
           >
             {code
@@ -46,8 +39,8 @@ class DocCard extends React.Component {
           </CodeBlock>
         </Card>
       </Card>
-    )
+    );
   }
 }
 
-export default DocCard
+export default DocCard;

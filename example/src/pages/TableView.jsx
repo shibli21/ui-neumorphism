@@ -1,55 +1,55 @@
-import React from 'react'
+import React from "react";
 
-import Icon from '@mdi/react'
-import { mdiNumeric4, mdiNumeric6, mdiNumeric9 } from '@mdi/js'
+import Icon from "@mdi/react";
+import { mdiNumeric4, mdiNumeric6, mdiNumeric9 } from "@mdi/js";
 
-import { Card, Table, H5, Subtitle1, H4, H6, Divider } from 'ui-neumorphism'
+import { Card, Table, H5, Subtitle1, H4, H6, Divider } from "ui-neumorphism";
 
-import { simpleTable, minimalTable, tableApi } from '../docs/'
-import DocCard from '../containers/DocCard.jsx'
-import ApiCard from '../containers/ApiCard.jsx'
+import { simpleTable, minimalTable, tableApi } from "../docs/";
+import DocCard from "../containers/DocCard.jsx";
+import ApiCard from "../containers/ApiCard.tsx";
 
 function createItem(name, calories, fat, carbs, protein, iron) {
-  return { name, calories, fat, carbs, protein, iron }
+  return { name, calories, fat, carbs, protein, iron };
 }
 
 const headers = [
   {
-    text: 'Dessert (100g serving)',
-    align: 'left',
-    value: 'name'
+    text: "Dessert (100g serving)",
+    align: "left",
+    value: "name",
   },
-  { text: 'Calories', align: 'right', value: 'calories' },
-  { text: 'Fat (g)', align: 'right', value: 'fat' },
-  { text: 'Carbs (g)', align: 'right', value: 'carbs' },
-  { text: 'Protein (g)', align: 'right', value: 'protein' },
-  { text: 'Iron (%)', align: 'right', value: 'iron' }
-]
+  { text: "Calories", align: "right", value: "calories" },
+  { text: "Fat (g)", align: "right", value: "fat" },
+  { text: "Carbs (g)", align: "right", value: "carbs" },
+  { text: "Protein (g)", align: "right", value: "protein" },
+  { text: "Iron (%)", align: "right", value: "iron" },
+];
 
 const items = [
-  createItem('Frozen yoghurt', 159, 6.0, 24, 4.0, '1%'),
-  createItem('Ice cream sandwich', 237, 9.0, 37, 4.3, '1%'),
-  createItem('Eclair', 262, 16.0, 24, 6.0, '7%'),
-  createItem('Cupcake', 305, 3.7, 67, 4.3, '8%'),
-  createItem('Gingerbread', 356, 16.0, 49, 3.9, '16%')
-]
+  createItem("Frozen yoghurt", 159, 6.0, 24, 4.0, "1%"),
+  createItem("Ice cream sandwich", 237, 9.0, 37, 4.3, "1%"),
+  createItem("Eclair", 262, 16.0, 24, 6.0, "7%"),
+  createItem("Cupcake", 305, 3.7, 67, 4.3, "8%"),
+  createItem("Gingerbread", 356, 16.0, 49, 3.9, "16%"),
+];
 
 const jsxItems = [
   createItem(
-    <div style={{ color: 'var(--primary)' }}>Frozen yoghurt</div>,
+    <div style={{ color: "var(--primary)" }}>Frozen yoghurt</div>,
     159,
     <Icon path={mdiNumeric6} size={1.1} />,
     24,
     <Icon path={mdiNumeric4} size={1.1} />,
-    <span style={{ color: 'var(--error)' }}>1%</span>
+    <span style={{ color: "var(--error)" }}>1%</span>
   ),
   createItem(
-    'Ice cream sandwich',
+    "Ice cream sandwich",
     237,
     <Icon path={mdiNumeric9} size={1.1} />,
     37,
     4.3,
-    <span style={{ color: 'var(--error)' }}>1%</span>
+    <span style={{ color: "var(--error)" }}>1%</span>
   ),
   createItem(
     <code>Eclair</code>,
@@ -57,31 +57,31 @@ const jsxItems = [
     16.0,
     24,
     <Icon path={mdiNumeric6} size={1.1} />,
-    '7%'
-  )
-]
+    "7%"
+  ),
+];
 
 const url =
-  'https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/TableView.jsx'
+  "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/TableView.jsx";
 
 class TableView extends React.Component {
   render() {
-    const { dark } = this.props
+    const { dark } = this.props;
     return (
-      <Card dark={dark} flat className='py-2'>
+      <Card dark={dark} flat className="py-2">
         <H4>
-          <a href='#component' name='component'>
+          <a href="#component" name="component">
             Tables
           </a>
         </H4>
         <H6>Tables display sets of data in tabular form</H6>
-        <Subtitle1 className='mt-1'>
+        <Subtitle1 className="mt-1">
           Tables display information in a way that’s easy to scan, so that users
           can look for patterns and insights.
         </Subtitle1>
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Simple table</H5>}
           subtitle={
             <Subtitle1>
@@ -90,7 +90,7 @@ class TableView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='fill-width px-6 mt-6'>
+            <Card flat className="fill-width px-6 mt-6">
               <Table items={items} headers={headers} />
             </Card>
           }
@@ -98,7 +98,7 @@ class TableView extends React.Component {
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Simple customized table</H5>}
           subtitle={
             <Subtitle1>
@@ -108,7 +108,7 @@ class TableView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='fill-width px-6 mt-6'>
+            <Card flat className="fill-width px-6 mt-6">
               <Table items={jsxItems} headers={headers} />
             </Card>
           }
@@ -116,7 +116,7 @@ class TableView extends React.Component {
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Flat</H5>}
           subtitle={
             <Subtitle1>
@@ -124,15 +124,15 @@ class TableView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='fill-width px-6 mt-6'>
+            <Card flat className="fill-width px-6 mt-6">
               <Table flat items={items} headers={headers} />
             </Card>
           }
-          code={[minimalTable, dark, ['flat']]}
+          code={[minimalTable, dark, ["flat"]]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Outlined</H5>}
           subtitle={
             <Subtitle1>
@@ -141,15 +141,15 @@ class TableView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='fill-width px-6 mt-6'>
+            <Card flat className="fill-width px-6 mt-6">
               <Table outlined items={items} headers={headers} />
             </Card>
           }
-          code={[minimalTable, dark, ['outlined']]}
+          code={[minimalTable, dark, ["outlined"]]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Inset</H5>}
           subtitle={
             <Subtitle1>
@@ -157,15 +157,15 @@ class TableView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='fill-width px-6 mt-6'>
+            <Card flat className="fill-width px-6 mt-6">
               <Table inset items={items} headers={headers} />
             </Card>
           }
-          code={[minimalTable, dark, ['inset']]}
+          code={[minimalTable, dark, ["inset"]]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Dense</H5>}
           subtitle={
             <Subtitle1>
@@ -174,15 +174,15 @@ class TableView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='fill-width px-6 mt-6'>
+            <Card flat className="fill-width px-6 mt-6">
               <Table dense items={items} headers={headers} />
             </Card>
           }
-          code={[minimalTable, dark, ['dense']]}
+          code={[minimalTable, dark, ["dense"]]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>No headers</H5>}
           subtitle={
             <Subtitle1>
@@ -190,22 +190,22 @@ class TableView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='fill-width px-6 mt-6'>
+            <Card flat className="fill-width px-6 mt-6">
               <Table noHeaders items={items} headers={headers} />
             </Card>
           }
-          code={[minimalTable, dark, ['noHeaders']]}
+          code={[minimalTable, dark, ["noHeaders"]]}
         />
-        <Divider dense className='mt-6' />
-        <H4 className='mt-12'>
-          <a href='#api' name='api'>
+        <Divider dense className="mt-6" />
+        <H4 className="mt-12">
+          <a href="#api" name="api">
             API
           </a>
         </H4>
-        <ApiCard entity='Table' data={tableApi(dark)} />
+        <ApiCard entity="Table" data={tableApi(dark)} />
       </Card>
-    )
+    );
   }
 }
 
-export default TableView
+export default TableView;

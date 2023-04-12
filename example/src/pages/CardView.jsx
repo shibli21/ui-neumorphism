@@ -34,7 +34,7 @@ import {
 } from "../docs/";
 
 import DocCard from "../containers/DocCard.jsx";
-import ApiCard from "../containers/ApiCard.jsx";
+import ApiCard from "../containers/ApiCard.tsx";
 
 const url =
   "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/CardView.jsx";

@@ -1,24 +1,24 @@
-import React from 'react'
+import React from "react";
 
-import { Card, H4, H6, ListItem, ListItemGroup } from 'ui-neumorphism'
+import { Card, H4, H6, ListItem, ListItemGroup } from "ui-neumorphism";
 
 // import { toggle, toggleLabel, switchApi } from '../docs/'
 
-import DocCard from '../containers/DocCard.jsx'
-// import ApiCard from '../containers/ApiCard.jsx'
+import DocCard from "../containers/DocCard.jsx";
+// import ApiCard from '../containers/ApiCard.tsx'
 
 const url =
-  'https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/ListView.jsx'
+  "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/ListView.jsx";
 class ListView extends React.Component {
   state = {
-    active: 0
-  }
+    active: 0,
+  };
   render() {
-    const { dark } = this.props
+    const { dark } = this.props;
     return (
       <Card flat dark={dark}>
         <H4>
-          <a href='#component' name='component'>
+          <a href="#component" name="component">
             List
           </a>
         </H4>
@@ -32,17 +32,17 @@ class ListView extends React.Component {
           content={
             <Card
               width={300}
-              className='d-flex align-center justify-center flex-wrap'
+              className="d-flex align-center justify-center flex-wrap"
             >
               <ListItemGroup
                 link
                 value={this.state.active}
                 onChange={({ active }) => this.setState({ active })}
               >
-                <ListItem title={'hello'} />
-                <ListItem title={'hello again'} />
-                <ListItem title={'hello again friend'} />
-                <ListItem active title={'hello again oh hello'} />
+                <ListItem title={"hello"} />
+                <ListItem title={"hello again"} />
+                <ListItem title={"hello again friend"} />
+                <ListItem active title={"hello again oh hello"} />
               </ListItemGroup>
             </Card>
           }
@@ -53,70 +53,70 @@ class ListView extends React.Component {
             <Card
               flat
               width={300}
-              className='d-flex align-center justify-center flex-wrap'
+              className="d-flex align-center justify-center flex-wrap"
             >
               <ListItem
-                title={'Oh my god'}
+                title={"Oh my god"}
                 subtitle={
-                  'hekp mponent presents content in a way that makes it easy '
+                  "hekp mponent presents content in a way that makes it easy "
                 }
               />
               <ListItem
                 link
-                title={'Oh my god'}
+                title={"Oh my god"}
                 subtitle={
-                  'hekp mponent presents content in a way that makes it easy '
+                  "hekp mponent presents content in a way that makes it easy "
                 }
               />
               <ListItem
                 link
                 active
-                title={'Oh my god'}
+                title={"Oh my god"}
                 subtitle={
-                  'hekp mponent presents content in a way that makes it easy '
+                  "hekp mponent presents content in a way that makes it easy "
                 }
               />
               <ListItem
                 link
                 dense
-                title={'Oh my god'}
+                title={"Oh my god"}
                 subtitle={
-                  'hekp mponent presents content in a way that makes it easy '
+                  "hekp mponent presents content in a way that makes it easy "
                 }
               />
               <ListItem
                 link
                 active
                 rounded
-                title={'Oh my god'}
+                title={"Oh my god"}
                 subtitle={
-                  'hekp mponent presents content in a way that makes it easy '
+                  "hekp mponent presents content in a way that makes it easy "
                 }
               />
               <ListItem
                 link
                 inActive
                 rounded
-                title={'Oh my god'}
+                title={"Oh my god"}
                 subtitle={
-                  'hekp mponent presents content in a way that makes it easy '
+                  "hekp mponent presents content in a way that makes it easy "
                 }
               />
               <ListItem
                 link
                 dense
                 twoLineSubtitle
-                title={'Oh my god'}
+                title={"Oh my god"}
                 subtitle={
-                  'hekp mponent presents content in a way that makes it easy way that makes it easy way that makes it easy way that makes it easy '
+                  "hekp mponent presents content in a way that makes it easy way that makes it easy way that makes it easy way that makes it easy "
                 }
               />
               <ListItem
                 link
                 twoLineSubtitle
-                title={'Oh my god'}
+                title={"Oh my god"}
                 subtitle={
-                  'hekp mponent presents content in a way that makes it easy way that makes it easy way that makes it easy way that makes it easy '
+                  "hekp mponent presents content in a way that makes it easy way that makes it easy way that makes it easy way that makes it easy "
                 }
               />
               <ListItem
@@ -124,18 +124,18 @@ class ListView extends React.Component {
                 dense
                 rounded
                 twoLineSubtitle
-                title={'Oh my god'}
+                title={"Oh my god"}
                 subtitle={
-                  'hekp mponent presents content in a way that makes it easy way that makes it easy way that makes it easy way that makes it easy '
+                  "hekp mponent presents content in a way that makes it easy way that makes it easy way that makes it easy way that makes it easy "
                 }
               />
               <ListItem
                 link
                 rounded
                 twoLineSubtitle
-                title={'Oh my god'}
+                title={"Oh my god"}
                 subtitle={
-                  'hekp mponent presents content in a way that makes it easy way that makes it easy way that makes it easy way that makes it easy '
+                  "hekp mponent presents content in a way that makes it easy way that makes it easy way that makes it easy way that makes it easy "
                 }
               />
               <ListItem
@@ -144,23 +144,23 @@ class ListView extends React.Component {
                 raised
                 rounded
                 twoLineSubtitle
-                title={'Oh my god'}
+                title={"Oh my god"}
                 subtitle={
-                  'hekp mponent presents content in a way that makes it easy way that makes it easy way that makes it easy way that makes it easy '
+                  "hekp mponent presents content in a way that makes it easy way that makes it easy way that makes it easy way that makes it easy "
                 }
               />
             </Card>
           }
         />
-        <H4 className='mt-12'>
-          <a href='#api' name='api'>
+        <H4 className="mt-12">
+          <a href="#api" name="api">
             API
           </a>
         </H4>
         Coming soon..
       </Card>
-    )
+    );
   }
 }
 
-export default ListView
+export default ListView;

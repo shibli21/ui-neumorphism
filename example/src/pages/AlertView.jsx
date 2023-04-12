@@ -1,15 +1,15 @@
-import React from 'react'
+import React from "react";
 
-import Icon from '@mdi/react'
+import Icon from "@mdi/react";
 import {
   mdiAlert,
   mdiCloseCircle,
   mdiCheckCircle,
   mdiInformationOutline,
-  mdiInformationVariant
-} from '@mdi/js'
+  mdiInformationVariant,
+} from "@mdi/js";
 
-import { Card, H4, H6, Alert, Button, H5, Subtitle1 } from 'ui-neumorphism'
+import { Card, H4, H6, Alert, Button, H5, Subtitle1 } from "ui-neumorphism";
 
 import {
   alertApi,
@@ -19,29 +19,29 @@ import {
   colorAlert,
   denseAlert,
   borderAlert,
-  simpleAlert
-} from '../docs/'
+  simpleAlert,
+} from "../docs/";
 
-import DocCard from '../containers/DocCard.jsx'
-import ApiCard from '../containers/ApiCard.jsx'
+import DocCard from "../containers/DocCard.jsx";
+import ApiCard from "../containers/ApiCard.tsx";
 
 const url =
-  'https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/AlertView.jsx'
+  "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/AlertView.jsx";
 class AlertView extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       visible1: true,
-      visible2: true
-    }
+      visible2: true,
+    };
   }
 
   render() {
-    const { dark } = this.props
+    const { dark } = this.props;
     return (
       <Card flat dark={dark}>
         <H4>
-          <a href='#component' name='component'>
+          <a href="#component" name="component">
             Alert
           </a>
         </H4>
@@ -49,8 +49,8 @@ class AlertView extends React.Component {
           The Alert component is used to convey contextual feedback to the user.
         </H6>
         <DocCard
-          className='mt-12'
-          url={url + '#L62-L73'}
+          className="mt-12"
+          url={url + "#L62-L73"}
           title={<H5>Type</H5>}
           subtitle={
             <Subtitle1>
@@ -59,25 +59,25 @@ class AlertView extends React.Component {
               <br />
               Each of these styles provide a default color, defined as css
               variables
-              <span style={{ color: 'var(--success)' }}> --success</span>,
-              <span style={{ color: 'var(--info)' }}> --info</span>,
-              <span style={{ color: 'var(--warning)' }}> --warning</span>, and
-              <span style={{ color: 'var(--error)' }}> --error </span>
+              <span style={{ color: "var(--success)" }}> --success</span>,
+              <span style={{ color: "var(--info)" }}> --info</span>,
+              <span style={{ color: "var(--warning)" }}> --warning</span>, and
+              <span style={{ color: "var(--error)" }}> --error </span>
               respectively.
             </Subtitle1>
           }
           content={
-            <Card flat className='mt-6'>
-              <Alert className='mb-6' type='success'>
+            <Card flat className="mt-6">
+              <Alert className="mb-6" type="success">
                 I'm a success alert.
               </Alert>
-              <Alert className='mb-6' type='info'>
+              <Alert className="mb-6" type="info">
                 I'm an info alert.
               </Alert>
-              <Alert className='mb-6' type='warning'>
+              <Alert className="mb-6" type="warning">
                 I'm a warning alert.
               </Alert>
-              <Alert className='mb-6' type='error'>
+              <Alert className="mb-6" type="error">
                 I'm an error alert.
               </Alert>
             </Card>
@@ -86,7 +86,7 @@ class AlertView extends React.Component {
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Inset</H5>}
           subtitle={
             <Subtitle1>
@@ -94,26 +94,26 @@ class AlertView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='mt-6'>
-              <Alert className='mb-6' type='success' inset>
+            <Card flat className="mt-6">
+              <Alert className="mb-6" type="success" inset>
                 I'm a success alert.
               </Alert>
-              <Alert className='mb-6' type='info' inset>
+              <Alert className="mb-6" type="info" inset>
                 I'm an info alert.
               </Alert>
-              <Alert className='mb-6' type='warning' inset>
+              <Alert className="mb-6" type="warning" inset>
                 I'm a warning alert.
               </Alert>
-              <Alert className='mb-6' type='error' inset>
+              <Alert className="mb-6" type="error" inset>
                 I'm an error alert.
               </Alert>
             </Card>
           }
-          code={[simpleAlert, dark, ['inset']]}
+          code={[simpleAlert, dark, ["inset"]]}
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Styles</H5>}
           subtitle={
             <Subtitle1>
@@ -127,17 +127,17 @@ class AlertView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='mt-6'>
-              <Alert className='mb-6' type='success' flat>
+            <Card flat className="mt-6">
+              <Alert className="mb-6" type="success" flat>
                 I'm a success alert.
               </Alert>
-              <Alert className='mb-6' type='info' bordered>
+              <Alert className="mb-6" type="info" bordered>
                 I'm an info alert.
               </Alert>
-              <Alert className='mb-6' type='warning' rounded>
+              <Alert className="mb-6" type="warning" rounded>
                 I'm a warning alert.
               </Alert>
-              <Alert className='mb-6' type='error' outlined>
+              <Alert className="mb-6" type="error" outlined>
                 I'm an error alert.
               </Alert>
             </Card>
@@ -146,7 +146,7 @@ class AlertView extends React.Component {
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Color</H5>}
           subtitle={
             <Subtitle1>
@@ -155,11 +155,11 @@ class AlertView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='mt-6'>
-              <Alert className='mb-6' color='#6200EA'>
+            <Card flat className="mt-6">
+              <Alert className="mb-6" color="#6200EA">
                 I'm an alert with #6200EA color.
               </Alert>
-              <Alert className='mb-6' color='magenta'>
+              <Alert className="mb-6" color="magenta">
                 I'm an alert with magenta color.
               </Alert>
             </Card>
@@ -168,7 +168,7 @@ class AlertView extends React.Component {
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Border</H5>}
           subtitle={
             <Subtitle1>
@@ -178,17 +178,17 @@ class AlertView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='mt-6'>
-              <Alert className='mb-6' type='success' border='top'>
+            <Card flat className="mt-6">
+              <Alert className="mb-6" type="success" border="top">
                 I'm a success alert.
               </Alert>
-              <Alert className='mb-6' type='info' border='left'>
+              <Alert className="mb-6" type="info" border="left">
                 I'm an info alert.
               </Alert>
-              <Alert className='mb-6' color='magenta' border='right'>
+              <Alert className="mb-6" color="magenta" border="right">
                 I'm a magenta alert.
               </Alert>
-              <Alert className='mb-6' type='error' border='bottom'>
+              <Alert className="mb-6" type="error" border="bottom">
                 I'm an error alert.
               </Alert>
             </Card>
@@ -197,7 +197,7 @@ class AlertView extends React.Component {
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Dense</H5>}
           subtitle={
             <Subtitle1>
@@ -205,17 +205,17 @@ class AlertView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='mt-6'>
-              <Alert className='mb-6' type='success' dense>
+            <Card flat className="mt-6">
+              <Alert className="mb-6" type="success" dense>
                 I'm a success alert.
               </Alert>
-              <Alert className='mb-6' border='left' type='info' dense>
+              <Alert className="mb-6" border="left" type="info" dense>
                 I'm an info alert.
               </Alert>
-              <Alert className='mb-6' color='magenta' dense inset>
+              <Alert className="mb-6" color="magenta" dense inset>
                 I'm a magenta alert.
               </Alert>
-              <Alert className='mb-6' type='error' dense outlined>
+              <Alert className="mb-6" type="error" dense outlined>
                 I'm an error alert.
               </Alert>
             </Card>
@@ -224,7 +224,7 @@ class AlertView extends React.Component {
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Icon</H5>}
           subtitle={
             <Subtitle1>
@@ -233,31 +233,31 @@ class AlertView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='mt-6'>
+            <Card flat className="mt-6">
               <Alert
-                className='mb-6'
-                type='success'
+                className="mb-6"
+                type="success"
                 icon={<Icon path={mdiCheckCircle} size={1} />}
               >
                 I'm a success alert.
               </Alert>
               <Alert
-                className='mb-6'
-                type='info'
+                className="mb-6"
+                type="info"
                 icon={<Icon path={mdiInformationVariant} size={1} />}
               >
                 I'm an info alert.
               </Alert>
               <Alert
-                className='mb-6'
-                type='warning'
+                className="mb-6"
+                type="warning"
                 icon={<Icon path={mdiInformationOutline} size={1} />}
               >
                 I'm a warning alert.
               </Alert>
               <Alert
-                className='mb-6'
-                type='error'
+                className="mb-6"
+                type="error"
                 icon={<Icon path={mdiAlert} size={1} />}
               >
                 I'm an error alert.
@@ -268,7 +268,7 @@ class AlertView extends React.Component {
         />
         <DocCard
           url={url}
-          className='mt-12'
+          className="mt-12"
           title={<H5>Closable</H5>}
           subtitle={
             <Subtitle1>
@@ -283,13 +283,13 @@ class AlertView extends React.Component {
             </Subtitle1>
           }
           content={
-            <Card flat className='mt-6 d-flex flex-column align-center'>
+            <Card flat className="mt-6 d-flex flex-column align-center">
               <Alert
-                className='mb-6'
+                className="mb-6"
                 rounded
                 closable
-                type='error'
-                border='left'
+                type="error"
+                border="left"
                 visible={this.state.visible1}
                 icon={<Icon path={mdiAlert} size={1} />}
                 onClose={() => this.setState({ visible1: false })}
@@ -297,17 +297,17 @@ class AlertView extends React.Component {
                 Click on close button to hide me.
               </Alert>
               {this.state.visible1 ? null : (
-                <Card flat className='mb-6'>
+                <Card flat className="mb-6">
                   <Button onClick={() => this.setState({ visible1: true })}>
                     show
                   </Button>
                 </Card>
               )}
               <Alert
-                className='mb-6'
+                className="mb-6"
                 closable
-                border='left'
-                type='success'
+                border="left"
+                type="success"
                 visible={this.state.visible2}
                 icon={<Icon path={mdiCheckCircle} size={1} />}
                 closeIcon={<Icon path={mdiCloseCircle} size={1} />}
@@ -316,7 +316,7 @@ class AlertView extends React.Component {
                 I have custom close Icon.
               </Alert>
               {this.state.visible2 ? null : (
-                <Card flat className='mb-6'>
+                <Card flat className="mb-6">
                   <Button onClick={() => this.setState({ visible2: true })}>
                     show
                   </Button>
@@ -326,15 +326,15 @@ class AlertView extends React.Component {
           }
           code={[closeAlert, dark]}
         />
-        <H4 className='mt-12'>
-          <a href='#api' name='api'>
+        <H4 className="mt-12">
+          <a href="#api" name="api">
             API
           </a>
         </H4>
-        <ApiCard entity='Alert' data={alertApi(dark)} />
+        <ApiCard entity="Alert" dark={dark} data={alertApi(dark)} />
       </Card>
-    )
+    );
   }
 }
 
-export default AlertView
+export default AlertView;

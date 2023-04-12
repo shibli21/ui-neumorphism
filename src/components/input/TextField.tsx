@@ -1,5 +1,6 @@
 import React, {
   FC,
+  ReactNode,
   createElement,
   forwardRef,
   useEffect,
@@ -38,14 +39,14 @@ interface TextFieldProps {
   style?: React.CSSProperties;
   className?: string;
   label?: string;
-  append?: string;
-  prepend?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  append?: ReactNode;
+  prepend?: ReactNode;
+  onChange?: (event: any) => void;
+  onBlur?: (event: any) => void;
+  onFocus?: (event: any) => void;
   onInput?: (event: any) => void;
-  onKeyDown?: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void;
-  onKeyUp?: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void;
+  onKeyDown?: (event: any) => void;
+  onKeyUp?: (event: any) => void;
   // ref?: React.RefObject<any> | null;
 }
 
@@ -225,38 +226,6 @@ const TextField = forwardRef((props: TextFieldProps, ref: any) => {
       <input {...inputProps} ref={ref} />
     );
   };
-
-  // const Input = React.forwardRef((forwardProps, innerRef) => {
-  //   const className = `${getClasses("text-field")} ${
-  //     tag === "textarea" ? getClasses("text-area") : ""
-  //   }`;
-  //   const events = pickKeys(props, ["onInput", "onKeyUp", "onKeyDown"]);
-
-  //   const inputProps = {
-  //     ref: innerRef,
-  //     id,
-  //     className,
-  //     type,
-  //     name,
-  //     value,
-  //     readOnly: readonly,
-  //     autoFocus: autofocus,
-  //     placeholder,
-  //     disabled: isDisabled,
-  //     onBlur: (e: any) => handleBlur(e),
-  //     onFocus: (e: any) => handleFocus(e),
-  //     onChange: (e: any) => handleChange(e),
-  //     tabIndex: isDisabled ? -1 : undefined,
-  //     style: {
-  //       width: `${width}px`,
-  //       height: `${height}px`,
-  //       minHeight: `${height}px`,
-  //       ...inputStyles,
-  //     },
-  //     ...events,
-  //   };
-  //   return React.createElement(tag, inputProps);
-  // });
 
   return (
     <div style={style} className={`${getClasses("wrapper")} ${className}`}>

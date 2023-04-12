@@ -5,7 +5,7 @@ import { Card, H4, H5, H6, Parallax, Subtitle1, Divider } from "ui-neumorphism";
 import { parallaxApi, simpleParallax } from "../docs/";
 
 import DocCard from "../containers/DocCard.jsx";
-import ApiCard from "../containers/ApiCard.jsx";
+import ApiCard from "../containers/ApiCard.tsx";
 
 const url =
   "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/ParallaxView.jsx";
