@@ -2,7 +2,7 @@ import React from "react";
 
 import { Card, Button, H4, H6, H5, Divider, Subtitle1 } from "ui-neumorphism";
 
-import DocCard from "../containers/DocCard.jsx";
+import DocCard from "../containers/DocCard.tsx";
 import ApiCard from "../containers/ApiCard.tsx";
 import {
   buttonApi,

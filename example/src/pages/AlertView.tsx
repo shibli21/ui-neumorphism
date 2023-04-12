@@ -12,7 +12,7 @@ import {
 import { Card, H4, H6, Alert, Button, H5, Subtitle1 } from "ui-neumorphism";
 
 //@ts-ignore
-import DocCard from "../containers/DocCard.jsx";
+import DocCard from "../containers/DocCard.tsx";
 import ApiCard from "../containers/ApiCard";
 
 import { alertApi } from "../docs/api/alert-api";

@@ -33,7 +33,7 @@ import {
   cardContentApi,
 } from "../docs/";
 
-import DocCard from "../containers/DocCard.jsx";
+import DocCard from "../containers/DocCard.tsx";
 import ApiCard from "../containers/ApiCard.tsx";
 
 const url =

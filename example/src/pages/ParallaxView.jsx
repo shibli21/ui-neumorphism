@@ -4,7 +4,7 @@ import { Card, H4, H5, H6, Parallax, Subtitle1, Divider } from "ui-neumorphism";
 
 import { parallaxApi, simpleParallax } from "../docs/";
 
-import DocCard from "../containers/DocCard.jsx";
+import DocCard from "../containers/DocCard.tsx";
 import ApiCard from "../containers/ApiCard.tsx";
 
 const url =

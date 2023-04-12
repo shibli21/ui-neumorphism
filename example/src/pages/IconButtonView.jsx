@@ -12,7 +12,7 @@ import {
 
 import { Card, H4, Divider, H6, Subtitle1, IconButton } from "ui-neumorphism";
 
-import DocCard from "../containers/DocCard.jsx";
+import DocCard from "../containers/DocCard.tsx";
 import ApiCard from "../containers/ApiCard.tsx";
 import { iconButtons, iconButtonApi } from "../docs/";
 

@@ -4,7 +4,7 @@ import { Card, H4, H6, Subtitle1 } from "ui-neumorphism";
 
 // import { toggle, toggleLabel, switchApi } from '../docs/'
 
-import DocCard from "../containers/DocCard.jsx";
+import DocCard from "../containers/DocCard.tsx";
 // import ApiCard from '../containers/ApiCard.tsx'
 
 const url =

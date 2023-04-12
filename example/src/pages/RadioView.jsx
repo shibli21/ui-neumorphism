@@ -12,7 +12,7 @@ import {
 } from "ui-neumorphism";
 
 import { radio, radioStandalone, radioApi, radioGroupApi } from "../docs/";
-import DocCard from "../containers/DocCard.jsx";
+import DocCard from "../containers/DocCard.tsx";
 import ApiCard from "../containers/ApiCard.tsx";
 const url =
   "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/RadioView.jsx";

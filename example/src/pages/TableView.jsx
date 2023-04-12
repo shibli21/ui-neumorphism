@@ -6,7 +6,7 @@ import { mdiNumeric4, mdiNumeric6, mdiNumeric9 } from "@mdi/js";
 import { Card, Table, H5, Subtitle1, H4, H6, Divider } from "ui-neumorphism";
 
 import { simpleTable, minimalTable, tableApi } from "../docs/";
-import DocCard from "../containers/DocCard.jsx";
+import DocCard from "../containers/DocCard.tsx";
 import ApiCard from "../containers/ApiCard.tsx";
 
 function createItem(name, calories, fat, carbs, protein, iron) {

@@ -3,7 +3,7 @@ import React from "react";
 import { H4, H6, Card, Subtitle1, TextField, H5 } from "ui-neumorphism";
 import { textFieldApi } from "../docs/";
 
-import DocCard from "../containers/DocCard.jsx";
+import DocCard from "../containers/DocCard.tsx";
 import ApiCard from "../containers/ApiCard.tsx";
 
 const url =

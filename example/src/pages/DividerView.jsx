@@ -3,7 +3,7 @@ import React from "react";
 import { Divider, Body2, Card, H6, H4 } from "ui-neumorphism";
 
 import { divider, dividerApi } from "../docs/";
-import DocCard from "../containers/DocCard.jsx";
+import DocCard from "../containers/DocCard.tsx";
 import ApiCard from "../containers/ApiCard.tsx";
 const url =
   "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/DividerView.jsx";
