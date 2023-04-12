@@ -21,7 +21,7 @@ interface ListItemGroupProps extends DefaultProps {
   twoLineSubtitle?: boolean;
   children?: React.ReactNode;
   onClick?: (event: React.MouseEvent, active: number | undefined) => void;
-  onChange?: (event: { active: number | undefined }) => void;
+  onChange?: (event: { active: number }) => void;
 }
 
 const ListItemGroup: React.FC<ListItemGroupProps> = (props) => {
