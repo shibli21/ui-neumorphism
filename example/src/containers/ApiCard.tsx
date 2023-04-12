@@ -9,13 +9,7 @@ interface ApiCardProps {
   style?: React.CSSProperties;
   entity: string;
   className?: string;
-  data: {
-    title: string;
-    name: string;
-    type: string;
-    initial: string;
-    description: string;
-  }[];
+  data: any[];
 }
 
 const ApiCard: React.FC<ApiCardProps> = ({

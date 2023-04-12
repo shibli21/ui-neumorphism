@@ -3,13 +3,13 @@ import React, { useEffect, useState } from "react";
 import styles from "./Alert.module.css";
 
 import {
-  getModuleClasses,
-  uid,
-  setCSSVariable,
   callCallback,
+  getModuleClasses,
+  setCSSVariable,
+  uid,
 } from "../../util";
 
-import { POSITIONS, CONTEXT_COLORS } from "../../assets/index";
+import { CONTEXT_COLORS, POSITIONS } from "../../assets/index";
 
 import IconButton from "../button-icon/IconButton";
 import Card from "../card/Card";
@@ -30,6 +30,9 @@ export interface AlertProps {
   style?: React.CSSProperties;
   type?: string;
   className?: string;
+  inset?: boolean;
+  flat?: boolean;
+  bordered?: boolean;
 }
 
 const Alert: React.FC<AlertProps> = ({
@@ -47,6 +50,9 @@ const Alert: React.FC<AlertProps> = ({
   style,
   type,
   className,
+  bordered,
+  flat,
+  inset,
   ...otherProps
 }) => {
   const [id] = useState(uid());
@@ -105,6 +111,9 @@ const Alert: React.FC<AlertProps> = ({
       style={style}
       id={id}
       className={alertClasses + " " + className}
+      flat={flat}
+      bordered={bordered}
+      inset={inset}
       {...otherProps}
     >
       {alertIcon}

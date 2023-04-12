@@ -33,7 +33,7 @@ import {
   ProgressLinearView,
   // ExpansionPanelView,
   ProgressCircularView
-} from '../pages/index.js'
+} from '../pages/index.tsx'
 
 const routes = [
   {

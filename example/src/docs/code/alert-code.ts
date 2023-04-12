@@ -1,4 +1,4 @@
-export const simpleAlert = (dark, prop) => {
+export const simpleAlert = (dark: boolean, prop: string) => {
   const d = dark ? ' dark' : ''
   const p = prop ? prop + ' ' : ''
   return `<Alert${d} ${p}type='success'>
@@ -15,7 +15,7 @@ export const simpleAlert = (dark, prop) => {
 </Alert>`
 }
 
-export const bulkAlert = (dark) => {
+export const bulkAlert = (dark: boolean) => {
   const d = dark ? ' dark' : ''
   return `<Alert${d} type='success' flat>
   I'm a success alert.
@@ -31,7 +31,7 @@ export const bulkAlert = (dark) => {
 </Alert>`
 }
 
-export const colorAlert = (dark) => {
+export const colorAlert = (dark: boolean) => {
   const d = dark ? ' dark' : ''
   return `<Alert${d} color='#6200EA'>
   I'm an alert with #6200EA color.
@@ -41,7 +41,7 @@ export const colorAlert = (dark) => {
 </Alert>`
 }
 
-export const borderAlert = (dark) => {
+export const borderAlert = (dark: boolean) => {
   const d = dark ? ' dark' : ''
   return `<Alert${d} type='success' border='top'>
   I'm a success alert.
@@ -57,7 +57,7 @@ export const borderAlert = (dark) => {
 </Alert>`
 }
 
-export const denseAlert = (dark) => {
+export const denseAlert = (dark: boolean) => {
   const d = dark ? ' dark' : ''
   return `<Alert${d} type='success' dense>
   I'm a success alert.
@@ -73,7 +73,7 @@ export const denseAlert = (dark) => {
 </Alert>`
 }
 
-export const iconAlert = (dark) => {
+export const iconAlert = (dark: boolean) => {
   const d = dark ? '\n  dark' : ''
   return `// Icon component is from '@mdi/react' and is not bundled with this library
 <Alert${d}
@@ -102,7 +102,7 @@ export const iconAlert = (dark) => {
 </Alert>`
 }
 
-export const closeAlert = (dark) => {
+export const closeAlert = (dark: boolean) => {
   const d = dark ? '\n  dark' : ''
   return `// Icon component is from '@mdi/react' and is not bundled with this library
 <Alert${d}
