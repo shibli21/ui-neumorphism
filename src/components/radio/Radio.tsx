@@ -3,7 +3,7 @@ import { SelectionControlProps } from "../../assets/index";
 import { callCallback } from "../../util";
 import SelectionControl from "../selection-control/SelectionControl";
 
-interface RadioProps extends SelectionControlProps {
+export interface RadioProps extends SelectionControlProps {
   onChange?: (
     event: React.ChangeEvent<HTMLInputElement>,
     id?: string | undefined,

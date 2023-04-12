@@ -1,15 +1,11 @@
 import React, { Children, cloneElement, FC, ReactNode, useState } from "react";
 import { DefaultProps } from "../../assets";
 import { callCallback, getModuleClasses, passDownProp, uid } from "../../util";
-import Radio from "../radio/Radio";
+import Radio, { RadioProps } from "../radio/Radio";
 import radioStyles from "./RadioGroup.module.css";
 
-interface RadioGroupProps extends DefaultProps {
-  id?: any;
-  value?: any;
-  disabled?: boolean;
+interface RadioGroupProps extends DefaultProps, RadioProps {
   vertical?: boolean;
-  onChange?: (params: { event: any; id: any; value: any }) => void;
   children: ReactNode;
 }
 
@@ -22,6 +18,7 @@ const RadioGroup: FC<RadioGroupProps> = ({
   children,
   className,
   style,
+
   ...props
 }: RadioGroupProps) => {
   const [state, setState] = useState({
