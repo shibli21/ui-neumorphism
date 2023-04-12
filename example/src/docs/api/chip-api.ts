@@ -1,6 +1,6 @@
-import { createApiDoc, defaultApiDoc } from '../index.js'
+import { createApiDoc, defaultApiDoc } from "../common"
 
-export const chipApi = (dark) => {
+export const chipApi = (dark: boolean) => {
   return [
     ...defaultApiDoc(dark),
     createApiDoc(
