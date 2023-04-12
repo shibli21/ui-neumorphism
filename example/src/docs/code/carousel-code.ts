@@ -1,21 +1,21 @@
-export const simpleCarousel = (dark, type) => {
+export const simpleCarousel = (dark: boolean, type: string) => {
   const darkProp = dark ? ' dark' : ''
   const typeProp = type ? ' ' + type : ''
   return `<Carousel${darkProp}${typeProp}>
 ${['info', 'error', 'success', 'warning']
-  .map(
-    (
-      color,
-      index
-    ) => `  <CarouselItem style={{ background: 'var(--${color})' }}>
+      .map(
+        (
+          color,
+          index
+        ) => `  <CarouselItem style={{ background: 'var(--${color})' }}>
     <H3>Slide ${index + 1}</H3>
   </CarouselItem>`
-  )
-  .join('\n')}
+      )
+      .join('\n')}
 </Carousel>`
 }
 
-export const customCarousel = (dark) => {
+export const customCarousel = (dark: boolean) => {
   const darkProp = dark ? '\n  dark' : ''
   return `// Icon component is from '@mdi/react' and is not bundled with this library
 <Carousel${darkProp}
@@ -37,18 +37,18 @@ export const customCarousel = (dark) => {
   }
 >
 ${['info', 'error', 'success', 'warning']
-  .map(
-    (
-      color,
-      index
-    ) => `  <CarouselItem style={{ background: 'var(--${color})' }}>
+      .map(
+        (
+          color,
+          index
+        ) => `  <CarouselItem style={{ background: 'var(--${color})' }}>
     <H3>Slide ${index + 1}</H3>
   </CarouselItem>`
-  )
-  .join('\n')}
+      )
+      .join('\n')}
 </Carousel>`
 }
-export const customArrows = (dark) => {
+export const customArrows = (dark: boolean) => {
   const darkProp = dark ? '\n  dark' : ''
   return `// Icon component is from '@mdi/react' and is not bundled with this library
 <Carousel${darkProp}
@@ -57,14 +57,14 @@ export const customArrows = (dark) => {
   prevIcon={<Icon path={mdiArrowLeftBoldBox} size={1} />}
 >
 ${['info', 'error', 'success', 'warning']
-  .map(
-    (
-      color,
-      index
-    ) => `  <CarouselItem style={{ background: 'var(--${color})' }}>
+      .map(
+        (
+          color,
+          index
+        ) => `  <CarouselItem style={{ background: 'var(--${color})' }}>
     <H3>Slide ${index + 1}</H3>
   </CarouselItem>`
-  )
-  .join('\n')}
+      )
+      .join('\n')}
 </Carousel>`
 }
