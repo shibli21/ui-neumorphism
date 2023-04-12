@@ -1,12 +1,7 @@
 import React from "react";
-import {
-  createApiDoc,
-  defaultApiDoc,
-  positionApi,
-  eventDoc,
-} from "../index.js";
+import { createApiDoc, defaultApiDoc, eventDoc, positionApi } from "../common";
 
-const sizes = (dark, desc) =>
+const sizes = (dark: boolean, desc?: string) =>
   createApiDoc(
     dark,
     "size",
@@ -14,7 +9,7 @@ const sizes = (dark, desc) =>
     "medium",
     desc || "The size of the button."
   );
-const active = (dark) =>
+const active = (dark: boolean) =>
   createApiDoc(
     dark,
     "active",
@@ -22,7 +17,7 @@ const active = (dark) =>
     "false",
     "Renders the button in active state."
   );
-const disabled = (dark) =>
+const disabled = (dark: boolean) =>
   createApiDoc(
     dark,
     "disabled",
@@ -30,7 +25,7 @@ const disabled = (dark) =>
     "false",
     "Removes the ability to click or target the button."
   );
-const color = (dark) =>
+const color = (dark: boolean) =>
   createApiDoc(
     dark,
     "color",
@@ -51,7 +46,7 @@ const color = (dark) =>
     </div>,
     "Applies specified color to the button content."
   );
-const bgColor = (dark) =>
+const bgColor = (dark: boolean) =>
   createApiDoc(
     dark,
     "bgColor",
@@ -60,7 +55,7 @@ const bgColor = (dark) =>
     "Applies specified color to the background."
   );
 
-const rounded = (dark) =>
+const rounded = (dark: boolean) =>
   createApiDoc(
     dark,
     "rounded",
@@ -69,10 +64,10 @@ const rounded = (dark) =>
     "Applies a large border radius on the button."
   );
 
-const bordered = (dark) =>
+const bordered = (dark: boolean) =>
   createApiDoc(dark, "bordered", "Boolean", "false", "Applies a thin border.");
 
-const outlined = (dark) =>
+const outlined = (dark: boolean) =>
   createApiDoc(
     dark,
     "outlined",
@@ -81,7 +76,7 @@ const outlined = (dark) =>
     "Applies a border and removes elevation."
   );
 
-const trueText = (dark) =>
+const trueText = (dark: boolean) =>
   createApiDoc(
     dark,
     "text",
@@ -90,7 +85,7 @@ const trueText = (dark) =>
     "Removes the elevation and hover effect."
   );
 
-export const buttonApi = (dark) => {
+export const buttonApi = (dark: boolean) => {
   return [
     ...defaultApiDoc(dark),
     createApiDoc(
@@ -133,7 +128,7 @@ export const buttonApi = (dark) => {
   ];
 };
 
-export const fabButtonApi = (dark) => {
+export const fabButtonApi = (dark: boolean) => {
   return [
     ...defaultApiDoc(dark),
     sizes(dark),
@@ -172,7 +167,7 @@ export const fabButtonApi = (dark) => {
   ];
 };
 
-export const iconButtonApi = (dark) => {
+export const iconButtonApi = (dark: boolean) => {
   return [
     ...defaultApiDoc(dark),
     trueText(dark),
@@ -195,7 +190,7 @@ export const iconButtonApi = (dark) => {
   ];
 };
 
-export const toggleButtonApi = (dark) => {
+export const toggleButtonApi = (dark: boolean) => {
   return [
     ...defaultApiDoc(dark),
     createApiDoc(
@@ -254,7 +249,7 @@ export const toggleButtonApi = (dark) => {
   ];
 };
 
-export const toggleButtonGroupApi = (dark) => {
+export const toggleButtonGroupApi = (dark: boolean) => {
   return [
     ...defaultApiDoc(dark),
     sizes(

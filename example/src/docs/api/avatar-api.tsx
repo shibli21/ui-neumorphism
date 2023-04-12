@@ -1,7 +1,7 @@
 import React from "react";
-import { createApiDoc, defaultApiDoc } from "../index.js";
+import { createApiDoc, defaultApiDoc } from "../common";
 
-const attribute = (dark, attr) =>
+const attribute = (dark: boolean, attr: string) =>
   createApiDoc(
     dark,
     attr,
@@ -10,7 +10,7 @@ const attribute = (dark, attr) =>
     `The ${attr} attribute for the img element.`
   );
 
-const variant = (dark, type) =>
+const variant = (dark: boolean, type: string) =>
   createApiDoc(
     dark,
     type,
@@ -19,7 +19,7 @@ const variant = (dark, type) =>
     `Renders ${type} variant of avatar.`
   );
 
-export const avatarApi = (dark) => {
+export const avatarApi = (dark: boolean) => {
   return [
     ...defaultApiDoc(dark, true),
     attribute(dark, "alt"),

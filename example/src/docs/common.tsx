@@ -44,7 +44,7 @@ export const createApiDoc = (
   };
 };
 
-export const defaultApiDoc = (dark: boolean, nodark: boolean) => {
+export const defaultApiDoc = (dark: boolean, nodark?: boolean) => {
   const data = [
     createApiDoc(
       dark,
@@ -80,8 +80,8 @@ export const defaultApiDoc = (dark: boolean, nodark: boolean) => {
 export const eventDoc = (
   dark: boolean,
   type: string,
-  caption: string,
-  code: string
+  caption?: string,
+  code?: string
 ) => {
   return createApiDoc(
     dark,
