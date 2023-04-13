@@ -1,4 +1,4 @@
-export const simpleTable = (dark, props = null, jsx = false) => {
+export const simpleTable = (dark: boolean, props = null, jsx = false) => {
   const darkProp = dark ? ' dark' : ''
   const tableProps = props ? ` ${props}` : ''
   const jsxitems = `[
@@ -61,7 +61,7 @@ class TableView extends React.Component {
 `
 }
 
-export const minimalTable = (dark, props) => {
+export const minimalTable = (dark: boolean, props: boolean) => {
   const darkProp = dark ? ' dark' : ''
   const tableProps = props ? ` ${props}` : ''
   return `...
