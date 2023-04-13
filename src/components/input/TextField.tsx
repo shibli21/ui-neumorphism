@@ -38,7 +38,7 @@ interface TextFieldProps {
   bordered?: boolean;
   style?: React.CSSProperties;
   className?: string;
-  label?: string;
+  label?: string | ReactNode;
   append?: ReactNode;
   prepend?: ReactNode;
   onChange?: (event: any) => void;

@@ -1,13 +1,12 @@
 import React from "react";
 
-import { defaultApiDoc } from "../index.js";
-import { createApiDoc } from "../common";
+import { createApiDoc, defaultApiDoc } from "../common.js";
 
-const inputAttr = (dark, type, attr, def = "") => {
+const inputAttr = (dark: boolean, type: string, attr: string, def = "") => {
   return createApiDoc(dark, attr, "String", def, `Sets ${type}'s ${attr}.`);
 };
 
-const inputState = (dark, type, attr) => {
+const inputState = (dark: boolean, type: string, attr: string) => {
   return createApiDoc(
     dark,
     attr,
@@ -17,7 +16,7 @@ const inputState = (dark, type, attr) => {
   );
 };
 
-export const inputApi = (dark, type) => {
+export const inputApi = (dark: boolean, type: string) => {
   return [
     inputAttr(dark, type, "type", "'text'"),
     inputAttr(dark, type, "placeholder"),
@@ -129,11 +128,11 @@ export const inputApi = (dark, type) => {
   ];
 };
 
-export const textFieldApi = (dark, type) => {
+export const textFieldApi = (dark: boolean, type?: string) => {
   return [...defaultApiDoc(dark), ...inputApi(dark, "TextField")];
 };
 
-export const textAreaApi = (dark, type) => {
+export const textAreaApi = (dark: boolean, type: string) => {
   return [
     ...defaultApiDoc(dark),
     ...inputApi(dark, "TextArea"),
