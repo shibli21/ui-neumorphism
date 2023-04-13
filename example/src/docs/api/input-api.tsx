@@ -132,7 +132,7 @@ export const textFieldApi = (dark: boolean, type?: string) => {
   return [...defaultApiDoc(dark), ...inputApi(dark, "TextField")];
 };
 
-export const textAreaApi = (dark: boolean, type: string) => {
+export const textAreaApi = (dark: boolean, type?: string) => {
   return [
     ...defaultApiDoc(dark),
     ...inputApi(dark, "TextArea"),

@@ -1,12 +1,10 @@
 import React, { FC, useEffect, useRef, useState } from "react";
 import { TextField } from "../../index";
 import { callCallback } from "../../util/index";
+import { TextFieldProps } from "./TextField";
 
-interface TextAreaProps {
+interface TextAreaProps extends TextFieldProps {
   autoExpand?: boolean;
-  height?: number;
-  dense?: boolean;
-  inputStyles?: React.CSSProperties;
 }
 
 const TextArea: FC<TextAreaProps> = (props) => {

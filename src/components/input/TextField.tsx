@@ -12,7 +12,7 @@ import styles from "../input/Input.module.css";
 
 import { Caption, ProgressLinear, Subtitle1 } from "../../index";
 
-interface TextFieldProps {
+export interface TextFieldProps {
   id?: string;
   name?: string;
   type?: string;
@@ -47,7 +47,6 @@ interface TextFieldProps {
   onInput?: (event: any) => void;
   onKeyDown?: (event: any) => void;
   onKeyUp?: (event: any) => void;
-  // ref?: React.RefObject<any> | null;
 }
 
 const TextField = forwardRef((props: TextFieldProps, ref: any) => {
@@ -255,7 +254,7 @@ const TextField = forwardRef((props: TextFieldProps, ref: any) => {
           />
         ) : null}
         {input()}
-        {/* <Input /> */}
+       
 
         {hideExtra && !counter ? null : (
           <div className={`${getClasses("caption-wrapper", valid)}`}>
