@@ -2,6 +2,7 @@ import React, { cloneElement, FC, useState } from "react";
 
 import { callCallback } from "../util";
 import TransitionWrapper from "./TransitionWrapper";
+import { TransitionProps } from "react-transition-group/Transition";
 
 type SlideCarouselProps = {
   axis?: string;
@@ -10,7 +11,7 @@ type SlideCarouselProps = {
   origin?: string;
   onUpdate?: (status: string) => void;
   children: React.ReactElement;
-};
+} & Omit<TransitionProps, "addEndListener">;
 
 type TransitionStyles = {
   [key: string]: React.CSSProperties;
