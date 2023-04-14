@@ -28,7 +28,6 @@ const CardHeader: React.FC<CardHeaderProps> = ({
   rounded,
   style,
   disabled,
-  ...props
 }) => {
   const getClass = (classType: string) => {
     switch (classType) {
@@ -55,11 +54,21 @@ const CardHeader: React.FC<CardHeaderProps> = ({
     }
   };
 
-  const cardTitle = passDownProp(title, props, CARD_HEAD_PASS_DOWN);
-  const cardAvatar = passDownProp(avatar, props, CARD_HEAD_PASS_DOWN);
-  const cardAction = passDownProp(action, props, CARD_HEAD_PASS_DOWN);
-  const cardSubTitle = passDownProp(subtitle, props, CARD_HEAD_PASS_DOWN);
-  const cardChildren = passDownProp(children, props, CARD_CHILD_PASS_DOWN);
+  const passDownProps = { dark, disabled };
+
+  const cardTitle = passDownProp(title, passDownProps, CARD_HEAD_PASS_DOWN);
+  const cardAvatar = passDownProp(avatar, passDownProps, CARD_HEAD_PASS_DOWN);
+  const cardAction = passDownProp(action, passDownProps, CARD_HEAD_PASS_DOWN);
+  const cardSubTitle = passDownProp(
+    subtitle,
+    passDownProps,
+    CARD_HEAD_PASS_DOWN
+  );
+  const cardChildren = passDownProp(
+    children,
+    passDownProps,
+    CARD_CHILD_PASS_DOWN
+  );
 
   return (
     <div style={style} className={`${getClass("wrapper")} ${className}`}>

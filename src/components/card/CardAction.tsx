@@ -19,7 +19,7 @@ const CardAction: React.FC<CardActionProps> = ({
   style,
   className,
   children,
-  ...props
+  disabled = false,
 }) => {
   const getClass = () => {
     return getModuleClasses(
@@ -32,7 +32,15 @@ const CardAction: React.FC<CardActionProps> = ({
     );
   };
 
-  const cardChildren = passDownProp(children, props, CARD_CHILD_PASS_DOWN);
+  const cardChildren = passDownProp(
+    children,
+    {
+      dark,
+      rounded,
+      disabled,
+    },
+    CARD_CHILD_PASS_DOWN
+  );
 
   return (
     <div style={style} className={`${getClass()} ${className}`}>

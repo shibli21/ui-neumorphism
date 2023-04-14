@@ -58,14 +58,15 @@ const CardView = (props: { dark: true }) => {
       </Body2>
     </CardContent>
   );
+  const { dark } = props;
+
   const cardAction = (
-    <CardAction>
+    <CardAction dark={dark}>
       <Button text color="var(--primary)">
         Learn More
       </Button>
     </CardAction>
   );
-  const { dark } = props;
   return (
     <Card flat dark={dark} className="code-block-container">
       <H4>

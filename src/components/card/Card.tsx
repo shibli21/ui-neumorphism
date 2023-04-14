@@ -1,7 +1,11 @@
 import React, { forwardRef } from "react";
-import { CSS_DIMENSIONS, CssDimensions } from "../../assets/index";
+import {
+  CARD_PASS_DOWN,
+  CSS_DIMENSIONS,
+  CssDimensions,
+} from "../../assets/index";
 import { ProgressLinear } from "../../index";
-import { getModuleClasses, pickKeys } from "../../util/index";
+import { getModuleClasses, passDownProp, pickKeys } from "../../util/index";
 import styles from "./Card.module.css";
 
 interface CardProps extends CssDimensions {
@@ -30,12 +34,12 @@ const Card = forwardRef(
       children,
       className,
       disabled = false,
-      flat,
-      inset,
-      rounded,
-      outlined,
-      bordered,
       elevation,
+      flat = false,
+      inset = false,
+      rounded = false,
+      outlined = false,
+      bordered = false,
       ...props
     }: CardProps,
     ref: any
@@ -67,6 +71,18 @@ const Card = forwardRef(
       sizeStyles[key] = `${pickedStyles[key]}px`;
     });
 
+    const cardChildren = passDownProp(
+      children,
+      {
+        dark: dark,
+        bordered: bordered,
+        rounded: rounded,
+        outlined: outlined,
+        disabled: disabled,
+      },
+      CARD_PASS_DOWN
+    );
+
     return (
       <div
         id={id}
@@ -84,13 +100,7 @@ const Card = forwardRef(
             color="var(--primary)"
           />
         ) : null}
-        {React.Children.map(children, (child) => {
-          return React.isValidElement(child)
-            ? React.cloneElement(child, {
-                ...props,
-              })
-            : child;
-        })}
+        {cardChildren}
       </div>
     );
   }
