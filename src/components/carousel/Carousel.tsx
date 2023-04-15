@@ -1,296 +1,288 @@
-import React, {
-  Children,
-  ReactElement,
-  ReactNode,
-  useEffect,
-  useState,
-} from "react";
-
+import React, { Children, ReactElement, ReactNode } from "react";
+import {
+  CAROUSEL_DEFAULT_PROPS,
+  CAROUSEL_PROP_TYPES,
+  DefaultProps,
+} from "../../assets/index";
 import { SlideCarousel } from "../../index";
-
-import { DefaultProps } from "../../assets";
 import { callCallback, getModuleClasses, passDownProp } from "../../util";
-import carouselStyles from "./Carousel.module.css";
+import styles from "./Carousel.module.css";
 
-interface CarouselProps extends DefaultProps {
-  value?: number;
-  cycle?: boolean;
-  height?: number;
-  reverse?: boolean;
-  interval?: number;
-  nextIcon?: ReactNode;
-  prevIcon?: ReactNode;
-  vertical?: boolean;
-  onChange?: Function;
-  showArrows?: boolean;
-  continuous?: boolean;
-  delimiterIcon?: ReactNode;
-  hideDelimiters?: boolean;
-  showArrowsOnHover?: boolean;
-  activeDelimiterIcon?: ReactNode;
-  onDelimiterClick?: Function;
-  children: ReactElement | ReactElement[];
+interface CarouselState {
+  prevActive: number;
+  disabled: boolean;
+  active: number;
 }
 
-const Carousel = ({
-  activeDelimiterIcon,
-  continuous,
-  cycle,
-  delimiterIcon,
-  height = 400,
-  hideDelimiters,
-  interval = 5000,
-  nextIcon,
-  onChange,
-  prevIcon,
-  reverse,
-  showArrows,
-  showArrowsOnHover,
-  vertical,
-  value,
-  onDelimiterClick,
-  style,
-  className,
-  children,
-  dark,
-}: CarouselProps) => {
-  let timer: NodeJS.Timeout;
-  let disabledTimeout: NodeJS.Timeout;
-  const [prevActive, setPrevActive] = useState(0);
-  const [disabled, setDisabled] = useState(false);
-  const [active, setActive] = useState(value || 0);
+interface CarouselProps extends DefaultProps {
+  children: ReactElement[];
+  value?: number;
+  onChange?: (e: { active: number }) => void;
+  onDelimiterClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  interval?: number;
+  cycle?: boolean;
+  vertical?: boolean;
+  reverse?: boolean;
+  hideDelimiters?: boolean;
+  delimiterIcon?: ReactNode;
+  activeDelimiterIcon?: ReactNode;
+  nextIcon?: ReactNode;
+  prevIcon?: ReactNode;
+  height?: string;
+  continuous?: boolean;
+  showArrows?: boolean;
+  showIndicators?: boolean;
+  showArrowsOnHover?: boolean;
+  delay?: number;
+}
 
-  function axis() {
+class Carousel extends React.Component<CarouselProps, CarouselState> {
+  private timer: NodeJS.Timeout | null = null;
+  private disabledTimeout: NodeJS.Timeout | null = null;
+
+  static displayName = "NuCarousel";
+
+  static defaultProps = CAROUSEL_DEFAULT_PROPS;
+
+  static propTypes = CAROUSEL_PROP_TYPES;
+
+  constructor(props: CarouselProps) {
+    super(props);
+    this.state = {
+      prevActive: 0,
+      disabled: false,
+      active: props.value || 0,
+    };
+  }
+
+  private get axis(): "X" | "Y" {
+    const { vertical } = this.props;
     return vertical ? "Y" : "X";
   }
 
-  function styles() {
+  private get styles() {
+    const { height } = this.props;
     return { height };
   }
 
-  function carouselItems() {
-    let localReverse = prevActive < active;
-    if (continuous && children && Array.isArray(children)) {
-      const lastIndex = children.length - 1;
-      if (active === 0 && prevActive === lastIndex) localReverse = true;
-      if (prevActive === 0 && active === lastIndex) localReverse = false;
+  private get carouselItems() {
+    const { active, prevActive } = this.state;
+    const { children, reverse: reverseProp, continuous, dark } = this.props;
+
+    let reverse = prevActive < active;
+    if (continuous) {
+      const lastIndex = Children.count(children) - 1;
+      if (active === 0 && prevActive === lastIndex) reverse = true;
+      if (prevActive === 0 && active === lastIndex) reverse = false;
     }
 
-    localReverse = reverse ? !localReverse : localReverse;
+    reverse = reverseProp ? !reverse : reverse;
 
     return passDownProp(
       Children.map(children, (child, index) => {
         return (
           <SlideCarousel
             appear
-            axis={axis()}
-            reverse={localReverse}
+            axis={this.axis}
+            reverse={reverse}
             in={index === active}
           >
             {child}
           </SlideCarousel>
         );
       }),
-      {
-        dark,
-      },
-      ["dark"]
+      { dark },
+      "dark"
     );
   }
 
-  function getNextIcon() {
+  private get nextIcon() {
+    const { nextIcon, showArrows, showArrowsOnHover } = this.props;
     if (!showArrows) return null;
 
-    const classes = `${getClasses(
+    const classes = `${this.getClasses(
       "nu-carousel-arrow nu-carousel-arrow--next"
-    )} ${!showArrowsOnHover ? getClasses("nu-carousel-arrow--always") : ""}`;
+    )} ${
+      !showArrowsOnHover ? this.getClasses("nu-carousel-arrow--always") : ""
+    }`;
     const icon = (
-      <div className={classes} onClick={() => handleIconClick("next")}>
+      <div className={classes} onClick={() => this.handleIconClick("next")}>
         {nextIcon || <span>&rsaquo;</span>}
       </div>
     );
     return icon;
   }
 
-  function getPrevIcon() {
+  private get prevIcon() {
+    const { prevIcon, showArrows, showArrowsOnHover } = this.props;
     if (!showArrows) return null;
 
-    const classes = `${getClasses(
+    const classes = `${this.getClasses(
       "nu-carousel-arrow nu-carousel-arrow--prev"
-    )} ${!showArrowsOnHover ? getClasses("nu-carousel-arrow--always") : ""}`;
+    )} ${
+      !showArrowsOnHover ? this.getClasses("nu-carousel-arrow--always") : ""
+    }`;
     const icon = (
-      <div className={classes} onClick={() => handleIconClick("prev")}>
+      <div className={classes} onClick={() => this.handleIconClick("prev")}>
         {prevIcon || <span>&rsaquo;</span>}
       </div>
     );
     return icon;
   }
 
-  function getDelimiters(items: ReactElement[]) {
+  private getDelimiters(items: ReactElement[]) {
+    const { active } = this.state;
+    const { hideDelimiters } = this.props;
+    if (hideDelimiters) return null;
+
     return items.map((item, index) => {
+      const classes = `${this.getClasses("nu-carousel-delimiter")} ${
+        index === active ? this.getClasses("nu-carousel-delimiter--active") : ""
+      }`;
       return (
         <div
           key={index}
-          className={`${
-            !delimiterIcon ? getClasses("nu-carousel-delimiter") : ""
-          } ${
-            active === index && !delimiterIcon
-              ? getClasses("nu-carousel-delimiter--active")
-              : ""
-          }`}
-          onClick={(e) => handleDelimiterClick(e, index)}
-        >
-          {active === index
-            ? activeDelimiterIcon || delimiterIcon
-            : delimiterIcon}
-        </div>
+          className={classes}
+          onClick={(e) => this.handleDelimiterClick(e, index)}
+        />
       );
     });
   }
 
-  function getClasses(type: string) {
+  getClasses(type: string) {
+    const { dark } = this.props;
     switch (type) {
       case "main":
         return getModuleClasses(
-          carouselStyles,
+          styles,
           `
             nu-carousel
             nu-carousel--${dark ? "dark" : "light"}
           `
         );
       default:
-        return getModuleClasses(carouselStyles, type);
+        return getModuleClasses(styles, type);
     }
   }
 
-  function nextSlide() {
-    const itemsLength = Children.count(children);
-
+  nextSlide() {
+    const { children } = this.props;
+    const itemsLength = children.length;
+    const { active, disabled } = this.state;
     if (itemsLength && !disabled) {
       const next = active + 1 >= itemsLength ? 0 : active + 1;
-      updateActiveState(next, active);
+      this.updateActiveState(next, active);
     }
   }
 
-  function prevSlide() {
-    const itemsLength = Children.count(children);
-
+  prevSlide() {
+    const { children } = this.props;
+    const itemsLength = children.length;
+    const { active, disabled } = this.state;
     if (itemsLength && !disabled) {
       const next = active - 1 < 0 ? itemsLength - 1 : active - 1;
-      updateActiveState(next, active);
+      this.updateActiveState(next, active);
     }
   }
 
-  function startTimer() {
-    if (cycle) {
-      timer = setInterval(() => {
-        stopTimeout();
-        nextSlide();
-        startTimeout();
-      }, interval);
+  startTimer() {
+    if (this.props.cycle) {
+      this.timer = setInterval(() => {
+        this.stopTimeout();
+        this.nextSlide();
+        this.startTimeout();
+      }, this.props.interval);
     }
   }
 
-  function stopTimer() {
-    if (cycle) {
-      clearInterval(timer);
+  stopTimer() {
+    if (this.props.cycle) {
+      this.timer && clearInterval(this.timer);
     }
   }
 
-  function startTimeout() {
-    setDisabled(true);
-    disabledTimeout = setTimeout(() => {
-      setDisabled(false);
+  startTimeout() {
+    this.setState({ disabled: true });
+    this.disabledTimeout = setTimeout(() => {
+      this.setState({ disabled: false });
     }, 300);
   }
 
-  function stopTimeout() {
-    clearTimeout(disabledTimeout);
+  stopTimeout() {
+    this.disabledTimeout && clearTimeout(this.disabledTimeout);
   }
 
-  type ActionType = "stop" | "start";
-  function toggleClocks(action: ActionType) {
+  toggleClocks(action: "stop" | "start") {
     if (action === "stop") {
-      stopTimer();
-      stopTimeout();
+      this.stopTimer();
+      this.stopTimeout();
     } else {
-      startTimer();
-      startTimeout();
+      this.startTimer();
+      this.startTimeout();
     }
   }
 
-  function updateActiveState(
-    active: React.SetStateAction<number>,
-    prevActive: React.SetStateAction<number>
-  ) {
-    setActive(active);
-    setPrevActive(prevActive);
+  updateActiveState(active: number, prevActive: number) {
+    this.setState({ active });
+    this.setState({ prevActive });
   }
 
-  function handleIconClick(direction: string) {
-    toggleClocks("stop");
-    if (direction === "next") nextSlide();
-    else prevSlide();
-
-    toggleClocks("start");
+  handleIconClick(direction: "next" | "prev") {
+    this.toggleClocks("stop");
+    direction === "next" ? this.nextSlide() : this.prevSlide();
+    this.toggleClocks("start");
   }
 
-  function handleDelimiterClick(
+  handleDelimiterClick(
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    dActive: React.SetStateAction<number>
+    active: number
   ) {
-    toggleClocks("stop");
-    updateActiveState(dActive, active);
-    toggleClocks("start");
+    const { onDelimiterClick } = this.props;
+
+    this.toggleClocks("stop");
+    this.updateActiveState(active, this.state.active);
+    this.toggleClocks("start");
 
     callCallback(onDelimiterClick, e);
   }
 
-  // componentDidMount() {
-  //   if (this.props.cycle) {
-  //     this.startTimer();
-  //   }
-  // }
-
-  // componentWillUnmount() {
-  //   this.stopTimer();
-  //   this.stopTimeout();
-  // }
-
-  useEffect(() => {
-    if (cycle) {
-      startTimer();
+  componentDidMount() {
+    if (this.props.cycle) {
+      this.startTimer();
     }
+  }
 
-    return () => {
-      stopTimer();
-      stopTimeout();
-    };
-  }, [cycle]);
-
-  useEffect(() => {
-    if (JSON.stringify(active) !== JSON.stringify(active)) {
-      callCallback(onChange, { active });
+  componentDidUpdate(props: CarouselProps, state: CarouselState) {
+    const { active } = this.state;
+    if (JSON.stringify(state.active) !== JSON.stringify(active)) {
+      callCallback(props.onChange, { active });
     }
-  }, [active, onChange]);
+  }
 
-  const items: ReactElement[] = carouselItems();
-  return (
-    <div
-      style={{ ...styles(), ...style }}
-      className={`${getClasses("main")} ${className}`}
-    >
-      <div className={getClasses("nu-carousel-container")}>{items}</div>
-      {hideDelimiters ? null : (
-        <div className={getClasses("nu-carousel-controls")}>
-          {getDelimiters(items)}
-        </div>
-      )}
-      {getNextIcon()}
-      {getPrevIcon()}
-    </div>
-  );
-};
-Carousel.displayName = "NuCarousel";
+  componentWillUnmount() {
+    this.stopTimer();
+    this.stopTimeout();
+  }
+
+  render() {
+    const items = this.carouselItems;
+    const { style, className, hideDelimiters } = this.props;
+    return (
+      <div
+        style={{ ...this.styles, ...style }}
+        className={`${this.getClasses("main")} ${className}`}
+      >
+        <div className={this.getClasses("nu-carousel-container")}>{items}</div>
+        {hideDelimiters ? null : (
+          <div className={this.getClasses("nu-carousel-controls")}>
+            {this.getDelimiters(items)}
+          </div>
+        )}
+        {this.nextIcon}
+        {this.prevIcon}
+      </div>
+    );
+  }
+}
 
 export default Carousel;
