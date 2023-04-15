@@ -31,9 +31,11 @@ const TextArea: FC<TextAreaProps> = (props) => {
     )}px`;
   }, [props.autoExpand, minHeight]);
 
-  function onInput(e: React.KeyboardEvent<HTMLTextAreaElement>, prop: string) {
+  function onInput(
+    e: React.KeyboardEvent<HTMLTextAreaElement>,
+    prop: keyof TextAreaProps
+  ) {
     if (!props.autoExpand) return;
-    // @ts-ignore
     callCallback(props[prop], e);
   }
 
