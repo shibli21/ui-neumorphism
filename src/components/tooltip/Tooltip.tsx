@@ -1,37 +1,67 @@
-import React, { cloneElement, Children, createElement } from "react";
+import React, {
+  Children,
+  ReactElement,
+  ReactNode,
+  cloneElement,
+  createElement,
+} from "react";
 import { createPortal, findDOMNode } from "react-dom";
 
 import { Card, Grow } from "../../index";
 
-import styles from "./Tooltip.module.css";
 import {
-  getModuleClasses,
+  CSS_DIMENSIONS,
+  CssDimensions,
+  DEFAULT_PROPS,
+  DefaultProps,
+} from "../../assets";
+import {
   callCallback,
+  getModuleClasses,
   passDownProp,
   pickKeys,
   uid,
-} from "../../util/index.ts";
-import {
-  TOOLTIP_PROP_TYPES,
-  CSS_DIMENSIONS,
-  DEFAULT_PROPS,
-} from "../../assets/index.ts";
+} from "../../util";
+import styles from "./Tooltip.module.css";
 
-class Tooltip extends React.Component {
-  node;
+interface TooltipProps extends DefaultProps, CssDimensions {
+  bottom?: boolean;
+  top?: boolean;
+  left?: boolean;
+  right?: boolean;
+  visible?: boolean;
+  content?: ReactNode;
+  transition?: React.ComponentType<any>;
+  transitionProps?: any;
+  inset?: boolean;
+  onOpen?: (active: boolean) => void;
+  onClose?: (active: boolean) => void;
+  children?: ReactNode;
+}
 
+interface TooltipState {
+  id: string;
+  active: boolean;
+  pos: {
+    top: number;
+    left: number;
+  };
+}
+
+class Tooltip extends React.Component<TooltipProps, TooltipState> {
   static displayName = "NuTooltip";
 
-  static defaultProps = {
+  static defaultProps: Partial<TooltipProps> = {
     bottom: true,
     transition: Grow,
     transitionProps: {},
     ...DEFAULT_PROPS,
   };
 
-  static propTypes = TOOLTIP_PROP_TYPES;
+  node: Element | null = null;
+  controlled = false;
 
-  constructor(props) {
+  constructor(props: TooltipProps) {
     super(props);
     this.state = {
       id: uid(),
@@ -46,11 +76,11 @@ class Tooltip extends React.Component {
     this.handleMouseOnToolTip = this.handleMouseOnToolTip.bind(this);
   }
 
-  get canView() {
-    return this.controlled ? this.props.visible : this.state.active;
+  get canView(): boolean {
+    return this.controlled ? this.props.visible! : this.state.active;
   }
 
-  get origin() {
+  get origin(): string {
     const d = " center";
     const { top, left, bottom, right } = this.props;
     if (top) return "bottom" + d;
@@ -60,11 +90,11 @@ class Tooltip extends React.Component {
     return "top" + d;
   }
 
-  get styles() {
-    const sizeStyles = {};
+  get styles(): React.CSSProperties {
+    const sizeStyles: { [key: string]: string } = {};
     const { pos } = this.state;
 
-    const pickedStyles = pickKeys(this.props, CSS_DIMENSIONS);
+    const pickedStyles: any = pickKeys(this.props, CSS_DIMENSIONS);
     Object.keys(pickedStyles).map(
       (key) => (sizeStyles[key] = `${pickedStyles[key]}px`)
     );
@@ -76,8 +106,9 @@ class Tooltip extends React.Component {
     };
   }
 
-  get tooltip() {
-    const { content, transitionProps, transition: Transition } = this.props;
+  get tooltip(): ReactNode {
+    const { content, transitionProps, transition } = this.props;
+    const Transition = transition || Grow;
     const pickedProps = pickKeys(this.props, ["dark", "inset"]);
     return createPortal(
       <Transition
@@ -88,7 +119,6 @@ class Tooltip extends React.Component {
       >
         <Card
           {...pickedProps}
-          role="tooltip"
           id={this.state.id}
           style={this.styles}
           className={`${this.getClasses("tooltip")}`}
@@ -101,26 +131,28 @@ class Tooltip extends React.Component {
   }
 
   get tooltipChildren() {
-    return Children.map(this.props.children, (child, i) => {
-      if (i === 0) {
+    return Children.map(this.props.children as ReactElement, (child, i) => {
+      if (i === 0 && child) {
         const { onMouseLeave, onMouseOver, className: cc } = child.props || {};
         const cls = `${cc || ""} ${this.getClasses("cursor-pointer")}`.trim();
         const newProps = {
           ...child.props,
           className: cls,
-          ref: (ref) => (this.node = findDOMNode(ref)),
-          onMouseEnter: (e) => this.handleMouseOnToolTip(e, onMouseOver),
-          onMouseLeave: (e) => this.handleMouseOnToolTip(e, onMouseLeave),
+          ref: (ref: any) => (this.node = findDOMNode(ref) as Element),
+          onMouseEnter: (e: React.MouseEvent) =>
+            this.handleMouseOnToolTip(e, onMouseOver),
+          onMouseLeave: (e: React.MouseEvent) =>
+            this.handleMouseOnToolTip(e, onMouseLeave),
         };
 
         return typeof child === "string"
           ? createElement("span", newProps, child)
-          : cloneElement(child, newProps);
+          : cloneElement(child as React.ReactElement, newProps);
       }
     });
   }
 
-  getClasses(type) {
+  getClasses(type: string): string {
     switch (type) {
       case "tooltip":
         return getModuleClasses(styles, "nu-tooltip");
@@ -129,11 +161,13 @@ class Tooltip extends React.Component {
     }
   }
 
-  calcPosition() {
+  calcPosition(): void {
     const { top, left, right } = this.props;
 
     const tooltip = document.getElementById(this.state.id);
+    if (!tooltip) return;
     const tooltipDimensions = tooltip.getBoundingClientRect();
+    if (!this.node) return;
     const nodeDimension = this.node.getBoundingClientRect();
 
     const {
@@ -165,7 +199,10 @@ class Tooltip extends React.Component {
     this.setState({ pos });
   }
 
-  handleMouseOnToolTip(e, callback) {
+  handleMouseOnToolTip(
+    e: React.MouseEvent<Element, MouseEvent>,
+    callback: any
+  ) {
     const { onOpen, onClose } = this.props;
     const isOver = e.type === "mouseenter";
 
