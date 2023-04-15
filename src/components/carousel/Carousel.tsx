@@ -1,14 +1,16 @@
-import React, { Children, FC, ReactNode, useEffect, useState } from "react";
+import React, {
+  Children,
+  ReactElement,
+  ReactNode,
+  useEffect,
+  useState,
+} from "react";
 
 import { SlideCarousel } from "../../index";
 
+import { DefaultProps } from "../../assets";
+import { callCallback, getModuleClasses, passDownProp } from "../../util";
 import carouselStyles from "./Carousel.module.css";
-import { getModuleClasses, callCallback, passDownProp } from "../../util";
-import {
-  CAROUSEL_PROP_TYPES,
-  CAROUSEL_DEFAULT_PROPS,
-  DefaultProps,
-} from "../../assets";
 
 interface CarouselProps extends DefaultProps {
   value?: number;
@@ -27,7 +29,7 @@ interface CarouselProps extends DefaultProps {
   showArrowsOnHover?: boolean;
   activeDelimiterIcon?: ReactNode;
   onDelimiterClick?: Function;
-  children: ReactNode;
+  children: ReactElement | ReactElement[];
 }
 
 const Carousel = ({
@@ -52,8 +54,8 @@ const Carousel = ({
   children,
   dark,
 }: CarouselProps) => {
-  let timer: any;
-  let disabledTimeout: any;
+  let timer: NodeJS.Timeout;
+  let disabledTimeout: NodeJS.Timeout;
   const [prevActive, setPrevActive] = useState(0);
   const [disabled, setDisabled] = useState(false);
   const [active, setActive] = useState(value || 0);
@@ -77,7 +79,7 @@ const Carousel = ({
     localReverse = reverse ? !localReverse : localReverse;
 
     return passDownProp(
-      Children.map(children, (child: any, index) => {
+      Children.map(children, (child, index) => {
         return (
           <SlideCarousel
             appear
@@ -124,8 +126,8 @@ const Carousel = ({
     return icon;
   }
 
-  function getDelimiters(items: any[]) {
-    return items.map((item: any, index: React.Key | null | undefined) => {
+  function getDelimiters(items: ReactElement[]) {
+    return items.map((item, index) => {
       return (
         <div
           key={index}
@@ -206,7 +208,8 @@ const Carousel = ({
     clearTimeout(disabledTimeout);
   }
 
-  function toggleClocks(action = "stop") {
+  type ActionType = "stop" | "start";
+  function toggleClocks(action: ActionType) {
     if (action === "stop") {
       stopTimer();
       stopTimeout();
@@ -225,7 +228,7 @@ const Carousel = ({
   }
 
   function handleIconClick(direction: string) {
-    toggleClocks();
+    toggleClocks("stop");
     if (direction === "next") nextSlide();
     else prevSlide();
 
@@ -234,10 +237,10 @@ const Carousel = ({
 
   function handleDelimiterClick(
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    active: any
+    dActive: React.SetStateAction<number>
   ) {
-    toggleClocks();
-    updateActiveState(active, active);
+    toggleClocks("stop");
+    updateActiveState(dActive, active);
     toggleClocks("start");
 
     callCallback(onDelimiterClick, e);
@@ -246,13 +249,6 @@ const Carousel = ({
   // componentDidMount() {
   //   if (this.props.cycle) {
   //     this.startTimer();
-  //   }
-  // }
-
-  // componentDidUpdate(props, state) {
-  //   const { active } = this.state;
-  //   if (JSON.stringify(state.active) !== JSON.stringify(active)) {
-  //     callCallback(props.onChange, { active });
   //   }
   // }
 
@@ -270,15 +266,15 @@ const Carousel = ({
       stopTimer();
       stopTimeout();
     };
-  }, [cycle, startTimer, stopTimer, stopTimeout]);
+  }, [cycle]);
 
   useEffect(() => {
     if (JSON.stringify(active) !== JSON.stringify(active)) {
       callCallback(onChange, { active });
     }
-  }, [active]);
+  }, [active, onChange]);
 
-  const items = carouselItems();
+  const items: ReactElement[] = carouselItems();
   return (
     <div
       style={{ ...styles(), ...style }}

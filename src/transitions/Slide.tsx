@@ -1,7 +1,6 @@
 import React, { cloneElement, useState } from "react";
-import TransitionWrapper from "./TransitionWrapper";
-import { TransitionStatus } from "react-transition-group";
 import { TransitionProps } from "react-transition-group/Transition";
+import TransitionWrapper, { UpdateState } from "./TransitionWrapper";
 
 type SlideProps = TransitionProps & {
   axis?: string;
@@ -30,7 +29,7 @@ const Slide: React.FC<SlideProps> = ({
 
   ...props
 }) => {
-  const [status, setStatus] = useState<TransitionStatus>("entering");
+  const [status, setStatus] = useState<UpdateState>("entering");
 
   const defaultStyle = {
     transition: `all ${duration}ms ease-in-out`,
@@ -64,10 +63,10 @@ const Slide: React.FC<SlideProps> = ({
 
   const getType = () => `${axis.toUpperCase()}${reverse ? "R" : ""}`;
 
-  const getStatus = (status: TransitionStatus) =>
+  const getStatus = (status: UpdateState) =>
     status === "entering" ? `${status}${getType()}` : status;
 
-  const updateStatus = (status: TransitionStatus) => setStatus(status);
+  const updateStatus = (status: UpdateState) => setStatus(status);
 
   return (
     <TransitionWrapper
