@@ -38,7 +38,6 @@ export interface AlertProps {
 const Alert: React.FC<AlertProps> = ({
   visible = true,
   onClose,
-  rounded,
   closeIcon,
   closable,
   icon,
@@ -50,9 +49,6 @@ const Alert: React.FC<AlertProps> = ({
   style,
   type,
   className,
-  bordered,
-  flat,
-  inset,
   ...otherProps
 }) => {
   const [id] = useState(uid());
@@ -88,9 +84,9 @@ const Alert: React.FC<AlertProps> = ({
       size="small"
       outlined={false}
       bordered={false}
-      rounded={rounded}
       onClick={() => onClose && callCallback(onClose, false)}
       className={getModuleClasses(styles, "nu-alert-close")}
+      {...otherProps}
     >
       {closeIcon || (
         <span className={getModuleClasses(styles, "nu-alert-close--icon")}>
@@ -111,9 +107,6 @@ const Alert: React.FC<AlertProps> = ({
       style={style}
       id={id}
       className={alertClasses + " " + className}
-      flat={flat}
-      bordered={bordered}
-      inset={inset}
       {...otherProps}
     >
       {alertIcon}
@@ -123,5 +116,7 @@ const Alert: React.FC<AlertProps> = ({
     </Card>
   ) : null;
 };
+
+Alert.displayName = "NuAlert";
 
 export default Alert;
