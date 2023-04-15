@@ -19,6 +19,7 @@ const ToggleButton: FC<ToggleButtonProps> = ({
   onChange,
   onMouseOut,
   onMouseOver,
+  text = true,
   ...otherProps
 }) => {
   const [isActive, setIsActive] = useState<boolean>(selected || false);
@@ -53,6 +54,7 @@ const ToggleButton: FC<ToggleButtonProps> = ({
   return (
     <Button
       {...otherProps}
+      text={text}
       type="toggle"
       block={false}
       depressed={false}
