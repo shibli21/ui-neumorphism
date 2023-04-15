@@ -1,3 +1,3 @@
-export * from "./common.js";
-export * from "./dom-helpers.js";
-export * from "./react-helpers.js";
+export * from "./common";
+export * from "./dom-helpers";
+export * from "./react-helpers";

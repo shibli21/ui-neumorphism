@@ -4,6 +4,7 @@ import styles from "./Avatar.module.css";
 import { getModuleClasses, uid, setCSSVariable } from "../../util";
 import { withImage } from "../../hocs";
 import { SIZES, Size } from "../../assets";
+import { WithImageProps } from "../../hocs/withImage";
 
 interface AvatarProps {
   alt?: string;
@@ -19,7 +20,7 @@ interface AvatarProps {
   size?: Size | number;
 }
 
-const Avatar: React.FC<AvatarProps> = ({
+const Avatar: React.FC<AvatarProps & WithImageProps<AvatarProps>> = ({
   alt,
   src,
   square,

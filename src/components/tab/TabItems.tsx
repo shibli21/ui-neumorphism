@@ -93,7 +93,7 @@ const TabItems = ({
 
   useEffect(() => {
     if (previous !== value) {
-      callCallback(onChange, { active: value, previous: previous });
+      onChange && callCallback(onChange, { active: value, previous: previous });
       setPrevious(value);
     }
   }, [value, onChange]);

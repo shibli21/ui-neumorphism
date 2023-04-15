@@ -30,7 +30,7 @@ const ToggleButtonGroup: React.FC<ToggleButtonGroupProps> = (props) => {
 
   useEffect(() => {
     if (JSON.stringify(props.value) !== JSON.stringify(active)) {
-      callCallback(props.onChange, { active });
+      props.onChange && callCallback(props.onChange, { active });
     }
   }, [props.value, active]);
 
@@ -60,7 +60,7 @@ const ToggleButtonGroup: React.FC<ToggleButtonGroupProps> = (props) => {
     setActive(activeValue);
     setKey(key + 1);
 
-    callCallback(onClick, { event, active: activeValue });
+    onClick && callCallback(onClick, { event, active: activeValue });
   };
 
   const buttons = passDownProp(

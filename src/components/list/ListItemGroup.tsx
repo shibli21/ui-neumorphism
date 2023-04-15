@@ -76,9 +76,9 @@ const ListItemGroup: React.FC<ListItemGroupProps> = (props) => {
 
     const { onClick, onChange } = props;
 
-    callCallback(click, event);
-    callCallback(onChange, { active: newActive });
-    callCallback(onClick, { event, active: newActive });
+    click && callCallback(click, event);
+    onChange && callCallback(onChange, { active: newActive });
+    onClick && callCallback(onClick, { event, active: newActive });
   };
 
   return (

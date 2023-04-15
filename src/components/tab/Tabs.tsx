@@ -115,8 +115,8 @@ const Tabs = forwardRef(
       setActive(active);
 
       callCallback(click, event);
-      callCallback(onChange, { active });
-      callCallback(onClick, { event, active });
+      onChange && callCallback(onChange, { active });
+      onClick && callCallback(onClick, { event, active });
 
       pauseClick();
     }

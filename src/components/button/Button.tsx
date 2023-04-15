@@ -22,15 +22,15 @@ export interface ButtonProps {
   rounded?: boolean;
   bordered?: boolean;
   depressed?: boolean;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onChange?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseOut?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseOver?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseUp?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseMove?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseDown?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseEnter?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseLeave?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onChange?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseOut?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseOver?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseUp?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseMove?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseDown?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 const Button = forwardRef(

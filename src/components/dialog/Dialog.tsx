@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect } from "react";
+import React, { FC, ReactElement, ReactNode, useEffect } from "react";
 import { createPortal } from "react-dom";
 
 import styles from "./Dialog.module.css";
@@ -15,7 +15,7 @@ import {
 
 interface DialogProps extends DefaultProps, CssDimensions {
   visible?: boolean;
-  children?: ReactNode;
+  children: ReactElement | ReactElement[];
   persistent?: boolean;
   onClose?: (e: React.MouseEvent) => void;
 }
@@ -23,18 +23,20 @@ interface DialogProps extends DefaultProps, CssDimensions {
 const Dialog: FC<DialogProps> = ({
   visible = false,
   style,
-  children,
   className,
+  children,
   dark,
   onClose,
   persistent,
   ...props
 }) => {
   const handleClickInside = (e: React.MouseEvent) => {
-    const contentDOM = document.getElementById("nudialogcontent");
+    const contentDOM = document.getElementById(
+      "nudialogcontent"
+    ) as HTMLElement;
     const isContentClicked = findClickInside(e, contentDOM);
     if (!isContentClicked && !persistent) {
-      callCallback(onClose, true);
+      onClose && callCallback(onClose, true);
     }
   };
 

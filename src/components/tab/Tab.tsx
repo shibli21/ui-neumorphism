@@ -7,11 +7,11 @@ import styles from "./Tab.module.css";
 interface TabProps extends DefaultProps {
   active?: boolean;
   color?: string;
-  onMouseOut?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onMouseOut?: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseOver?: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    event: (event: React.MouseEvent<HTMLDivElement>) => void
   ) => void;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   children?: React.ReactNode;
   disabled?: boolean;
 }
@@ -50,18 +50,14 @@ const Tab = forwardRef(
       }
     }
 
-    function handleMouseOut(
-      e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-    ) {
+    function handleMouseOut(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
       setStateColor("");
-      callCallback(onMouseOut, e);
+      onMouseOut && callCallback(onMouseOut, e);
     }
 
-    function handleMouseOver(
-      e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-    ) {
+    function handleMouseOver(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
       setStateColor(color || "");
-      callCallback(onMouseOver, e);
+      onMouseOver && callCallback(onMouseOver, e);
     }
 
     return (

@@ -66,7 +66,7 @@ const SlideCarousel: FC<SlideCarouselProps> = ({
   const updateStatus = (status: string) => {
     setStatus(status);
 
-    callCallback(onUpdate, status);
+    onUpdate && callCallback(onUpdate, status);
   };
 
   const display = status ? (status === "exited" ? "none" : undefined) : "none";

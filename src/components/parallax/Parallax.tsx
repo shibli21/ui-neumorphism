@@ -3,6 +3,7 @@ import { DefaultProps } from "../../assets";
 import { withImage } from "../../index";
 import { getModuleClasses } from "../../util";
 import styles from "../parallax/Parallax.module.css";
+import { WithImageProps } from "../../hocs/withImage";
 
 interface ParallaxProps extends DefaultProps {
   speed?: number;
@@ -15,7 +16,7 @@ interface ParallaxProps extends DefaultProps {
   imageHeight: number;
 }
 
-const Parallax: React.FC<ParallaxProps> = ({
+const Parallax: React.FC<ParallaxProps & WithImageProps<ParallaxProps>> = ({
   speed = 1,
   alt,
   src,

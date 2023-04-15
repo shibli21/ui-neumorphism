@@ -137,28 +137,31 @@ const TextField = forwardRef((props: TextFieldProps, ref: any) => {
       setValue(eventValue);
     }
 
-    callCallback(props.onChange, {
-      event,
-      id,
-      value: eventValue,
-      valid,
-    });
+    props.onChange &&
+      callCallback(props.onChange, {
+        event,
+        id,
+        value: eventValue,
+        valid,
+      });
   };
 
   const handleFocus = (event: any) => {
     setFocused(true);
-    callCallback(props.onFocus, {
-      event,
-      id,
-    });
+    props.onFocus &&
+      callCallback(props.onFocus, {
+        event,
+        id,
+      });
   };
 
   const handleBlur = (event: any) => {
     setFocused(false);
-    callCallback(props.onBlur, {
-      event,
-      id,
-    });
+    props.onBlur &&
+      callCallback(props.onBlur, {
+        event,
+        id,
+      });
   };
 
   const validate = (value: any) => {
@@ -254,7 +257,6 @@ const TextField = forwardRef((props: TextFieldProps, ref: any) => {
           />
         ) : null}
         {input()}
-       
 
         {hideExtra && !counter ? null : (
           <div className={`${getClasses("caption-wrapper", valid)}`}>

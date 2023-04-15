@@ -27,26 +27,27 @@ const ToggleButton: FC<ToggleButtonProps> = ({
   );
   const [key, setKey] = useState<number>(1);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const isActiveValue = !isActive;
     setIsActive(isActiveValue);
     setButtonColor(isActiveValue && color ? color : "");
     setKey(key + 1);
 
-    callCallback(onClick, { event, value });
-    callCallback(onChange, { event, selected: isActiveValue, value });
+    onClick && callCallback(onClick, { event, value });
+    onChange &&
+      callCallback(onChange, { event, selected: isActiveValue, value });
   };
 
-  const handleMouseOut = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseOut = (event: React.MouseEvent<HTMLDivElement>) => {
     if (!isActive) {
       setButtonColor("");
     }
-    callCallback(onMouseOut, event);
+    onMouseOut && callCallback(onMouseOut, event);
   };
 
-  const handleMouseOver = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseOver = (event: React.MouseEvent<HTMLDivElement>) => {
     color && setButtonColor(color);
-    callCallback(onMouseOver, event);
+    onMouseOver && callCallback(onMouseOver, event);
   };
 
   return (

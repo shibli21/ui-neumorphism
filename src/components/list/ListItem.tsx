@@ -52,7 +52,8 @@ const ListItem: FC<ListItemProps> = ({
         `
       );
     } else {
-      return getModuleClasses(styles, elem);
+      if (elem) return getModuleClasses(styles, elem);
+      return "";
     }
   };
 

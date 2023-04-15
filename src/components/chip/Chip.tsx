@@ -112,7 +112,7 @@ const Chip: React.FC<ChipProps> = (props) => {
   };
 
   const handleActionClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    callCallback(props.onAction, e);
+    props.onAction && callCallback(props.onAction, e);
   };
 
   useEffect(() => {

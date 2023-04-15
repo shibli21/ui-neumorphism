@@ -3,7 +3,7 @@ import {
   SIZES,
   POSITIONS,
   CONTEXT_COLORS,
-  ALTERNATE_BUTONS,
+  ALTERNATE_BUTTONS,
   SELECTION_CONTROLS
 } from './types'
 
@@ -30,7 +30,7 @@ export const DEFAULT_PROPS_TYPE = {
 export const SIZE_PROP = PropTypes.oneOf(SIZES)
 export const POSITION_PROP = PropTypes.oneOf(POSITIONS)
 export const CONTEXT_COLOR_TYPES = PropTypes.oneOf(CONTEXT_COLORS)
-export const BUTTON_ALTERNATE_TYPES = PropTypes.oneOf(ALTERNATE_BUTONS)
+export const BUTTON_ALTERNATE_TYPES = PropTypes.oneOf(ALTERNATE_BUTTONS)
 export const SIZE_PROP_WITH_NUM = PropTypes.oneOfType([SIZE_PROP, G_NUM])
 export const SELECTION_CONTROL_TYPES = PropTypes.oneOf(SELECTION_CONTROLS)
 

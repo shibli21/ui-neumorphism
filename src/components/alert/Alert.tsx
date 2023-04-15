@@ -89,7 +89,7 @@ const Alert: React.FC<AlertProps> = ({
       outlined={false}
       bordered={false}
       rounded={rounded}
-      onClick={() => callCallback(onClose, false)}
+      onClick={() => onClose && callCallback(onClose, false)}
       className={getModuleClasses(styles, "nu-alert-close")}
     >
       {closeIcon || (
