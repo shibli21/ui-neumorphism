@@ -1,35 +1,37 @@
 import React from "react";
 
-import Icon from "@mdi/react";
 import {
-  mdiRun,
-  mdiYoga,
-  mdiPlus,
-  mdiHome,
-  mdiBell,
-  mdiTicket,
   mdiAccount,
   mdiArmFlex,
-  mdiDumbbell,
+  mdiBell,
   mdiChartLine,
   mdiChevronRight,
+  mdiDumbbell,
+  mdiHome,
+  mdiPlus,
+  mdiRun,
+  mdiTicket,
+  mdiYoga,
 } from "@mdi/js";
+import Icon from "@mdi/react";
 
 import {
+  Body2,
+  Caption,
+  Card,
   H4,
   H5,
   H6,
-  Card,
-  Body2,
-  Caption,
-  Subtitle2,
   IconButton,
-  withResize,
-  ToggleButton,
   ProgressCircular,
+  Subtitle2,
+  ToggleButton,
+  useResize,
 } from "ui-neumorphism";
-const FitnessApp = (props: { dark: boolean; size: string }) => {
-  const { dark, size } = props;
+const FitnessApp = (props: { dark: boolean }) => {
+  const { dark } = props;
+  const size = useResize();
+
   return (
     <Card flat dark={dark} className="fitness-app-container">
       <Card flat className="fitness-app-wrapper overflow-hidden">
