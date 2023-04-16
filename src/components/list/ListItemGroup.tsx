@@ -2,11 +2,7 @@ import React, { Children, cloneElement, useState } from "react";
 
 import styles from "./List.module.css";
 import { passDownProp, callCallback, getModuleClasses } from "../../util";
-import {
-  DEFAULT_PROPS,
-  DEFAULT_PROPS_TYPE,
-  DefaultProps,
-} from "../../assets/index";
+import { DefaultProps } from "../../assets/index";
 import ListItem from "./ListItem";
 
 interface ListItemGroupProps extends DefaultProps {
@@ -91,8 +87,6 @@ const ListItemGroup: React.FC<ListItemGroupProps> = (props) => {
   );
 };
 
-ListItemGroup.defaultProps = DEFAULT_PROPS;
-ListItemGroup.propTypes = DEFAULT_PROPS_TYPE;
 ListItemGroup.displayName = "NuListItemGroup";
 
 export default ListItemGroup;

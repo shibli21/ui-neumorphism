@@ -9,12 +9,7 @@ import { createPortal, findDOMNode } from "react-dom";
 
 import { Card, Grow } from "../../index";
 
-import {
-  CSS_DIMENSIONS,
-  CssDimensions,
-  DEFAULT_PROPS,
-  DefaultProps,
-} from "../../assets";
+import { CSS_DIMENSIONS, CssDimensions, DefaultProps } from "../../assets";
 import {
   callCallback,
   getModuleClasses,
@@ -55,7 +50,6 @@ class Tooltip extends React.Component<TooltipProps, TooltipState> {
     bottom: true,
     transition: Grow,
     transitionProps: {},
-    ...DEFAULT_PROPS,
   };
 
   node: Element | null = null;

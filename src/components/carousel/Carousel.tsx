@@ -1,9 +1,5 @@
 import React, { Children, ReactElement, ReactNode } from "react";
-import {
-  CAROUSEL_DEFAULT_PROPS,
-  CAROUSEL_PROP_TYPES,
-  DefaultProps,
-} from "../../assets/index";
+import { DefaultProps } from "../../assets/index";
 import { SlideCarousel } from "../../index";
 import { callCallback, getModuleClasses, passDownProp } from "../../util";
 import styles from "./Carousel.module.css";
@@ -41,10 +37,6 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
   private disabledTimeout: NodeJS.Timeout | null = null;
 
   static displayName = "NuCarousel";
-
-  static defaultProps = CAROUSEL_DEFAULT_PROPS;
-
-  static propTypes = CAROUSEL_PROP_TYPES;
 
   constructor(props: CarouselProps) {
     super(props);

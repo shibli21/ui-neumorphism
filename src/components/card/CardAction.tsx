@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  CARD_CHILD_PASS_DOWN,
-  DEFAULT_PROPS,
-  DefaultProps,
-} from "../../assets/index";
+import { CARD_CHILD_PASS_DOWN, DefaultProps } from "../../assets/index";
 import { getModuleClasses, passDownProp } from "../../util";
 import styles from "./Card.module.css";
 
@@ -49,6 +45,6 @@ const CardAction: React.FC<CardActionProps> = ({
   );
 };
 
-CardAction.defaultProps = DEFAULT_PROPS;
+CardAction.displayName = "NuCardAction";
 
 export default CardAction;
