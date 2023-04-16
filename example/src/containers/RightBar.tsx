@@ -3,6 +3,7 @@ import { Card, Subtitle1, Caption } from "ui-neumorphism";
 
 interface RightBarProps {
   dark: boolean;
+  size: string;
 }
 
 const RightBar: React.FC<RightBarProps> = ({ dark }) => {

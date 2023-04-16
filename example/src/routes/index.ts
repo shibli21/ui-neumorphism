@@ -33,9 +33,18 @@ import {
   ProgressLinearView,
   // ExpansionPanelView,
   ProgressCircularView
-} from '../pages/index.tsx'
+} from '../pages'
 
-const routes = [
+
+export interface Route {
+  id: number
+  path: string
+  name: string
+  component: React.ComponentType<any>
+}
+
+
+const routes: Route[] = [
   {
     id: 1,
     path: '/',

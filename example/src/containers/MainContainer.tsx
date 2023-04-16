@@ -1,7 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import { findDOMNode } from "react-dom";
-import { Switch, Route, withRouter } from "react-router-dom";
-
+import {
+  Switch,
+  Route,
+  RouteComponentProps,
+  withRouter,
+} from "react-router-dom";
 import {
   Card,
   Divider,
@@ -9,17 +13,24 @@ import {
   overrideThemeVariables,
 } from "ui-neumorphism";
 import "ui-neumorphism/dist/index.css";
+import Topbar from "./Topbar";
+import Sidebar from "./Sidebar";
+import RightBar from "./RightBar";
+import routes from "../routes/index";
 
-import Topbar from "./Topbar.tsx";
-import Sidebar from "./Sidebar.jsx";
-import RightBar from "./RightBar.tsx";
+interface MainContainerState {
+  dark: boolean;
+  open: boolean;
+}
 
-import routes from "../routes/index.js";
+interface MainContainerProps extends RouteComponentProps {
+  size: string;
+}
 
-class MainContainer extends React.Component {
-  mainView = null;
+class MainContainer extends Component<MainContainerProps, MainContainerState> {
+  mainView: HTMLDivElement | null = null;
 
-  constructor(props) {
+  constructor(props: MainContainerProps) {
     super(props);
     this.state = {
       dark: false,
@@ -57,11 +68,13 @@ class MainContainer extends React.Component {
   }
 
   onSidebarClick() {
-    this.mainView.scroll({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
+    if (this.mainView) {
+      this.mainView.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
   }
 
   render() {
@@ -95,7 +108,7 @@ class MainContainer extends React.Component {
               <Card
                 flat
                 id="mainView"
-                ref={(ref) => (this.mainView = findDOMNode(ref))}
+                ref={(ref: HTMLDivElement) => (this.mainView = ref)}
                 className={`main-view main-view--${
                   !isSmall ? "large" : "small"
                 } ${isHome ? "main-view--home" : ""} ${
