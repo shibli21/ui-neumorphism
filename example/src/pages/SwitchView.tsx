@@ -12,6 +12,7 @@ const url =
 const SwitchView = ({ dark }: { dark: boolean }) => {
   return (
     <Card flat dark={dark}>
+      <span id="component"></span>
       <H4>
         <a href="#component">Switch</a>
       </H4>

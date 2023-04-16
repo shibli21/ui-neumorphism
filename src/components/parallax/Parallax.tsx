@@ -12,8 +12,8 @@ interface ParallaxProps extends DefaultProps {
   height?: number;
   containerId?: string;
   loaded?: boolean;
-  imageWidth: number;
-  imageHeight: number;
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
 const Parallax: React.FC<ParallaxProps & WithImageProps<ParallaxProps>> = ({
@@ -37,7 +37,7 @@ const Parallax: React.FC<ParallaxProps & WithImageProps<ParallaxProps>> = ({
 
   useEffect(() => {
     const handleScroll = (e: Event) => {
-      const parallaxDist = imageHeight - height;
+      const parallaxDist = imageHeight && imageHeight - height;
       let parallax = 0;
       let scrollTop = 0;
       let windowHeight = 0;
@@ -55,8 +55,12 @@ const Parallax: React.FC<ParallaxProps & WithImageProps<ParallaxProps>> = ({
         windowScrollHeight = doc.scrollHeight;
         percentScrolled = scrollTop / (windowScrollHeight - windowHeight);
       }
+
+      if (typeof parallaxDist !== "number") {
+        return;
+      }
       parallax = Math.round(parallaxDist * percentScrolled * speed);
-      setParallax(parallax);
+      parallax && setParallax(parallax);
     };
 
     const containerElement =

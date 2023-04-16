@@ -69,6 +69,7 @@ const CardView = (props: { dark: true }) => {
   );
   return (
     <Card flat dark={dark} className="code-block-container">
+      <span id="component"></span>
       <H4>
         <a href="#component">Cards</a>
       </H4>

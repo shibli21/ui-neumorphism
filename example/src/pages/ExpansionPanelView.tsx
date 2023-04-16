@@ -7,6 +7,7 @@ const url =
 const ExpansionPanelView = ({ dark }: { dark: boolean }) => {
   return (
     <Card flat dark={dark}>
+      <span id="component"></span>
       <H4>
         <a href="#component">ExpansionPanel</a>
       </H4>

@@ -13,6 +13,8 @@ const url =
 const FabView = ({ dark }: { dark: boolean }) => {
   return (
     <Card flat dark={dark}>
+      <span id="component"></span>
+      <span id="component"></span>
       <H4>
         <a href="#component">Floating action button</a>
       </H4>

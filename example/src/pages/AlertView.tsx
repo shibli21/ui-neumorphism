@@ -39,6 +39,7 @@ const AlertView = (props: AlertViewProps) => {
   const { dark } = props;
   return (
     <Card flat dark={dark}>
+      <span id="component"></span>
       <H4>
         <a href="#component">Alert</a>
       </H4>
@@ -81,6 +82,7 @@ const AlertView = (props: AlertViewProps) => {
         }
         code={[simpleAlert, dark]}
       />
+
       <DocCard
         url={url}
         className="mt-12"

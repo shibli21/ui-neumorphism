@@ -8,6 +8,7 @@ const url =
 const FormView = ({ dark }: { dark: boolean }) => {
   return (
     <Card flat dark={dark}>
+      <span id="component"></span>
       <H4>Forms</H4>
       <H6>Forms are essential part of any application.</H6>
       <Subtitle1 className="mt-3">

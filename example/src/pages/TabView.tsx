@@ -23,6 +23,9 @@ const TabView = ({ dark }: { dark: boolean }) => {
 
   const tabItems = (
     <TabItems value={active}>
+      <span id="component"></span>
+      <span id="component"></span>
+
       <TabItem>
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

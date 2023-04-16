@@ -20,6 +20,8 @@ const url =
 const ProgressLinearView = ({ dark }: { dark: boolean }) => {
   return (
     <Card flat dark={dark}>
+      <span id="component"></span>
+
       <H4>Progress Linear</H4>
       <H6>Progress Linear displays a horizontal progress bar.</H6>
       <Subtitle1 className="mt-3">

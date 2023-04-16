@@ -11,6 +11,8 @@ const url =
   "https://github.com/AKAspanion/ui-neumorphism/blob/master/example/src/pages/SnackbarView.jsx";
 
 const SnackbarView = ({ dark }: { dark: boolean }) => {
+  <span id="component"></span>;
+
   return (
     <Card flat dark={dark}>
       <H4>

@@ -14,6 +14,7 @@ const TooltipView = ({ dark }: { dark: boolean }) => {
 
   return (
     <Card flat dark={dark}>
+      <span id="component"></span>
       <H4>
         <a href="#component">Tooltip</a>
       </H4>

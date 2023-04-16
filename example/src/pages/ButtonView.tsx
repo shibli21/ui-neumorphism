@@ -19,6 +19,7 @@ const ButtonView = (props: { dark: boolean }) => {
   const { dark } = props;
   return (
     <Card flat dark={dark}>
+      <span id="component"></span>
       <H4>
         <a href="#component">Buttons</a>
       </H4>

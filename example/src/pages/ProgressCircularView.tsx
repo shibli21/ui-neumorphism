@@ -26,6 +26,8 @@ const url =
 const ProgressCircularView = ({ dark }: { dark: boolean }) => {
   return (
     <Card flat dark={dark}>
+      <span id="component"></span>
+
       <H4>Progress Circular</H4>
       <H6>Progress Circular displays a circular progress bar.</H6>
       <Subtitle1 className="mt-3">

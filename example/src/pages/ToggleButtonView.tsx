@@ -62,6 +62,7 @@ const ToggleButtonView = ({ dark }: { dark: boolean }) => {
   return (
     <Card flat dark={dark}>
       <H4>
+        <span id="component"></span>
         <a href="#component">
           <H4>Toggle Buttons</H4>
         </a>

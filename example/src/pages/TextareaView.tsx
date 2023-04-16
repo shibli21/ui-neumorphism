@@ -12,6 +12,7 @@ const url =
 const TextareaView = ({ dark }: { dark: boolean }) => {
   return (
     <Card flat dark={dark}>
+      <span id="component"></span>
       <H4>
         <a href="#component">TextArea</a>
       </H4>

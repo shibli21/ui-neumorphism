@@ -11,6 +11,7 @@ const url =
 const DividerView = ({ dark }: { dark: boolean }) => {
   return (
     <Card flat dark={dark}>
+      <span id="component"></span>
       <H4>Divider</H4>
       <H6>A divider is a line that separates content into clear groups.</H6>
       <DocCard

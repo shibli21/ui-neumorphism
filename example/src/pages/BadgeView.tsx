@@ -37,6 +37,7 @@ const BadgeView = (props: { dark: boolean }) => {
   const { dark } = props;
   return (
     <Card flat dark={dark}>
+      <span id="component"></span>
       <H4>
         <a href="#component">Badge</a>
       </H4>

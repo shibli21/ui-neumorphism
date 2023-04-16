@@ -33,6 +33,7 @@ const url =
 const CarouselView = ({ dark }: { dark: boolean }) => {
   return (
     <Card flat dark={dark}>
+      <span id="component"></span>
       <H4>
         <a href="#component">Carousel</a>
       </H4>
