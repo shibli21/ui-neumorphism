@@ -7,9 +7,9 @@ interface Body1Props extends TypographyProps {
   children: React.ReactNode;
 }
 
-const Body1: FC<Body1Props> = ({ style, className, children }) => {
+const Body1: FC<Body1Props> = ({ style, className, children, dark }) => {
   return (
-    <Typography style={style} className={className} type="body-1">
+    <Typography dark={dark} style={style} className={className} type="body-1">
       {children}
     </Typography>
   );

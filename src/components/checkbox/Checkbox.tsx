@@ -4,12 +4,16 @@ import { callCallback } from "../../util";
 import { SelectionControlProps } from "../../assets";
 import SelectionControl from "../selection-control/SelectionControl";
 
-interface CheckboxProps extends SelectionControlProps {
-  onChange?: (
-    e: React.ChangeEvent<HTMLInputElement>,
-    id: string,
-    checked: boolean
-  ) => void;
+interface CheckboxProps extends Omit<SelectionControlProps, "onChange"> {
+  onChange?: ({
+    event,
+    id,
+    checked,
+  }: {
+    event: React.ChangeEvent<HTMLInputElement>;
+    id: string;
+    checked: boolean;
+  }) => void;
 }
 
 const Checkbox: React.FC<CheckboxProps> = (props) => {

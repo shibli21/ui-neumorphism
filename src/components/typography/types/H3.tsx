@@ -1,13 +1,9 @@
 import React from "react";
 
 import { Typography } from "../../index";
+import { TypographyProps } from "../../../assets";
 
-interface Props {
-  disabled?: boolean;
-  secondary?: boolean;
-  dark?: boolean;
-  style?: React.CSSProperties;
-  className?: string;
+interface Props extends TypographyProps {
   children?: React.ReactNode;
 }
 

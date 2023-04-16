@@ -3,13 +3,12 @@ import { SelectionControlProps } from "../../assets/index";
 import { callCallback } from "../../util";
 import SelectionControl from "../selection-control/SelectionControl";
 
-interface RadioProps extends SelectionControlProps {
-  onChange?: (
-    event: React.ChangeEvent<HTMLInputElement>,
-    id?: string | undefined,
-    checked?: boolean | undefined,
-    value?: string | undefined
-  ) => void;
+export interface RadioProps extends Omit<SelectionControlProps, "onChange"> {
+  onChange?: (event: {
+    event: React.ChangeEvent<HTMLInputElement>;
+    id: string;
+    checked: boolean;
+  }) => void;
 }
 
 const Radio: React.FC<RadioProps> = (props: RadioProps) => {

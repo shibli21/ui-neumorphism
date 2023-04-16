@@ -26,8 +26,8 @@ body {
   padding: 0;
   overflow-x: hidden;
   background: var(--bg-color);
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -38,7 +38,7 @@ code {
   border-radius: 4px;
   background: #ccc;
   color: var(--primary);
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -1201,23 +1201,23 @@ main {
   padding: 4px 0px;
 }
 
-.sidebar-menu input[type='checkbox'] {
+.sidebar-menu input[type="checkbox"] {
   appearance: none;
   position: absolute;
   left: -9999;
 }
 
-.sidebar-menu input[type='checkbox'] ~ ul,
-.sidebar-menu input[type='checkbox']:checked ~ ul {
+.sidebar-menu input[type="checkbox"] ~ ul,
+.sidebar-menu input[type="checkbox"]:checked ~ ul {
   overflow: hidden;
   transition: all 0.25s;
 }
 
-.sidebar-menu input[type='checkbox'] ~ ul {
+.sidebar-menu input[type="checkbox"] ~ ul {
   max-height: 0;
 }
 
-.sidebar-menu input[type='checkbox']:checked ~ ul {
+.sidebar-menu input[type="checkbox"]:checked ~ ul {
   max-height: calc(100vh - var(--padding) * 2 - var(--topbar-height) - 152px);
   overflow-y: scroll;
   transition: all 1s;
@@ -1464,4 +1464,8 @@ main {
   100% {
     transform: rotate(360deg);
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }

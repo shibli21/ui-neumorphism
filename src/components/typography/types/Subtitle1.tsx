@@ -1,11 +1,12 @@
 import React, { FC } from "react";
 import { Typography } from "../../index";
+import { TypographyProps } from "../../../assets";
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+interface Subtitle1Props extends TypographyProps {
   children?: React.ReactNode;
 }
 
-const Subtitle1: FC<Props> = (props) => {
+const Subtitle1: FC<Subtitle1Props> = (props) => {
   return (
     <Typography {...props} type="subtitle-1">
       {props.children}

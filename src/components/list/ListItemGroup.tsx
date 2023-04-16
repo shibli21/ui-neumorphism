@@ -2,11 +2,7 @@ import React, { Children, cloneElement, useState } from "react";
 
 import styles from "./List.module.css";
 import { passDownProp, callCallback, getModuleClasses } from "../../util";
-import {
-  DEFAULT_PROPS,
-  DEFAULT_PROPS_TYPE,
-  DefaultProps,
-} from "../../assets/index";
+import { DefaultProps } from "../../assets/index";
 import ListItem from "./ListItem";
 
 interface ListItemGroupProps extends DefaultProps {
@@ -21,7 +17,7 @@ interface ListItemGroupProps extends DefaultProps {
   twoLineSubtitle?: boolean;
   children?: React.ReactNode;
   onClick?: (event: React.MouseEvent, active: number | undefined) => void;
-  onChange?: (event: { active: number | undefined }) => void;
+  onChange?: (event: { active: number }) => void;
 }
 
 const ListItemGroup: React.FC<ListItemGroupProps> = (props) => {
@@ -76,9 +72,9 @@ const ListItemGroup: React.FC<ListItemGroupProps> = (props) => {
 
     const { onClick, onChange } = props;
 
-    callCallback(click, event);
-    callCallback(onChange, { active: newActive });
-    callCallback(onClick, { event, active: newActive });
+    click && callCallback(click, event);
+    onChange && callCallback(onChange, { active: newActive });
+    onClick && callCallback(onClick, { event, active: newActive });
   };
 
   return (
@@ -91,8 +87,6 @@ const ListItemGroup: React.FC<ListItemGroupProps> = (props) => {
   );
 };
 
-ListItemGroup.defaultProps = DEFAULT_PROPS;
-ListItemGroup.propTypes = DEFAULT_PROPS_TYPE;
 ListItemGroup.displayName = "NuListItemGroup";
 
 export default ListItemGroup;

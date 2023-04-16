@@ -2,7 +2,6 @@ import React, { FC } from "react";
 
 import styles from "./List.module.css";
 import { getModuleClasses, pickKeys } from "../../util";
-import { DEFAULT_PROPS, DEFAULT_PROPS_TYPE } from "../../assets/index";
 
 interface ListItemProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
@@ -52,7 +51,8 @@ const ListItem: FC<ListItemProps> = ({
         `
       );
     } else {
-      return getModuleClasses(styles, elem);
+      if (elem) return getModuleClasses(styles, elem);
+      return "";
     }
   };
 
@@ -77,8 +77,6 @@ const ListItem: FC<ListItemProps> = ({
   );
 };
 
-ListItem.defaultProps = DEFAULT_PROPS;
-ListItem.propTypes = DEFAULT_PROPS_TYPE;
 ListItem.displayName = "NuListItem";
 
 export default ListItem;
